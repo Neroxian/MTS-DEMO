@@ -51,7 +51,7 @@ export default {
   methods: {
     login() {
       console.log(this.email, this.password, this.rememberMe);
-      this.$router.push("/")
+      this.$router.push("/dashboard")
     },
   },
 };

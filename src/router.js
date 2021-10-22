@@ -17,12 +17,12 @@ function load(role, view) {
 export default new Router({
   routes: [
     {
-      path: "/",
+      path: "/dashboard",
       name: "Home",
       component: load(null, "Home"),
     },
     {
-      path: "/login",
+      path: "/",
       name: "login",
       component: load(RM, "Login"),
     },
