@@ -1,5 +1,6 @@
 <template>
   <auth-layout>
+   <div>
     <div>
       <div>
         <ValidationObserver ref="form">
@@ -32,168 +33,113 @@
                 </b-form-group>
               </ValidationProvider>
 
-              <b-form-group
-                class=""
-                id="input-group-3"
-                label="Description:"
-                label-for="input-2"
-              >
-                <b-form-textarea
-                  id="input-2"
-                  placeholder="Enter the details here..."
-                  v-model="form.details"
-                  no-resize
-                ></b-form-textarea>
-              </b-form-group>
-              <div class="text-center">
-                <button class="btn width-sm btn-success">Add Category</button>
-              </div>
-            </div>
+          <b-form-group
+            class=""
+            id="input-group-3"
+            label="Details:"
+            label-for="input-2"
+          >
+            <b-form-textarea
+              id="input-2"
+              placeholder="Enter the details here..."
+              v-model="form.details"
+              no-resize
+            ></b-form-textarea>
+          </b-form-group>
 
             <div class="card-box mt-4">
               <h4 class="bg-light p-2 text-uppercase">
                 Previously Added Materials
               </h4>
 
-              <!-- <input type="text" @input="search" placeholder="" /> -->
-              <div class="input-group mb-1" id="searchBar">
-                <input
-                  @input="search"
-                  type="text"
-                  class="form-control"
-                  placeholder="Search categories and details.."
-                />
-                <div class="input-group-append border">
-                  <!-- <button class="btn btn-primary" type="button">OK</button> -->
-                  <i
-                    class="mdi mdi-magnify px-2 pt-1"
-                    style="color: black; font-size: 20px"
-                  ></i>
-                </div>
-              </div>
-
-              <div class="mt-2" id="addedMaterial" ref="table">
-                <!-- {{ filteredTask }} -->
-                <table class="table text-center table-bordered">
-                  <thead class="table-dark">
-                    <tr>
-                      <th>Sr No.</th>
-                      <th>Category</th>
-                      <th>Details</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody v-for="(itm, idx) in filteredTask" :key="itm.task">
-                    <tr>
-                      <td>{{ idx + 1 }}</td>
-                      <td>{{ itm.subCategory }}</td>
-                      <!-- <td>{{ idx + 1 }}</td> -->
-                      <td>{{ itm.details }}</td>
-                      <!-- <td>
-              <router-link :to="`/editsub/${itm.id}`" style="color: white"
-                ><button class="btn btn-primary">Edit</button></router-link
-              >
-            </td> -->
-                      <td>
-                        <button
-                          @click="openModal(itm.id)"
-                          class="btn mx-1 btn-primary width-sm"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          @click="deleteObj(itm.id)"
-                          class="btn width-sm btn-danger"
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div class="overlay" v-if="isModalOpen">
-              <div tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <h3 class="text-center borderBtm text-primary">
-                        Edit category details..
-                      </h3>
-                      <form
-                        style="background-color: white"
-                        class="p-3 border"
-                        @submit.prevent="update()"
-                      >
-                        <div class="form-group">
-                          <label
-                            for="text"
-                            style="float: left"
-                            class="text-dark"
-                            >Sub-Category:</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            :placeholder="materialToBeUpdated.material"
-                            v-model="materialToBeUpdated.material"
-                            id="text"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label
-                            for="details"
-                            style="float: left"
-                            class="text-dark"
-                            >Sub-Category Details:</label
-                          ><br />
-                          <textarea
-                            name="details"
-                            id="details"
-                            v-model="materialToBeUpdated.details"
-                          >
-              materialToBeUpdated.details</textarea
-                          >
-                        </div>
-
-                        <!-- <button type="submit" class="btn btn-dark"> -->
-                        <!-- <router-link to="/about" style="color: white">Submit</router-link> -->
-                        <button
-                          type="button"
-                          class="btn btn-dark width-sm border"
-                          @click="isModalOpen = false"
-                        >
-                          Submit
-                        </button>
-                        <button
-                          class="btn btn-danger width-sm text-light mx-4"
-                          @click="isModalOpen = false"
-                        >
-                          Close
-                        </button>
-                        <!-- </button> -->
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <!-- Button  -->
-                <div class="button-list">
-                  <button
-                    type="submit"
-                    class="btn btn-primary waves-effect width-sm waves-light"
-                  >
-                    <b-icon-plus-circle />
-                    Add sub-category
-                  </button>
-                </div>
-              </div>
-            </div>
-          </b-form>
-        </ValidationObserver>
-      </div>
+          <!-- Button  -->
+          <div class="button-list">
+            <button
+              type="submit"
+              class="btn btn-primary waves-effect waves-light"
+            >
+              <b-icon-plus-circle />
+              Add sub-category
+            </button>
+          </div>
+          <br />
+          </div>
+        </b-form>
+      </ValidationObserver>
     </div>
+   
+       <!-- Responsive Table -->
+    <div class="card-box">
+      <h4 class="bg-light p-2 mb-3 text-uppercase">
+            previously added material category
+          </h4>
+      <select v-model="defaultKey" v-if="isSmall">
+        <option v-for="(key, idx) in fields" :key="idx" :value="key">
+          {{ key }}
+        </option>
+      </select>
+      <b-table
+        id="dataTable"
+        responsive="md"
+        stacked="sm"
+        :striped="isSmall"
+        light
+        outlined
+        head-variant="light"
+        hover
+        :items="items"
+        :fields="copy"
+        thead-tr-class="text-center"
+        :tbody-tr-class="isSmall ? '' : 'text-center'"
+      >
+        <template v-slot:[`cell(${defaultKey})`]="row">
+          <div class="d-flex justify-content-between justify-content-sm-center">
+            <div>{{ row.item[defaultKey] }}</div>
+            <b-button
+              class="btn btn-xs"
+              v-if="isSmall"
+              @click="row.toggleDetails"
+              ><i class="mdi mdi-plus"> </i
+              >{{ row.detailsShowing ? "Hide" : "Show" }}
+            </b-button>
+          </div>
+        </template>
+
+        <template #row-details="row" v-if="isSmall">
+          <b-card class="text-left p-0">
+            <template
+              v-for="(field, idx) in fields.filter(
+                (f) => f !== defaultKey && f !== 'actions'
+              )"
+            >
+              <div :key="idx">
+                <span class="font-weight-bold">{{ field }}:</span>
+                {{ row.item[field] }}
+              </div>
+            </template>
+            <template>
+              <div>
+                <b-button size="sm" variant="primary" class="btn btn-xs"
+                  >Edit</b-button
+                >
+                <b-button size="sm" variant="danger" class="m-1"
+                  >Delete</b-button
+                >
+              </div>
+            </template>
+          </b-card>
+        </template>
+
+        <!-- Actions -->
+        <template #cell(actions) v-if="!isSmall">
+          <div>
+            <b-button size="xs" variant="primary" class="m-1">Edit</b-button>
+            <b-button size="sm" variant="danger" class="m-1">Delete</b-button>
+          </div>
+        </template>
+      </b-table>
+    </div>
+  </div>
   </auth-layout>
 </template>
 
@@ -229,6 +175,29 @@ export default {
   name: "Form",
   data() {
     return {
+           size: window.innerWidth,
+      defaultKey: "category",
+      fields: ["category", "subCategory", "details", "date", "actions"],
+      items: [
+        {
+          category: "Academics",
+          subCategory: "Study",
+          details: "certificates",
+          date: "4 Nov 2021",
+        },
+          {
+          category: "Academics",
+          subCategory: "Study",
+          details: "certificates",
+          date: "4 Nov 2021",
+        },
+          {
+          category: "Academics",
+          subCategory: "Study",
+          details: "certificates",
+          date: "4 Nov 2021",
+        },
+      ],
       form: {
         category: "",
         subCategory: "",
@@ -249,6 +218,15 @@ export default {
         { value: "Administration", text: "Administration" },
       ],
     };
+  },
+     mounted() {
+    window.addEventListener(
+      "resize",
+      () => {
+        this.size = window.innerWidth;
+      },
+      true
+    );
   },
   components: {
     ValidationProvider,
@@ -275,31 +253,53 @@ export default {
       });
     },
   },
+  computed: {
+     copy() {
+      if (this.isSmall) {
+        const idx = this.fields.findIndex((f) => f === this.defaultKey);
+        if (idx !== -1) {
+          let copy = [];
+          copy.push(this.fields[idx]);
+          return copy;
+        }
+      }
+      return this.fields;
+    },
+    isSmall() {
+      return this.size < 576;
+    },
+}
 };
 </script>
 
-<style scoped>
-/* .style {
-  font-weight: 100;
-  color: #6c757d;
-  background-color: #f5f6f9;
-} */
-
-.card-box {
-  margin: auto;
-  padding: 0px 12px;
+<style>
+.b-table-details td {
+  padding: 0;
 }
 
 @media (max-width: 700px) {
   .card-box {
-    width: 90%;
-  }
-}
-@media (max-width: 500px) {
-  .card-box {
     width: 100%;
   }
 }
+@media (max-width: 575.98px) {
+  .card-box {
+    width: 100%;
+  }
+  #dataTable td::before {
+    width: 30% !important;
+    padding: 0px !important;
+  }
+  div .card-body {
+    padding: 0px !important; 
+     padding-left: 40px !important;
+    /* margin-top: -8px !important; */
+  }
+  .card {
+    margin-bottom: 0px !important;
+  }
+}
+
 .inline {
   display: inline;
 }
@@ -317,4 +317,7 @@ export default {
 .control.is-valid input {
   border: 1px #045929 solid;
 }
+
+
+
 </style>
