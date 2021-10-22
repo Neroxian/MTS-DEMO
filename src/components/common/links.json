@@ -51,9 +51,13 @@
       "icon": "mdi mdi-email-fast-outline",
       "subLinks": [
         {
+          "name": "Target Generation",
+          "path": "/target"  
+        },
+        {
           "name": "Dispatch",
           "path": "/dispatchLLC"  
-        }
+        }        
       ]
     },
     {

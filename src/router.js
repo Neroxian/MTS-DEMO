@@ -71,6 +71,11 @@ export default new Router({
       component: load(RM, "Dispatch"),
     },
     {
+      path: "/target",
+      name: "TargetGeneration",
+      component: load(RM, "TargetGeneration"),
+    },
+    {
       path: "/dispatchLLC",
       name: "DispatchLLC",
       component: load(RM, "DispatchLLC"),
