@@ -50,9 +50,9 @@
           role="button"
           aria-haspopup="false"
           aria-expanded="false"
-        >
+        > 
           <div>
-            <img src="@/assets/download.png" alt="image" class="img-fluid avatar-sm rounded-circle">
+            <!-- <img src="@/assets/download.png" alt="image" class="img-fluid avatar-sm rounded-circle"> -->
             <select
               class="btn btn-xs width-xs btn-light"
               @change="changeRole"
@@ -64,6 +64,27 @@
             </select>
           </div>
         </a>
+
+           <li class="dropdown notification-list topbar-dropdown float-right">
+          <b-dropdown id="dropdown-left" right>
+            <template #button-content>
+              <span>
+                <img
+                  src="@/assets/user-4.jpg"
+                  alt="user-image"
+                  class="rounded-circle"
+                  style="width: 35px"
+                />Jhon
+              </span>
+            </template>
+            <b-dropdown-header id="dropdown-header-label" class="text-dark">
+              Welcome Jhon !
+            </b-dropdown-header>
+            <b-dropdown-item href="#">Profile</b-dropdown-item>
+            <b-dropdown-item href="#">Logout</b-dropdown-item>
+          </b-dropdown>
+          <!-- </span> -->
+        </li>
 
         <!-- <li>
           <a
@@ -108,4 +129,8 @@ export default {
 </script>
 
 <style>
+.btn-secondary {
+  background-color: #3c4854 !important;
+  border-color: #3c4854 !important;
+}
 </style>
