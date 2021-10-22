@@ -1,5 +1,6 @@
 <template>
-  <div class="card-box">
+  <auth-layout>
+    <div class="card-box">
     <h3 class="bg-light text-uppercase p-2 ">Add Vendor</h3>
 
     <!-- Parent Form -->
@@ -226,17 +227,21 @@
       </div>
     </b-form>
   </div>
+  </auth-layout>
 </template>
 
 <script>
 import Vue from "vue";
-import { mapGetters } from "vuex";
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
+import AuthLayout from "@/layouts/auth-layout"
 
 Vue.prototype.steps = ["Vendor details", "Contact details", "Vendor contact"];
 
 export default {
   name: "AddVendor",
+  components: {
+    AuthLayout
+  },
   data() {
     return {
       currentStep: 0,

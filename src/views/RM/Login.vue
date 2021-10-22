@@ -11,7 +11,6 @@
           placeholder="Login ID"
           v-model="loginID"
           class="shadow-none"
-          required
         />
       </b-form-group>
       <b-form-group label="Password: " label-for="passsword">
@@ -21,7 +20,6 @@
           placeholder="password"
           v-model="password"
           class="shadow-none"
-          required
         />
       </b-form-group>
       <b-form-checkbox
@@ -53,6 +51,7 @@ export default {
   methods: {
     login() {
       console.log(this.email, this.password, this.rememberMe);
+      this.$router.push("/dashboard")
     },
   },
 };

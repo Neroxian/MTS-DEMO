@@ -1,17 +1,6 @@
 {
   "Admin": [
     {
-      "name": "Login",
-      "icon": "mdi mdi-account-key-outline",
-      "subLinks": [
-        {
-          "name": "Login",
-          "path": "/login",
-          "icon": "mdi mdi-account-key"
-        }
-      ]
-    },
-    {
       "name": "Vendors",
       "icon": "mdi mdi-store-outline",
       "subLinks": [

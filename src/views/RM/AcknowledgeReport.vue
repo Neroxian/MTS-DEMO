@@ -1,18 +1,26 @@
 <template>
-  <div class="main card-box">
-    <h3 class="text-start text-uppercase p-2 bg-light">Acknowledged Material</h3>
-    <b-table
-      hover
-      :items="items"
-      :fields="fields"
-      thead-class="thead"
-      class="border"
-    ></b-table>
-  </div>
+  <auth-layout>
+    <div class="main card-box">
+      <h3 class="text-start text-uppercase p-2 bg-light">
+        Acknowledged Material
+      </h3>
+      <b-table
+        hover
+        :items="items"
+        :fields="fields"
+        thead-class="thead"
+        class="border"
+      ></b-table>
+    </div>
+  </auth-layout>
 </template>
 
 <script>
+import AuthLayout from "@/layouts/auth-layout";
 export default {
+  components: {
+    AuthLayout,
+  },
   data() {
     return {
       idx: 0,
@@ -73,10 +81,10 @@ export default {
   background-color: rgb(39, 39, 39);
   color: white;
 }
-h2{
+h2 {
   font-weight: 600;
 }
-.main{
+.main {
   padding: 0 12px;
 }
 </style>

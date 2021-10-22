@@ -1,4 +1,5 @@
 <template>
+  <auth-layout>
   <div class="container d-flex justify-content-center align-items-center">
     <div class="col-lg-6 col-xl-4">
       <div class="error-text-box">
@@ -19,10 +20,13 @@
     </div>
     <!-- end col -->
   </div>
+  </auth-layout>
 </template>
 
 <script>
+import authLayout from '../../layouts/auth-layout.vue';
 export default {
+  components: { authLayout },
   name: "Home",
 };
 </script>
