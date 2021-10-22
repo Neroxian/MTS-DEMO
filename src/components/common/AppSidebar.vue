@@ -74,7 +74,7 @@ export default {
   },
   computed: {
     ...mapState(["user"]),
-    ...mapGetters(["getRole"])
+    ...mapGetters(["getRole"])  
   },
 };
 </script>

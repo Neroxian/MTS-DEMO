@@ -9,10 +9,6 @@ function load(role, view) {
   switch (role) {
     case RM:
       return () => import(`@/views/RM/${view}.vue`);
-    case LLC:
-      return () => import(`@/views/LLC/${view}.vue`);
-    case ALC:
-      return () => import(`@/views/ALC/${view}.vue`);
     default:
       return () => import("@/views/Unauthorized/Home.vue");
   }
