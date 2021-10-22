@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <div class="main card-box">
-    <h3 class="text-start text-uppercase p-2 bg-light my-2">Received Material from Vendor</h3>
+    <h4 class="text-start text-uppercase p-2 bg-light my-2">Received Material from Vendor</h4>
     <b-table
       hover
       :items="items"

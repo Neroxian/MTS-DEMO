@@ -2,7 +2,7 @@
   <auth-layout>
     <div class="main">
       <div class="card-box">
-        <h3 class="bg-light p-2 text-uppercase">Dispatch Material</h3>
+        <h4 class="bg-light p-2 text-uppercase">Dispatch Material</h4>
         <table class="table table-bordered text-center">
           <thead class="table-dark">
             <tr>
@@ -53,7 +53,7 @@
 
       <div class="dispatch-detail card-box mt-4" v-if="showD">
         <div>
-          <h3 class="bg-light p-2 text-uppercase">Dispatch Details</h3>
+          <h4 class="bg-light p-2 text-uppercase">Dispatch Details</h4>
           <div class="row">
             <div class="px-2 col-6">
               <b-form-group
@@ -202,7 +202,7 @@
 
       <div class="transport-detail card-box mt-4" v-if="transportMode !== ''">
         <b-form>
-          <h3 class="bg-light p-2 text-uppercase">Transport Details</h3>
+          <h4 class="bg-light p-2 text-uppercase">Transport Details</h4>
           <div class="transport-form byRoad" v-if="transportMode == 'By Road'">
             <h4 class="bg-light p-1">Enter Details</h4>
             <b-form-group

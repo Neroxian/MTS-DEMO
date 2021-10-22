@@ -2,7 +2,7 @@
   <auth-layout>
     <div>
       <div class="card-box">
-        <h3 class="text-uppercase p-2 bg-light mt-0">Stock declaration</h3>
+        <h4 class="text-uppercase p-2 bg-light mt-0">Stock declaration</h4>
         <b-form @submit.prevent="submit">
           <div class="row">
             <b-form-group
@@ -50,7 +50,7 @@
 
       <div v-if="totalRows" class="card-box mt-4">
         <div class="d-flex justify-content-end text-uppercase p-1 bg-light">
-          <div class="col-6"><h3>Stock Quantity</h3></div>
+          <div class="col-6"><h4>Stock Quantity</h4></div>
           <div class="col-6 text-right">
             <b-input-group class="d-flex align-items-center">
               <div class="font-weight-normal">Entries per page :</div>

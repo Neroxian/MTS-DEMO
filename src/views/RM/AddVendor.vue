@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <div class="card-box">
-    <h3 class="bg-light text-uppercase p-2 ">Add Vendor</h3>
+    <h4 class="bg-light text-uppercase p-2 text-center">Add Vendor</h4>
 
     <!-- Parent Form -->
     <b-form @submit.prevent="add">
@@ -19,7 +19,7 @@
           <b-form-input
             id="vendor-name"
             type="text"
-            placeholder="Vendor Name"
+            placeholder=""
             v-model="vendorName"
             class="shadow-none"
           />
@@ -29,28 +29,6 @@
           <b-form-select v-model="companyType" :options="companyTypeOptions" />
         </b-form-group>
 
-        <!-- Pan Number -->
-        <b-form-group label="Pan Number: " label-for="pan-number">
-          <b-form-input
-            id="pan-number"
-            type="text"
-            placeholder="PAN Number"
-            v-model="panNumber"
-            class="shadow-none"
-          >
-          </b-form-input>
-        </b-form-group>
-
-        <!-- Account Number -->
-        <b-form-group label="Account Number: " label-for="account-number">
-          <b-form-input
-            id="account-number"
-            type="text"
-            placeholder="Account Number"
-            v-model="accountNumber"
-            class="shadow-none"
-          />
-        </b-form-group>
 
         <!-- Buttons -->
         <div class="d-flex justify-content-between my-2">
@@ -76,7 +54,7 @@
           <b-form-input
             id="organisation-name"
             type="text"
-            placeholder="Organisation Name"
+            placeholder=""
             v-model="organisationName"
             class="shadow-none"
           />
@@ -128,24 +106,17 @@
           />
         </b-form-group>
 
-        <b-form-group label="Address 2" label-for="address-two">
-          <b-form-textarea
-            id="address-two"
-            v-model="addressTwo"
-            class="shadow-none"
-          />
-        </b-form-group>
-
         <div class="row">
           <b-form-group
-            class="col-12 col-md-6"
+            class="col-12 col-md-4"
             label="State: "
             label-for="state"
           >
             <b-form-select id="state" v-model="state" :options="stateOptions" class="shadow-none" />
           </b-form-group>
+
           <b-form-group
-            class="col-12 col-md-6"
+            class="col-12 col-md-4"
             label="District: "
             label-for="district"
           >
@@ -156,11 +127,12 @@
               class="shadow-none"
             />
           </b-form-group>
-        </div>
 
-        <b-form-group label="Pincode: " label-for="pincode">
+          <b-form-group label="Pincode: " class="col-12 col-md-4" label-for="pincode">
           <b-form-input id="pincode" type="number" v-model="pincode" />
         </b-form-group>
+        </div>
+
 
         <div class="row">
           <b-form-group
@@ -175,30 +147,7 @@
               placeholder="STD - Phone Number"
             />
           </b-form-group>
-          <b-form-group
-            label="Telephone 2:"
-            label-for="telephone-two"
-            class="col-12 col-md-6"
-          >
-            <b-form-input
-              id="telephone-two"
-              type="number"
-              v-model="telephoneTwo"
-              placeholder="STD - Phone Number"
-            />
-          </b-form-group>
-          <b-form-group
-            label="Fax Number"
-            label-for="fax-number"
-            class="col-12 col-md-6"
-          >
-            <b-form-input
-              id="fax-number"
-              type="number"
-              v-model="faxNumber"
-              placeholder="Fax Number"
-            />
-          </b-form-group>
+
           <b-form-group label="Email" label-for="email" class="col-12 col-md-6">
             <b-form-input
               type="email"
@@ -262,7 +211,7 @@ export default {
       faxNumber: "",
       email: "",
       companyTypeOptions: ["Industrial", "Technology", "Private"],
-      roleOptions: ["ADMIN", "RM", "LLC", "ALC"],
+      roleOptions: ["Admin", "User", "Learner"],
       stateOptions: ["Maharashtra", "Goa", "Himachal Pradesh"],
       districtOptions: ["Nashik", "Pune", "Nagpur"],
     };

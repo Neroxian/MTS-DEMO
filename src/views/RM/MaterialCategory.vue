@@ -5,7 +5,7 @@
         <ValidationObserver ref="form">
           <b-form @submit.prevent="onSubmit">
             <div class="card-box">
-              <h3 class="bg-light p-2 text-uppercase">Add material Category</h3>
+              <h4 class="bg-light p-2 text-uppercase">Add material Category</h4>
 
               <ValidationProvider
                 mode="eager"
@@ -19,7 +19,7 @@
                   label-for="input-2"
                 >
                   <template v-slot:label>
-                    Name<span class="text-danger">*</span>
+                    Name
                   </template>
                   <b-form-input
                     class="control"
@@ -51,9 +51,9 @@
             </div>
 
             <div class="card-box mt-4">
-              <h3 class="bg-light p-2 text-uppercase">
+              <h4 class="bg-light p-2 text-uppercase">
                 Previously Added Materials
-              </h3>
+              </h4>
 
               <!-- <input type="text" @input="search" placeholder="" /> -->
               <div class="input-group mb-1" id="searchBar">

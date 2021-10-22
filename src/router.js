@@ -83,8 +83,8 @@ export default new Router({
     },
     {
       path: "/demo",
-      name: "HomeDemo",
-      component: load(RM, HomeDemo),
+      name: "Home Demo",
+      component: load(RM, "HomeDemo")
     },
     {
       path: "/materialCategory",

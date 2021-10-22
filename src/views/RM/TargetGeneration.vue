@@ -53,12 +53,12 @@
           </div>
 
           <div class="card-box mt-4" v-if="showTable">
-            <h3 class="bg-light p-2 text-uppercase">Generated Target</h3>
+            <h4 class="bg-light p-2 text-uppercase">Generated Target</h4>
 
             <div class="mt-2" id="addedMaterial" ref="table">
               <!-- {{ filteredTask }} -->
               <table class="table text-center table-bordered">
-                <thead class="table-dark">
+                <thead class="">
                   <tr>
                     <th>Sr No.</th>
                     <th>Material</th>
@@ -97,7 +97,7 @@
             </div>
 
             <div class="sub-table" v-if="showDetails">
-                <h3>Details</h3>
+                <h3 class="font-weight-bold text-center mb-1 p-0">Details</h3>
                 <div>
                     <span>Pune Office</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Rahul(Buldhana) <code> 500 Units</code></span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Pune Learning Center,Mumbai Learning Center <code>250 Units</code> each</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Learner</span>
                 </div>
@@ -142,6 +142,9 @@ tr,
 td {
   vertical-align: middle;
 }
+i{
+  color: black;
+}
 .sub-table{
     margin: auto;
     border-radius: 0.2rem;
@@ -149,8 +152,9 @@ td {
     padding: 1rem;
     border: 0.01rem solid rgb(172, 172, 172);
 }
-.sub-table span {
+code,.sub-table span {
   font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .card-box {

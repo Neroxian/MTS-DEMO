@@ -66,8 +66,8 @@ export default {
   background-color: white;
   position: absolute;
   top: 50%;
-  left: 70%;
-  transform: translate(-70%, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   /* box-shadow: 0px 0px 5px 1px rgba(143,143,143,0.89);
 -webkit-box-shadow: 0px 0px 5px 1px rgba(143,143,143,0.89);
 -moz-box-shadow: 0px 0px 5px 1px rgba(143,143,143,0.89); */

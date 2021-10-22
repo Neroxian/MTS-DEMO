@@ -3,7 +3,7 @@
     <div>
       <div class="main card-box">
         <div>
-          <h3 class="text-uppercase bg-light p-2">All Vendor</h3>
+          <h4 class="text-uppercase bg-light p-2">All Vendor</h4>
         </div>
         <div class="row d-flex justify-content-end mt-2">
           <div class="col-6 d-flex align-items-center">
@@ -13,6 +13,7 @@
               type="text"
               class="w-100 shadow-none"
               placeholder="Search any vendor"
+              v-model="filterN"
             />
           </div>
           <div class="col-6 text-right">
@@ -67,6 +68,7 @@ export default {
     return {
       showAdd: false,
       showEdit: false,
+      filterN:"",
       filteredVendors: [],
       vendorDetails: [
         {
@@ -95,9 +97,9 @@ export default {
         // { key: "address2", label: "Address 2" },
         { key: "state", label: "State" },
         { key: "district", label: "District" },
-        { key: "telephone1", label: "Telephone One" },
-        { key: "telephone2", label: "Telephone Two" },
-        { key: "faxNumber", label: "Fax Number" },
+        { key: "telephone1", label: "Telephone" },
+        // { key: "telephone2", label: "Telephone Two" },
+        // { key: "faxNumber", label: "Fax Number" },
         { key: "email", label: "Vendor Email" },
         { key: "actions", label: "Actions" },
       ],
@@ -105,7 +107,7 @@ export default {
   },
   mounted() {
     this.filteredVendors = this.getAllVendor;
-    // console.log(this.filteredVendors)
+    console.log(this.filteredVendors)
   },
   methods: {
     toggleAdd() {
@@ -114,29 +116,30 @@ export default {
     toggleEdit() {
       this.showEdit = !this.showEdit;
     },
-    filterName(e) {
-      if (!e.target.value || !e.target.value.trim()) {
+    del(id) {
+      this.deleteVendor(id);
+      alert("Vendor Deleted!")
+    },
+    ...mapMutations(["deleteVendor"]),
+  },
+  computed: {
+    ...mapGetters(["getAllVendor"]),
+    filterName() {
+      if (!this.filterN || !this.filterN.trim()) {
         this.filteredVendors = this.getAllVendor;
         return;
       }
-      this.filteredVendors = this.getAllVendor.filter((vendor) => {
+      return this.filteredVendors = this.getAllVendor.filter((vendor) => {
         if (
           vendor.vendorName
             .toLowerCase()
-            .match(e.target.value.trim().toLowerCase())
+            .match(this.filterN.trim().toLowerCase())
         ) {
           return true;
         }
         return false;
       });
     },
-    del(id) {
-      this.deleteVendor(id);
-    },
-    ...mapMutations(["deleteVendor"]),
-  },
-  computed: {
-    ...mapGetters(["getAllVendor"]),
   },
 };
 </script>

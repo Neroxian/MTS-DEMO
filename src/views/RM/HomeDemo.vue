@@ -78,27 +78,6 @@
                                         </div>
                                         <h4 class="header-title mb-0">Income Amounts</h4>
 
-                                        <div id="cardCollpase2" class="collapse pt-3 show">
-                                            <div class="text-center">
-                                                <div class="row mt-2">
-                                                    <div class="col-4">
-                                                        <h3 data-plugin="counterup">2,845</h3>
-                                                        <p class="text-muted font-13 mb-0 text-truncate">Total Sales</p>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <h3 data-plugin="counterup">6,487</h3>
-                                                        <p class="text-muted font-13 mb-0 text-truncate">Open Campaign</p>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <h3 data-plugin="counterup">201</h3>
-                                                        <p class="text-muted font-13 mb-0 text-truncate">Daily Sales</p>
-                                                    </div>
-                                                </div> <!-- end row -->
-
-                                                <div id="income-amounts" data-colors="#4a81d4,#e3eaef" style="height: 270px;" class="morris-chart mt-3"></div>
-
-                                            </div>
-                                        </div> <!-- end collapse-->
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
                             </div> <!-- end col-->

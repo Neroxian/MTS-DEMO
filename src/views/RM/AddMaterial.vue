@@ -7,7 +7,7 @@
       <b-toaster name="toaster"></b-toaster>
       <b-form @submit.prevent="submit" class="card-box">
         <div class="">
-          <h3 class="bg-light p-2 text-uppercase">Add Material</h3>
+          <h4 class="bg-light p-2 text-uppercase">Add Material</h4>
         </div>
         <b-form-group label-for="material-name">
           <template v-slot:label>

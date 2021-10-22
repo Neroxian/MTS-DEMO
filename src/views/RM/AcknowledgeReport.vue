@@ -1,9 +1,9 @@
 <template>
   <auth-layout>
     <div class="main card-box">
-      <h3 class="text-start text-uppercase p-2 bg-light">
+      <h4 class="text-start text-uppercase p-2 bg-light">
         Acknowledged Material
-      </h3>
+      </h4>
       <b-table
         hover
         :items="items"

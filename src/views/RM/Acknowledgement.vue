@@ -2,9 +2,9 @@
   <auth-layout>
     <div class="main">
       <div class="card-box">
-        <h3 class="text-start text-uppercase p-2 bg-light">
+        <h4 class="text-start text-uppercase p-2 bg-light">
           Acknowledge Material
-        </h3>
+        </h4>
         <b-table
           hover
           :items="items"
@@ -26,9 +26,9 @@
       </div>
 
       <div v-if="show" class="card-box mt-4">
-        <h3 class="text-start text-uppercase p-2 bg-light">
+        <h4 class="text-start text-uppercase p-2 bg-light">
           Transport Details
-        </h3>
+        </h4>
         <div class="transport-detail mt-2">
           <h4 class="bg-light p-1">By Hand</h4>
           <b-form-group

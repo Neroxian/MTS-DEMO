@@ -74,7 +74,7 @@
                   alt="user-image"
                   class="rounded-circle"
                   style="width: 35px"
-                />Jhon
+                /> Jhon
               </span>
             </template>
             <b-dropdown-header id="dropdown-header-label" class="text-dark">
