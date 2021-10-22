@@ -86,6 +86,11 @@ export default new Router({
       component: load(null, null),
     },
     {
+      path: "/demo",
+      name: "HomeDemo",
+      component: load(RM, HomeDemo),
+    },
+    {
       path: "/materialCategory",
       name: "Matcat",
       component: load(RM, "MaterialCategory"),
