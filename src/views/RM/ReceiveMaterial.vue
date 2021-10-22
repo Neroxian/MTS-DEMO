@@ -4,9 +4,9 @@
       <div class="card-box">
         <div class="row">
           <div class="col-12">
-            <h3 class="text-start text-uppercase p-2 bg-light">
+            <h4 class="text-start text-uppercase p-2 bg-light">
               Received Material from Vendor
-            </h3>
+            </h4>
             <!-- <div class="text-right mb-1"></div> -->
           </div>
         </div>

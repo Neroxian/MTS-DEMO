@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <div class="card-box">
-      <h3 class="bg-light p-2 text-uppercase">Edit Vendor</h3>
+      <h4 class="bg-light p-2 text-uppercase">Edit Vendor</h4>
 
       <!-- Parent Form -->
       <b-form @submit.prevent="edit">

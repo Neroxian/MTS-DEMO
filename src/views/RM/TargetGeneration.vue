@@ -4,7 +4,7 @@
       <div>
         <b-form @submit.prevent="onSubmit">
           <div class="card-box">
-            <h3 class="bg-light p-2 text-uppercase">Target Generation</h3>
+            <h4 class="bg-light p-2 text-uppercase">Target Generation</h4>
 
             <b-form-group
               label="Select Material: "

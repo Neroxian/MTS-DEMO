@@ -3,7 +3,7 @@
     <div>
       <div class="main card-box">
         <div>
-          <h3 class="text-uppercase bg-light p-2">All Vendor</h3>
+          <h4 class="text-uppercase bg-light p-2">All Vendor</h4>
         </div>
         <div class="row d-flex justify-content-end mt-2">
           <div class="col-6 d-flex align-items-center">

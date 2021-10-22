@@ -3,7 +3,7 @@
     <div>
       <div class="card-box">
         <b-form>
-          <h3 class="bg-light p-2 text-uppercase">Dispatch Details</h3>
+          <h4 class="bg-light p-2 text-uppercase">Dispatch Details</h4>
           <div class="row">
             <b-form-group
               label="Through Channel: "

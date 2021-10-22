@@ -2,7 +2,7 @@
   <auth-layout>
     <div class="main">
       <div class="card-box">
-        <h3 class="bg-light p-2 text-uppercase">Dispatch Material</h3>
+        <h4 class="bg-light p-2 text-uppercase">Dispatch Material</h4>
         <table class="table table-bordered text-center">
           <thead class="table-dark">
             <tr>

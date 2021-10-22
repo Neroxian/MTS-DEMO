@@ -2,7 +2,7 @@
   <auth-layout>
     <div>
       <div class="card-box">
-        <h3 class="text-uppercase p-2 bg-light mt-0">Stock declaration</h3>
+        <h4 class="text-uppercase p-2 bg-light mt-0">Stock declaration</h4>
         <b-form @submit.prevent="submit">
           <div class="row">
             <b-form-group

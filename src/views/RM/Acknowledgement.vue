@@ -2,9 +2,9 @@
   <auth-layout>
     <div class="main">
       <div class="card-box">
-        <h3 class="text-start text-uppercase p-2 bg-light">
+        <h4 class="text-start text-uppercase p-2 bg-light">
           Acknowledge Material
-        </h3>
+        </h4>
         <b-table
           hover
           :items="items"
