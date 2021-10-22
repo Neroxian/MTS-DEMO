@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <auth-layout>
     <div>
+      <div>
         <b-form @submit.prevent="onSubmit">
           <div class="card-box">
             <h3 class="bg-light p-2 text-uppercase">Target Generation</h3>
@@ -42,14 +43,17 @@
             </b-form-group>
 
             <div class="text-center">
-              <button class="btn width-sm btn-success" @click.prevent="toggleTable">Generate Target</button>
+              <button
+                class="btn width-sm btn-success"
+                @click.prevent="toggleTable"
+              >
+                Generate Target
+              </button>
             </div>
           </div>
 
           <div class="card-box mt-4" v-if="showTable">
-            <h3 class="bg-light p-2 text-uppercase">
-              Generated Target
-            </h3>
+            <h3 class="bg-light p-2 text-uppercase">Generated Target</h3>
 
             <div class="mt-2" id="addedMaterial" ref="table">
               <!-- {{ filteredTask }} -->
@@ -77,9 +81,7 @@
               >
             </td> -->
                     <td>
-                      <button
-                        class="btn mx-1 btn-success width-sm"
-                      >
+                      <button class="btn mx-1 btn-success width-sm">
                         Save
                       </button>
                       <button
@@ -95,36 +97,45 @@
             </div>
 
             <div class="sub-table" v-if="showDetails">
-                <h3>Details</h3>
-                <div>
-                    <span>Pune Office</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Rahul(Buldhana) 500 Units</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Pune Learning Center,Mumbai Learning Center 250 Units each</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Learner</span>
-                </div>
+              <h3>Details</h3>
+              <div>
+                <span>Pune Office</span
+                ><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i
+                ><span>Rahul(Buldhana) 500 Units</span
+                ><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i
+                ><span
+                  >Pune Learning Center,Mumbai Learning Center 250 Units
+                  each</span
+                ><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i
+                ><span>Learner</span>
+              </div>
             </div>
-
           </div>
         </b-form>
+      </div>
     </div>
-  </div>
+  </auth-layout>
 </template>
 
 <script>
-
+import authLayout from "../../layouts/auth-layout.vue";
 
 export default {
+  components: { authLayout },
   name: "TargetGeneration",
   data() {
     return {
-      showTable:false,
-      showDetails:false
+      showTable: false,
+      showDetails: false,
     };
   },
   methods: {
-    toggleTable(){
-        this.showTable = !this.showTable
+    toggleTable() {
+      this.showTable = !this.showTable;
     },
-    toggleDetails(){
-        this.showDetails = !this.showDetails
-    }
+    toggleDetails() {
+      this.showDetails = !this.showDetails;
+    },
   },
 };
 </script>
@@ -135,19 +146,20 @@ export default {
   color: #6c757d;
   background-color: #f5f6f9;
 } */
-tr,td{
-    vertical-align: middle;
+tr,
+td {
+  vertical-align: middle;
 }
 
-.sub-table{
-    margin: auto;
-    border-radius: 0.2rem;
-    width: 60%;
-    padding: 1rem;
-    border: 0.01rem solid rgb(172, 172, 172);
+.sub-table {
+  margin: auto;
+  border-radius: 0.2rem;
+  width: 60%;
+  padding: 1rem;
+  border: 0.01rem solid rgb(172, 172, 172);
 }
-.sub-table span{
-    font-size: 0.9rem;
+.sub-table span {
+  font-size: 0.9rem;
 }
 
 .card-box {

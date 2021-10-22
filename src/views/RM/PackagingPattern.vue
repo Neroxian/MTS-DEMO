@@ -1,132 +1,132 @@
 <template>
-  <div>
-    <div class="card-box">
-      <ValidationObserver ref="form">
-        <b-form @submit.prevent="onSubmit">
-          <h3 class="bg-light p-2 text-uppercase">
-            Create Packaging pattern
-          </h3>
+  <auth-layout>
+    <div>
+      <div class="card-box">
+        <ValidationObserver ref="form">
+          <b-form @submit.prevent="onSubmit">
+            <h3 class="bg-light p-2 text-uppercase">
+              Create Packaging pattern
+            </h3>
 
-          <ValidationProvider
-            mode="eager"
-            rules="required"
-            name="Category"
-            v-slot="{ classes, errors }"
-          >
-            <b-form-group class="mb-3" id="input-group-1" label-for="input-1">
-              <template v-slot:label>
-                Select category <span class="text-danger">*</span>
-              </template>
-              <b-form-select
-                class="control"
-                :class="classes"
-                id="input-1"
-                v-model="form.category"
-                :options="categories"
-              ></b-form-select>
-              <span class="highlightError">{{ errors[0] }}</span>
-            </b-form-group>
-          </ValidationProvider>
-
-          <ValidationProvider
-            mode="eager"
-            rules="required"
-            name="Sub-category"
-            v-slot="{ classes, errors }"
-          >
-            <b-form-group class="mb-3" id="input-group-2" label-for="input-2">
-              <template v-slot:label>
-                Select sub-category <span class="text-danger">*</span>
-              </template>
-              <b-form-select
-                class="control"
-                :class="classes"
-                id="input-2"
-                v-model="form.subCategory"
-                :options="subCategories"
-              ></b-form-select>
-              <span class="highlightError">{{ errors[0] }}</span>
-            </b-form-group>
-          </ValidationProvider>
-
-          
-          <ValidationProvider
-            mode="eager"
-            rules="required|alpha"
-            name="Material"
-            v-slot="{ classes, errors }"
-          >
-            <b-form-group class="mb-3" id="input-group-3" label-for="input-3">
-              <template v-slot:label>
-                Material<span class="text-danger">*</span>
-              </template>
-              <b-form-input
-                class="control"
-                :class="classes"
-                id="input-3"
-                v-model="form.material"
-                placeholder="Enter name"
-              ></b-form-input>
-              <span class="highlightError">{{ errors[0] }}</span>
-            </b-form-group>
-          </ValidationProvider>
-
-
-          <div class="d-flex row">
-            <b-form-group
-              class="mb-3 col-12 col-md-6"
-              id="input-group-4"
-              label="No. of packets"
-              label-for="input-4"
+            <ValidationProvider
+              mode="eager"
+              rules="required"
+              name="Category"
+              v-slot="{ classes, errors }"
             >
-              <b-form-input
-                class="control"
-                :class="classes"
-                type="number"
-                id="input-4"
-                v-model="form.packets"
-                placeholder="No. of packets"
-              ></b-form-input>
-            </b-form-group>
+              <b-form-group class="mb-3" id="input-group-1" label-for="input-1">
+                <template v-slot:label>
+                  Select category <span class="text-danger">*</span>
+                </template>
+                <b-form-select
+                  class="control"
+                  :class="classes"
+                  id="input-1"
+                  v-model="form.category"
+                  :options="categories"
+                ></b-form-select>
+                <span class="highlightError">{{ errors[0] }}</span>
+              </b-form-group>
+            </ValidationProvider>
 
-            <b-form-group
-              class="mb-3 col-12 col-md-6"
-              id="input-group-5"
-              label="No. of loose items"
-              label-for="input-5"
+            <ValidationProvider
+              mode="eager"
+              rules="required"
+              name="Sub-category"
+              v-slot="{ classes, errors }"
             >
-              <b-form-input
-                class="control"
-                :class="classes"
-                type="number"
-                id="input-5"
-                v-model="form.looseItems"
-                placeholder="Enter name"
-              ></b-form-input>
-            </b-form-group>
-          </div>
+              <b-form-group class="mb-3" id="input-group-2" label-for="input-2">
+                <template v-slot:label>
+                  Select sub-category <span class="text-danger">*</span>
+                </template>
+                <b-form-select
+                  class="control"
+                  :class="classes"
+                  id="input-2"
+                  v-model="form.subCategory"
+                  :options="subCategories"
+                ></b-form-select>
+                <span class="highlightError">{{ errors[0] }}</span>
+              </b-form-group>
+            </ValidationProvider>
 
-          <div class="mb-3">
-            <b-form-datepicker
-              id="example-datepicker"
-              placeholder="Select a date"
-              v-model="form.date"
-            ></b-form-datepicker>
-          </div>
-
-          <!-- Button  -->
-          <div class="button-list text-center">
-            <button
-              type="submit"
-              class="btn btn-success width-sm waves-effect waves-light"
+            <ValidationProvider
+              mode="eager"
+              rules="required|alpha"
+              name="Material"
+              v-slot="{ classes, errors }"
             >
-              Add sub-category
-            </button>
-          </div>
-        </b-form>
-      </ValidationObserver>
+              <b-form-group class="mb-3" id="input-group-3" label-for="input-3">
+                <template v-slot:label>
+                  Material<span class="text-danger">*</span>
+                </template>
+                <b-form-input
+                  class="control"
+                  :class="classes"
+                  id="input-3"
+                  v-model="form.material"
+                  placeholder="Enter name"
+                ></b-form-input>
+                <span class="highlightError">{{ errors[0] }}</span>
+              </b-form-group>
+            </ValidationProvider>
+
+            <div class="d-flex row">
+              <b-form-group
+                class="mb-3 col-12 col-md-6"
+                id="input-group-4"
+                label="No. of packets"
+                label-for="input-4"
+              >
+                <b-form-input
+                  class="control"
+                  :class="classes"
+                  type="number"
+                  id="input-4"
+                  v-model="form.packets"
+                  placeholder="No. of packets"
+                ></b-form-input>
+              </b-form-group>
+
+              <b-form-group
+                class="mb-3 col-12 col-md-6"
+                id="input-group-5"
+                label="No. of loose items"
+                label-for="input-5"
+              >
+                <b-form-input
+                  class="control"
+                  :class="classes"
+                  type="number"
+                  id="input-5"
+                  v-model="form.looseItems"
+                  placeholder="Enter name"
+                ></b-form-input>
+              </b-form-group>
+            </div>
+
+            <div class="mb-3">
+              <b-form-datepicker
+                id="example-datepicker"
+                placeholder="Select a date"
+                v-model="form.date"
+              ></b-form-datepicker>
+            </div>
+
+            <!-- Button  -->
+            <div class="button-list text-center">
+              <button
+                type="submit"
+                class="btn btn-success width-sm waves-effect waves-light"
+              >
+                Add sub-category
+              </button>
+            </div>
+          </b-form>
+        </ValidationObserver>
+      </div>
     </div>
-  </div>
+  </auth-layout>
 </template>
 
 <script>
@@ -134,6 +134,7 @@ import { configure } from "vee-validate";
 import { ValidationProvider, ValidationObserver } from "vee-validate";
 import { extend } from "vee-validate";
 import { required, email, alpha } from "vee-validate/dist/rules";
+import AuthLayout from '../../layouts/auth-layout.vue';
 
 configure({
   classes: {
@@ -186,6 +187,7 @@ export default {
   components: {
     ValidationProvider,
     ValidationObserver,
+    AuthLayout,
   },
   methods: {
     onSubmit() {

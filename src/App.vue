@@ -1,17 +1,6 @@
 <template>
   <div id="app">
-    <div id="wrapper">
-      <app-navbar />
-        <app-sidebar />
-        <div class="content-page">
-          <div class="content">
-            <div class="container-fluid">
-              <router-view />
-            </div>
-          </div>
-        </div>
-        <app-footer/>
-    </div>
+    <router-view />
   </div>
 </template> 
 
@@ -19,7 +8,6 @@
 import AppNavbar from "@/components/common/AppNavbar";
 import AppSidebar from "@/components/common/AppSidebar";
 import AppFooter from "@/components/common/AppFooter";
-
 
 export default {
   name: "App",

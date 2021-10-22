@@ -1,61 +1,69 @@
 <template>
-  <div class="main ">
-    <div class="card-box">
-    <h3 class="text-start text-uppercase p-2 bg-light">
-      Acknowledge Material
-    </h3>
-    <b-table
-      hover
-      :items="items"
-      :fields="fields"
-      thead-class="thead"
-      class="border text-center"
-      bordered
-    >
-      <template #cell(Action)="" class="row">
-        <b-button
-          variant="primary"
-          class="shadow-none width-sm"
-          @click="toggleShow"
+  <auth-layout>
+    <div class="main">
+      <div class="card-box">
+        <h3 class="text-start text-uppercase p-2 bg-light">
+          Acknowledge Material
+        </h3>
+        <b-table
+          hover
+          :items="items"
+          :fields="fields"
+          thead-class="thead"
+          class="border text-center"
+          bordered
         >
-          Details
-        </b-button>
-      </template>
-    </b-table>
-    </div>
-    
-    <div v-if="show" class="card-box mt-4">
-    <h3 class="text-start text-uppercase p-2 bg-light">
-      Transport Details
-    </h3>
-      <div class="transport-detail mt-2">
-        <h4 class="bg-light p-1">By Hand</h4>
-        <b-form-group
-          label="Description:"
-          label-cols-sm="2"
-          label-cols-lg="2"
-          label-cols-md="2"
-          content-cols-sm
-          content-cols-lg="10"
-        >
-          <b-form-textarea
-            id="contact"
-            type="textarea"
-            rows="2"
-            value="when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-            readonly
-          ></b-form-textarea>
-        </b-form-group>
-        <div class="text-center">
-          <button class="btn width-sm btn-success">Approve</button>
+          <template #cell(Action)="" class="row">
+            <b-button
+              variant="primary"
+              class="shadow-none width-sm"
+              @click="toggleShow"
+            >
+              Details
+            </b-button>
+          </template>
+        </b-table>
+      </div>
+
+      <div v-if="show" class="card-box mt-4">
+        <h3 class="text-start text-uppercase p-2 bg-light">
+          Transport Details
+        </h3>
+        <div class="transport-detail mt-2">
+          <h4 class="bg-light p-1">By Hand</h4>
+          <b-form-group
+            label="Description:"
+            label-cols-sm="2"
+            label-cols-lg="2"
+            label-cols-md="2"
+            content-cols-sm
+            content-cols-lg="10"
+          >
+            <b-form-textarea
+              id="contact"
+              type="textarea"
+              rows="2"
+              value="when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+              readonly
+            ></b-form-textarea>
+          </b-form-group>
+          <div class="text-center">
+            <button class="btn width-sm btn-success">Approve</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </auth-layout>
 </template>
 
 <script>
+import AuthLayout from "@/layouts/auth-layout"
+
 export default {
+  name: "Acknowledgement",
+  components: {
+    AuthLayout
+  },
   data() {
     return {
       show: false,

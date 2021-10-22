@@ -1,5 +1,6 @@
 <template>
-  <div class="main card-box">
+  <auth-layout>
+    <div class="main card-box">
     <h3 class="text-start text-uppercase p-2 bg-light my-2">Received Material from Vendor</h3>
     <b-table
       hover
@@ -9,10 +10,17 @@
       class="border"
     ></b-table>
   </div>
+  </auth-layout>
 </template>
 
 <script>
+import AuthLayout from "@/layouts/auth-layout"
+
 export default {
+  name: "Acknowledge",
+  components: {
+    AuthLayout
+  },
   data() {
     return {
       idx: 0,

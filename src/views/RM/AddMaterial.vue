@@ -1,227 +1,244 @@
 <template>
-  <div>
-    <!-- <div class="py-2">
+  <auth-layout>
+    <div>
+      <!-- <div class="py-2">
       <router-link to="/dashboard">Back to dashboard</router-link>
     </div> -->
-    <b-toaster name="toaster"></b-toaster>
-    <b-form @submit.prevent="submit" class="card-box">
-      <div class="">
-        <h3 class="bg-light p-2 text-uppercase">Add Material</h3>
-      </div>
-      <b-form-group label-for="material-name">
-        <template v-slot:label>
-          Material name <span class="text-danger">*</span>
-        </template>
-        <b-form-input
-          id="material-name"
-          type="text"
-          class="shadow-none form-control"
-          placeholder="Enter name of material"
-          v-model="name"
-          required
-        />
-      </b-form-group>
-      <b-form-group label-for="material-details">
-        <template v-slot:label>
-          Material description <span class="text-danger">*</span>
-        </template>
-        <b-form-textarea
-          id="material-details"
-          class="shadow-none"
-          placeholder="Enter details about the material"
-          v-model="details"
-          no-resize
-          required
-        />
-      </b-form-group>
-
-      <div class="row">
-        <b-form-group
-          label="Material Category"
-          label-for="category"
-          class="col-12 col-md-6"
-        >
-          <b-form-select
-            id="category"
-            class="shadow-none"
-            v-model="category"
-            :options="categories"
-          />
-        </b-form-group>
-        <b-form-group
-          label="Select Vendor: "
-          label-for="vendor"
-          class="col-12 col-md-6"
-        >
-          <b-form-select
-            id="vendor"
-            class="shadow-none"
-            v-model="vendor"
-            :options="vendors"
-          />
-        </b-form-group>
-      </div>
-
-      <div class="row">
-        <b-form-group label="Upload image:" label-for="file-slect" class="col-12 col-md-6">
-          <b-form-file
-            id="file-slect"
-            v-model="file"
-            placeholder="Choose a file or drop it here..."
-          ></b-form-file>
-        </b-form-group>
-      </div>
-
-      <div class="text-center mt-2">
-        <b-button type="submit" class="shadow-none width-sm" variant="success">
-          Add Material
-        </b-button>
-      </div>
-    </b-form>
-
-    <div class="card-box mt-4">
-      <div>
-        <h3 class="mb-0 bg-light p-2">All Materials</h3>
-      </div>
-      <div class="d-flex justify-content-end row">
-        <div class="col-12 col-md-6 my-2">
-          <b-form-select
-            v-model="searchBy"
-            :options="searchByOptions"
-            class="shadow-none"
-          />
+      <b-toaster name="toaster"></b-toaster>
+      <b-form @submit.prevent="submit" class="card-box">
+        <div class="">
+          <h3 class="bg-light p-2 text-uppercase">Add Material</h3>
         </div>
-        <div class="col-12 col-md-6 my-2">
-          <b-form-input
-            :placeholder="`Search by ${this.searchBy}`"
-            class="shadow-none"
-            v-model="searchInput"
-          />
-        </div>
-      </div>
-      <div>
-        <!-- Table -->
-        <b-table
-          :items="filteredMaterials"
-          :fields="fields"
-          bordered
-          responsive
-          class="text-center"
-        >
-          <template #cell(actions)="row" class="">
-            <b-button
-              variant="success"
-              class="shadow-none mx-1 width-sm"
-              @click="setEditMaterial(row.item.id)"
-            >
-              Edit
-            </b-button>
-            <b-button
-              variant="danger"
-              class="shadow-none mx-1 width-sm"
-              @click="setDeleteMaterial(row.item.id)"
-            >
-              Delete
-            </b-button>
+        <b-form-group label-for="material-name">
+          <template v-slot:label>
+            Material name <span class="text-danger">*</span>
           </template>
-        </b-table>
-      </div>
-    </div>
+          <b-form-input
+            id="material-name"
+            type="text"
+            class="shadow-none form-control"
+            placeholder="Enter name of material"
+            v-model="name"
+            required
+          />
+        </b-form-group>
+        <b-form-group label-for="material-details">
+          <template v-slot:label>
+            Material description <span class="text-danger">*</span>
+          </template>
+          <b-form-textarea
+            id="material-details"
+            class="shadow-none"
+            placeholder="Enter details about the material"
+            v-model="details"
+            no-resize
+            required
+          />
+        </b-form-group>
 
-    <!-- Edit Modal -->
-    <b-modal ref="edit-modal" hide-footer centered>
-      <template #modal-title> Edit Material </template>
-      <div v-if="materialToBeUpdated">
-        <b-form>
-          <b-form-group label="Material name: " label-for="update-name">
+        <div class="row">
+          <b-form-group
+            label="Material Category"
+            label-for="category"
+            class="col-12 col-md-6"
+          >
+            <b-form-select
+              id="category"
+              class="shadow-none"
+              v-model="category"
+              :options="categories"
+            />
+          </b-form-group>
+          <b-form-group
+            label="Select Vendor: "
+            label-for="vendor"
+            class="col-12 col-md-6"
+          >
+            <b-form-select
+              id="vendor"
+              class="shadow-none"
+              v-model="vendor"
+              :options="vendors"
+            />
+          </b-form-group>
+        </div>
+
+        <div class="row">
+          <b-form-group
+            label="Upload image:"
+            label-for="file-slect"
+            class="col-12 col-md-6"
+          >
+            <b-form-file
+              id="file-slect"
+              v-model="file"
+              placeholder="Choose a file or drop it here..."
+            ></b-form-file>
+          </b-form-group>
+        </div>
+
+        <div class="text-center mt-2">
+          <b-button
+            type="submit"
+            class="shadow-none width-sm"
+            variant="success"
+          >
+            Add Material
+          </b-button>
+        </div>
+      </b-form>
+
+      <div class="card-box mt-4">
+        <div>
+          <h3 class="mb-0 bg-light p-2">All Materials</h3>
+        </div>
+        <div class="d-flex justify-content-end row">
+          <div class="col-12 col-md-6 my-2">
+            <b-form-select
+              v-model="searchBy"
+              :options="searchByOptions"
+              class="shadow-none"
+            />
+          </div>
+          <div class="col-12 col-md-6 my-2">
             <b-form-input
-              id="update-name"
-              type="text"
+              :placeholder="`Search by ${this.searchBy}`"
               class="shadow-none"
-              v-model="materialToBeUpdated.name"
+              v-model="searchInput"
             />
-          </b-form-group>
-          <b-form-group label="Material details: " label-for="material-details">
-            <b-form-textarea
-              id="material-details"
-              class="shadow-none"
-              placeholder="Enter details about the material"
-              v-model="materialToBeUpdated.details"
-              no-resize
-              required
-            />
-          </b-form-group>
+          </div>
+        </div>
+        <div>
+          <!-- Table -->
+          <b-table
+            :items="filteredMaterials"
+            :fields="fields"
+            bordered
+            responsive
+            class="text-center"
+          >
+            <template #cell(actions)="row" class="">
+              <b-button
+                variant="success"
+                class="shadow-none mx-1 width-sm"
+                @click="setEditMaterial(row.item.id)"
+              >
+                Edit
+              </b-button>
+              <b-button
+                variant="danger"
+                class="shadow-none mx-1 width-sm"
+                @click="setDeleteMaterial(row.item.id)"
+              >
+                Delete
+              </b-button>
+            </template>
+          </b-table>
+        </div>
+      </div>
 
-          <div class="row">
-            <b-form-group
-              label="Select Category"
-              label-for="category"
-              class="col-12 col-md-6"
-            >
-              <b-form-select
-                id="category"
+      <!-- Edit Modal -->
+      <b-modal ref="edit-modal" hide-footer centered>
+        <template #modal-title> Edit Material </template>
+        <div v-if="materialToBeUpdated">
+          <b-form>
+            <b-form-group label="Material name: " label-for="update-name">
+              <b-form-input
+                id="update-name"
+                type="text"
                 class="shadow-none"
-                v-model="materialToBeUpdated.category"
-                :options="categories"
+                v-model="materialToBeUpdated.name"
               />
             </b-form-group>
             <b-form-group
-              label="Select Vendor"
-              label-for="vendor"
-              class="col-12 col-md-6"
+              label="Material details: "
+              label-for="material-details"
             >
-              <b-form-select
-                id="vendor"
+              <b-form-textarea
+                id="material-details"
                 class="shadow-none"
-                v-model="materialToBeUpdated.vendor"
-                :options="vendors"
+                placeholder="Enter details about the material"
+                v-model="materialToBeUpdated.details"
+                no-resize
+                required
               />
             </b-form-group>
-          </div>
-          <div class="text-right my-2">
-            <b-button
-              variant="success"
-              class="shadow-none mr-1 width-sm"
-              @click="editMaterial"
-              >Update</b-button
-            >
-            <b-button
-              variant="danger"
-              class="shadow-none width-sm"
-              @click="closeModal('edit-modal')"
-              >Close</b-button
-            >
-          </div>
-        </b-form>
-      </div>
-    </b-modal>
-    <!-- Delete Modal -->
-    <b-modal ref="confirm-delete-modal" hide-footer centered>
-      <template #modal-title> Confirm delete? </template>
-      <p>Are you sure you want to delete material?</p>
-      <div class="d-flex justify-content-end">
-        <b-button
-          variant="danger"
-          class="shadow-none mr-1 width-sm"
-          @click="deleteMaterial"
-          >Delete</b-button
-        >
-        <b-button
-          variant="secondary"
-          class="shadow-none width-sm"
-          @click="closeModal('confirm-delete-modal')"
-          >Close</b-button
-        >
-      </div>
-    </b-modal>
-  </div>
+
+            <div class="row">
+              <b-form-group
+                label="Select Category"
+                label-for="category"
+                class="col-12 col-md-6"
+              >
+                <b-form-select
+                  id="category"
+                  class="shadow-none"
+                  v-model="materialToBeUpdated.category"
+                  :options="categories"
+                />
+              </b-form-group>
+              <b-form-group
+                label="Select Vendor"
+                label-for="vendor"
+                class="col-12 col-md-6"
+              >
+                <b-form-select
+                  id="vendor"
+                  class="shadow-none"
+                  v-model="materialToBeUpdated.vendor"
+                  :options="vendors"
+                />
+              </b-form-group>
+            </div>
+            <div class="text-right my-2">
+              <b-button
+                variant="success"
+                class="shadow-none mr-1 width-sm"
+                @click="editMaterial"
+                >Update</b-button
+              >
+              <b-button
+                variant="danger"
+                class="shadow-none width-sm"
+                @click="closeModal('edit-modal')"
+                >Close</b-button
+              >
+            </div>
+          </b-form>
+        </div>
+      </b-modal>
+      <!-- Delete Modal -->
+      <b-modal ref="confirm-delete-modal" hide-footer centered>
+        <template #modal-title> Confirm delete? </template>
+        <p>Are you sure you want to delete material?</p>
+        <div class="d-flex justify-content-end">
+          <b-button
+            variant="danger"
+            class="shadow-none mr-1 width-sm"
+            @click="deleteMaterial"
+            >Delete</b-button
+          >
+          <b-button
+            variant="secondary"
+            class="shadow-none width-sm"
+            @click="closeModal('confirm-delete-modal')"
+            >Close</b-button
+          >
+        </div>
+      </b-modal>
+    </div>
+  </auth-layout>
 </template>
 
 <script>
+import AuthLayout from "@/layouts/auth-layout";
 import { mapMutations } from "vuex";
 
 export default {
   name: "AddMaterial",
+  components: {
+    AuthLayout,
+  },
   data() {
     return {
       name: "",
