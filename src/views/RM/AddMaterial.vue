@@ -1,9 +1,6 @@
 <template>
   <auth-layout>
     <div>
-      <!-- <div class="py-2">
-      <router-link to="/dashboard">Back to dashboard</router-link>
-    </div> -->
       <b-toaster name="toaster"></b-toaster>
       <b-form @submit.prevent="submit" class="card-box">
         <div class="">
@@ -109,7 +106,6 @@
           </div>
         </div>
         <div>
-          <!-- Table -->
           <b-table
             :items="filteredMaterials"
             :fields="fields"
