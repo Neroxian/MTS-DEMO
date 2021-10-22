@@ -1,0 +1,109 @@
+{
+  "Admin": [
+    {
+      "name": "Login",
+      "icon": "mdi mdi-account-key-outline",
+      "subLinks": [
+        {
+          "name": "Login",
+          "path": "/login",
+          "icon": "mdi mdi-account-key"
+        }
+      ]
+    },
+    {
+      "name": "Vendors",
+      "icon": "mdi mdi-store-outline",
+      "subLinks": [
+        {
+          "name": "Vendor",
+          "path": "/vendors"
+        }
+      ]
+    },
+    {
+      "name": "Material",
+      "icon": "mdi mdi-cart-outline",
+      "subLinks": [
+        {
+          "name": "Material Category",
+          "path": "/materialCategory"
+        },
+        {
+          "name": "Material",
+          "path": "/add-material"
+        }
+      ]
+    },
+    {
+      "name": "Stock",
+      "icon": "mdi mdi-package-variant-closed",
+      "subLinks": [
+        {
+          "name": "Receive Material",
+          "path": "/receive-material"
+
+        }
+      ]
+    },
+    {
+      "name": "Dispatch",
+      "icon": "mdi mdi-email-fast-outline",
+      "subLinks": [
+        {
+          "name": "Dispatch",
+          "path": "/dispatchLLC"  
+        }
+      ]
+    },
+    {
+      "name": "Report",
+      "icon": "mdi mdi-chart-box-outline",
+      "subLinks": [
+        {
+          "name": "Acknowledge Report",
+          "path": "/acknowledge-report"
+        }
+      ]
+    }
+  ],
+  "User1": [
+    {
+      "name": "Stock",
+      "icon": "mdi mdi-package-variant-closed",
+      "subLinks": [
+        {
+          "name": "Acknowledge",
+          "path": "/acknowledge"
+        }
+      ]
+    }
+  ],
+  "User2": [
+    {
+      "name": "ALC routes",
+      "icon": "mdi mdi-account-key",
+      "subLinks": [
+        {
+          "name": "Dispatch Material",
+          "path": "/dispatch"
+        },
+        {
+          "name": "Stock Declaration",
+          "path": "/stock-declaration"
+
+        }
+      ]
+    },
+    {
+      "name": "Packaging",
+      "icon": "mdi mdi-archive-cog-outline",
+      "subLinks": [
+        {
+          "name": "Packaging Pattern",
+          "path": "/packaging"
+        }
+      ]
+    }
+  ]
+}
