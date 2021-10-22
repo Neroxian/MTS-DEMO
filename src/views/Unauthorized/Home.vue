@@ -2,7 +2,7 @@
   <auth-layout>
     <div>
       <div class="row">
-        <div class="col-md-6 col-xl-3">
+        <div class="col-12 col-md-6">
           <div class="widget-rounded-circle card-box">
             <div class="row">
               <div class="col-6 pb-2">
@@ -55,7 +55,7 @@
         </div>
         <!-- end col-->
 
-        <div class="col-md-6 col-xl-3">
+        <div class="col-12 col-md-6">
           <div class="widget-rounded-circle card-box">
             <div class="row">
               <div class="col-6 pb-2">
@@ -68,7 +68,12 @@
                   "
                 >
                   <i
-                    class="mdi mdi-package-variant-closed font-22 avatar-title text-success"
+                    class="
+                      mdi mdi-package-variant-closed
+                      font-22
+                      avatar-title
+                      text-success
+                    "
                   ></i>
                   <h4>Dispatched</h4>
                 </div>
@@ -115,18 +120,34 @@
           </div>
           <!-- end widget-rounded-circle-->
         </div>
-        <!-- end col-->
       </div>
-      <!-- end row-->
 
+      <div class="row mt-2">
+        <!-- end col-->
+        <div class="col-12 col-md-6">
+          <b-card>
+            <h2>BAR CHART</h2>
+            <bar-chart />
+          </b-card>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <b-card>
+            <h2>PIE CHART</h2>
+            <pie-chart />
+          </b-card>
+        </div>
+      </div>
     </div>
   </auth-layout>
 </template>
 
 <script>
 import authLayout from "../../layouts/auth-layout.vue";
+import BarChart from "@/components/BarChart";
+import PieChart from "@/components/PieChart";
 export default {
-  components: { authLayout },
+  components: { authLayout, PieChart, BarChart },
   name: "Home",
 };
 </script>
