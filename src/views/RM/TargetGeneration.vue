@@ -3,7 +3,7 @@
     <div>
         <b-form @submit.prevent="onSubmit">
           <div class="card-box">
-            <h3 class="bg-light p-2 text-uppercase">Target Generation</h3>
+            <h4 class="bg-light p-2 text-uppercase ">Target Generation</h4>
 
             <b-form-group
               label="Select Material: "
@@ -47,9 +47,9 @@
           </div>
 
           <div class="card-box mt-4" v-if="showTable">
-            <h3 class="bg-light p-2 text-uppercase">
+            <h4 class="bg-light p-2 text-uppercase">
               Generated Target
-            </h3>
+            </h4>
 
             <div class="mt-2" id="addedMaterial" ref="table">
               <!-- {{ filteredTask }} -->
@@ -97,7 +97,7 @@
             <div class="sub-table" v-if="showDetails">
                 <h3>Details</h3>
                 <div>
-                    <span>Pune Office</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Rahul(Buldhana) 500 Units</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Pune Learning Center,Mumbai Learning Center 250 Units each</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Learner</span>
+                    <span>Pune Office</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Rahul(Buldhana) <code> 500 Units</code></span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Pune Learning Center,Mumbai Learning Center <code>250 Units</code> each</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Learner</span>
                 </div>
             </div>
 
@@ -138,7 +138,6 @@ export default {
 tr,td{
     vertical-align: middle;
 }
-
 .sub-table{
     margin: auto;
     border-radius: 0.2rem;
