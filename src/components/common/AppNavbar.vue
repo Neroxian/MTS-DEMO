@@ -81,7 +81,7 @@
               Welcome Jhon !
             </b-dropdown-header>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Logout</b-dropdown-item>
+            <b-dropdown-item href="#" @click="$router.push('/login')">Logout</b-dropdown-item>
           </b-dropdown>
           <!-- </span> -->
         </li>
