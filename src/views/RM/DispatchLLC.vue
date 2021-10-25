@@ -1,10 +1,11 @@
 <template>
   <auth-layout>
     <div class="main">
+        <h3 class="px-1">Dispatch Material</h3>
+
       <div class="card-box">
-        <h4 class="bg-light p-2 text-uppercase">Dispatch Material</h4>
         <table class="table table-bordered text-center">
-          <thead class="table-dark">
+          <thead class="">
             <tr>
               <th scope="col">Sr No.</th>
               <th scope="col">Material</th>
@@ -51,9 +52,10 @@
         </table>
       </div>
 
-      <div class="dispatch-detail card-box mt-4" v-if="showD">
+      <div  v-if="showD">
+          <h3 class="px-1 mt-4">Dispatch Details</h3>
+      <div class="dispatch-detail card-box">
         <div>
-          <h4 class="bg-light p-2 text-uppercase">Dispatch Details</h4>
           <div class="row">
             <div class="px-2 col-6">
               <b-form-group
@@ -84,7 +86,7 @@
 
         <div>
           <table class="table table-bordered text-center mb-2">
-            <thead class="table-dark">
+            <thead class="">
               <tr>
                 <th scope="col">Sr No.</th>
                 <th scope="col">Code</th>
@@ -199,10 +201,13 @@
           /></b-form-group>
         </div>
       </div>
+    </div>
 
-      <div class="transport-detail card-box mt-4" v-if="transportMode !== ''">
+      <div class="mt-4" v-if="transportMode !== ''">
+          <h3 class="px-1 mt-4">Transport Details</h3>
+
+      <div class="transport-detail card-box">
         <b-form>
-          <h4 class="bg-light p-2 text-uppercase">Transport Details</h4>
           <div class="transport-form byRoad" v-if="transportMode == 'By Road'">
             <h4 class="bg-light p-1">Enter Details</h4>
             <b-form-group
@@ -271,7 +276,7 @@
           </div>
 
           <div
-            class="transport-form mt-3 byPost"
+            class="transport-form byPost"
             v-if="transportMode == 'By Post'"
           >
             <h4 class="bg-light p-1">Enter Details</h4>
@@ -293,7 +298,7 @@
           </div>
 
           <div
-            class="transport-form mt-3 byHand"
+            class="transport-form byHand"
             v-if="transportMode == 'By Hand'"
           >
             <h4 class="bg-light p-1">Enter Details</h4>
@@ -336,6 +341,7 @@
             <button class="btn btn-danger width-sm mx-2">Cancel</button>
           </div>
         </b-form>
+      </div>
       </div>
     </div>
   </auth-layout>

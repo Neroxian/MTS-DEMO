@@ -1,15 +1,15 @@
 <template>
   <auth-layout>
-    <div class="main card-box">
-      <h4 class="text-start text-uppercase p-2 bg-light">
+    <h3 class="px-1 ">
         Acknowledged Material
-      </h4>
+      </h3>
+    <div class="main card-box">
       <b-table
-        hover
+        bordered
         :items="items"
         :fields="fields"
         thead-class="thead"
-        class="border"
+        class=""
       ></b-table>
     </div>
   </auth-layout>
@@ -77,10 +77,7 @@ export default {
 </script>
 
 <style scoped>
-.thead {
-  background-color: rgb(39, 39, 39);
-  color: white;
-}
+
 h2 {
   font-weight: 600;
 }

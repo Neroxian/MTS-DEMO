@@ -1,10 +1,9 @@
 <template>
   <auth-layout>
     <div>
+      <h3 class="px-1">All Vendor</h3>
       <div class="main card-box">
-        <div>
-          <h4 class="text-uppercase bg-light p-2">All Vendor</h4>
-        </div>
+        <div></div>
         <div class="row d-flex justify-content-end mt-2">
           <div class="col-6 d-flex align-items-center">
             <label for="vendor-filter" class="mr-2 my-0">Search: </label>
@@ -68,7 +67,7 @@ export default {
     return {
       showAdd: false,
       showEdit: false,
-      filterN:"",
+      filterN: "",
       filteredVendors: [],
       vendorDetails: [
         {
@@ -94,12 +93,9 @@ export default {
         { key: "organisationName", label: "Organisation Type" },
         { key: "organisationMobile", label: "Organisation Mobile" },
         { key: "address1", label: "Address" },
-        // { key: "address2", label: "Address 2" },
         { key: "state", label: "State" },
         { key: "district", label: "District" },
         { key: "telephone1", label: "Telephone" },
-        // { key: "telephone2", label: "Telephone Two" },
-        // { key: "faxNumber", label: "Fax Number" },
         { key: "email", label: "Vendor Email" },
         { key: "actions", label: "Actions" },
       ],
@@ -107,7 +103,7 @@ export default {
   },
   mounted() {
     this.filteredVendors = this.getAllVendor;
-    console.log(this.filteredVendors)
+    console.log(this.filteredVendors);
   },
   methods: {
     toggleAdd() {
@@ -118,7 +114,7 @@ export default {
     },
     del(id) {
       this.deleteVendor(id);
-      alert("Vendor Deleted!")
+      alert("Vendor Deleted!");
     },
     ...mapMutations(["deleteVendor"]),
   },
@@ -129,7 +125,7 @@ export default {
         this.filteredVendors = this.getAllVendor;
         return;
       }
-      return this.filteredVendors = this.getAllVendor.filter((vendor) => {
+      return (this.filteredVendors = this.getAllVendor.filter((vendor) => {
         if (
           vendor.vendorName
             .toLowerCase()
@@ -138,7 +134,7 @@ export default {
           return true;
         }
         return false;
-      });
+      }));
     },
   },
 };

@@ -1,15 +1,30 @@
 <template>
   <auth-layout>
     <div>
-        <h4 class="text-start text-uppercase ">
-              Dashboard
-            </h4>
+      <div >
+      <h3 class="text-start px-1">Notification</h3>
       <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+        <b-alert show dismissible variant="danger">
+          You have 2 Acknowledgement remaining. 
+          <router-link variant="info" class="width-sm" to="receive-material"><b><u>Show</u></b></router-link>
+        </b-alert>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+        <b-alert show dismissible variant="info">
+          A message to all LLC's. 
+          <router-link variant="info" class="width-sm" to="receive-material"></router-link>
+        </b-alert>
+        </div>
+      </div>
+      </div>
 
+      <h3 class="text-start mt-3 px-1">Dashboard</h3>
+      <div class="row">
         <div class="col-12 col-md-6">
           <div class="widget-rounded-circle card-box-widget">
             <div class="row">
-              <div class="col-5">
+              <div class="col-5 text-center">
                 <div
                   class="
                     widget-icon
@@ -27,8 +42,9 @@
                       text-primary
                     "
                   ></i>
-                  <h4>Material</h4>
                 </div>
+                  <h4>Material</h4>
+
               </div>
               <div class="col-7 mt-1 text-right">
                 <div class="my-1">
@@ -61,7 +77,7 @@
         <div class="col-12 col-md-6">
           <div class="widget-rounded-circle card-box-widget">
             <div class="row">
-              <div class="col-5">
+              <div class="col-5 text-center">
                 <div
                   class="
                     widget-icon
@@ -73,14 +89,15 @@
                 >
                   <i
                     class="
-                      mdi mdi-package-variant-closed
+                      mdi mdi-truck-delivery-outline
                       font-22
                       avatar-title
                       text-success
                     "
                   ></i>
-                  <h4>Dispatched</h4>
                 </div>
+                  <h4>Dispatched</h4>
+
               </div>
               <div class="col-7 mt-1 text-right">
                 <div class="text-start my-1">
@@ -141,6 +158,11 @@ import PieChart from "@/components/PieChart";
 export default {
   components: { authLayout, PieChart, BarChart },
   name: "Home",
+  data(){
+    return{
+      
+    }
+  }
 };
 </script>
 

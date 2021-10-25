@@ -1,8 +1,8 @@
 <template>
   <auth-layout>
-    <div class="card-box">
-      <h4 class="bg-light p-2 text-uppercase text-center">Edit Vendor</h4>
+    <h3 class="px-1">Edit Vendor</h3>
 
+    <div class="card-box">
       <!-- Parent Form -->
       <b-form @submit.prevent="edit">
         <div class="text-center form-step">
@@ -10,7 +10,7 @@
             <span
               role="button"
               @click="currentStep = idx"
-              :class="{ 'text-primary': idx === currentStep }"
+              :class="{ 'text-success': idx === currentStep }"
               >{{ step }}</span
             >
             <span v-if="idx !== steps.length - 1"> > </span>
@@ -34,29 +34,6 @@
             <b-form-select
               v-model="data.companyType"
               :options="companyTypeOptions"
-            />
-          </b-form-group>
-
-          <!-- Pan Number -->
-          <b-form-group label="Pan Number: " label-for="pan-number">
-            <b-form-input
-              id="pan-number"
-              type="text"
-              placeholder="PAN Number"
-              v-model="data.panNumber"
-              class="shadow-none"
-            >
-            </b-form-input>
-          </b-form-group>
-
-          <!-- Account Number -->
-          <b-form-group label="Account Number: " label-for="account-number">
-            <b-form-input
-              id="account-number"
-              type="text"
-              placeholder="Account Number"
-              v-model="data.accountNumber"
-              class="shadow-none"
             />
           </b-form-group>
 
@@ -146,17 +123,9 @@
             />
           </b-form-group>
 
-          <b-form-group label="Address 2" label-for="address-two">
-            <b-form-textarea
-              id="address-two"
-              v-model="data.addressTwo"
-              class="shadow-none"
-            />
-          </b-form-group>
-
           <div class="row">
             <b-form-group
-              class="col-12 col-md-6"
+              class="col-12 col-md-4"
               label="State: "
               label-for="state"
             >
@@ -168,7 +137,7 @@
               />
             </b-form-group>
             <b-form-group
-              class="col-12 col-md-6"
+              class="col-12 col-md-4"
               label="District: "
               label-for="district"
             >
@@ -179,11 +148,15 @@
                 class="shadow-none"
               />
             </b-form-group>
-          </div>
 
-          <b-form-group label="Pincode: " label-for="pincode">
-            <b-form-input id="pincode" type="number" v-model="data.pincode" />
-          </b-form-group>
+            <b-form-group
+              label="Pincode: "
+              label-for="pincode"
+              class="col-12 col-md-4"
+            >
+              <b-form-input id="pincode" type="number" v-model="data.pincode" />
+            </b-form-group>
+          </div>
 
           <div class="row">
             <b-form-group
@@ -195,33 +168,10 @@
                 id="telephone-one"
                 type="number"
                 v-model="data.telephoneOne"
-                placeholder="STD - Phone Number"
+                placeholder=""
               />
             </b-form-group>
-            <b-form-group
-              label="Telephone 2:"
-              label-for="telephone-two"
-              class="col-12 col-md-6"
-            >
-              <b-form-input
-                id="telephone-two"
-                type="number"
-                v-model="data.telephoneTwo"
-                placeholder="STD - Phone Number"
-              />
-            </b-form-group>
-            <b-form-group
-              label="Fax Number"
-              label-for="fax-number"
-              class="col-12 col-md-6"
-            >
-              <b-form-input
-                id="fax-number"
-                type="number"
-                v-model="data.faxNumber"
-                placeholder="Fax Number"
-              />
-            </b-form-group>
+
             <b-form-group
               label="Email"
               label-for="email"
@@ -230,7 +180,7 @@
               <b-form-input
                 type="email"
                 v-model="data.email"
-                placeholder="example@example.com"
+                placeholder=""
                 class="shadow-none"
               />
             </b-form-group>
@@ -261,20 +211,19 @@
 import Vue from "vue";
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
-import AuthLayout from '../../layouts/auth-layout.vue';
+import AuthLayout from "../../layouts/auth-layout.vue";
 // import  getters  from "../store/getters"
 // import  mutations  from "../store/mutations"
 
 Vue.prototype.steps = ["Vendor details", "Contact details", "Vendor contact"];
 
-
 export default {
   name: "VendorEdit",
   components: {
-    AuthLayout
+    AuthLayout,
   },
   data() {
-    return {  
+    return {
       currentStep: 0,
       data: null,
       companyTypeOptions: ["Industrial", "Technology", "Private"],
@@ -284,7 +233,7 @@ export default {
     };
   },
   methods: {
-    back(){
+    back() {
       this.$router.push("/vendors");
     },
     nextStep() {
@@ -298,7 +247,7 @@ export default {
       }
     },
     edit() {
-      console.log(this.data)
+      console.log(this.data);
       this.editVendor({
         newVendor: {
           id: this.data.id,
@@ -319,7 +268,7 @@ export default {
           faxNumber: this.data.faxNumber,
           email: this.data.email,
         },
-        id: this.$route.params.id
+        id: this.$route.params.id,
       });
       this.$router.push("/vendors");
     },
@@ -330,9 +279,9 @@ export default {
     ...mapGetters(["getID"]),
   },
   mounted() {
-    console.log(this.$route.params.id)
+    console.log(this.$route.params.id);
     this.data = { ...this.getAllVendor[parseInt(this.$route.params.id, 10)] };
-    console.log(this.data)
+    console.log(this.data);
   },
 };
 </script>

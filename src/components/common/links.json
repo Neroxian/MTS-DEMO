@@ -2,7 +2,7 @@
   "Admin": [
     {
       "name": "Vendors",
-      "icon": "mdi mdi-store-outline",
+      "icon": "mdi mdi-storefront-outline",
       "subLinks": [
         {
           "name": "Vendor",
@@ -37,7 +37,7 @@
     },
     {
       "name": "Dispatch",
-      "icon": "mdi mdi-email-fast-outline",
+      "icon": "mdi mdi-truck-delivery-outline",
       "subLinks": [
         {
           "name": "Target Generation",
@@ -51,7 +51,7 @@
     },
     {
       "name": "Report",
-      "icon": "mdi mdi-chart-box-outline",
+      "icon": "mdi mdi-chart-line",
       "subLinks": [
         {
           "name": "Acknowledge Report",

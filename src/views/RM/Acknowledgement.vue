@@ -6,11 +6,10 @@
           Acknowledge Material
         </h4>
         <b-table
-          hover
           :items="items"
           :fields="fields"
           thead-class="thead"
-          class="border text-center"
+          class=" text-center"
           bordered
         >
           <template #cell(Action)="" class="row">
@@ -117,13 +116,7 @@ export default {
 </script>
 
 <style scoped>
-.thead {
-  background-color: rgb(2, 117, 216);
-  color: white;
-}
-h2 {
-  font-weight: 600;
-}
+
 .main {
   padding: 0 12px;
 }

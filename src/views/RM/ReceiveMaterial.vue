@@ -1,18 +1,15 @@
 <template>
   <auth-layout>
     <div class="main-div">
+       <h3 class="px-1">
+              Received Material from Vendor
+            </h3>
       <div class="card-box">
         <div class="row">
-          <div class="col-12">
-            <h4 class="text-start text-uppercase p-2 bg-light">
-              Received Material from Vendor
-            </h4>
-            <!-- <div class="text-right mb-1"></div> -->
-          </div>
         </div>
         <!-- {{getReceiveMaterial}} -->
-        <table class="table mb-2">
-          <thead class="table-dark">
+        <table class="table table-bordered mb-2">
+          <thead class="">
             <tr>
               <th scope="col">Sr no</th>
               <th scope="col">Material</th>
@@ -33,7 +30,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="text-right">
+        <div class="text-center">
           <button @click="showForm" class="btn width-sm btn-success">
             Add Entry
           </button>
@@ -59,8 +56,9 @@
             ></b-pagination> -->
       </div>
 
-      <div class="card-box mt-4" v-if="show">
-        <h2 class="text-center p-2 bg-light">Add Received Material Details</h2>
+       <div class="mt-4" v-if="show">
+        <h3 class="px-1 ">Add Received Material Details</h3>
+      <div class="card-box" >
         <form @submit.prevent="add">
           <div class="row">
             <div class="col-6 align-items-center">
@@ -149,43 +147,21 @@
             <button type="submit" class="btn width-sm btn-success">Add</button>
           </div>
         </form>
-      </div>
+      </div></div>
     </div>
   </auth-layout>
 </template>
 
 <style scoped>
-th,
+/* th,
 td {
   font-weight: 500;
   border: 0.001rem solid rgb(138, 138, 138);
-}
-label {
-  margin-bottom: 0;
-}
-h2,
-h5 {
-  font-weight: 600;
-  /* text-align: center; */
-}
-.entry-form {
-  margin: auto;
-  width: 80%;
-  padding: 2.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgb(175, 175, 175);
-
-  /* background-color: rgba(236, 236, 236, 0.836); */
-}
+} */
 .hide {
   display: none;
 }
-.form-control:focus,
-.form-select:focus,
-button:focus,
-button:active {
-  box-shadow: none;
-}
+
 </style>
 
 <script>
