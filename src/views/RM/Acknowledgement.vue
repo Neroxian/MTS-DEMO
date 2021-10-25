@@ -6,11 +6,10 @@
           Acknowledge Material
         </h4>
         <b-table
-          hover
           :items="items"
           :fields="fields"
           thead-class="thead"
-          class="border text-center"
+          class=" text-center"
           bordered
         >
           <template #cell(Action)="" class="row">
@@ -26,9 +25,9 @@
       </div>
 
       <div v-if="show" class="card-box mt-4">
-        <h3 class="text-start text-uppercase p-2 bg-light">
+        <h4 class="text-start text-uppercase p-2 bg-light">
           Transport Details
-        </h3>
+        </h4>
         <div class="transport-detail mt-2">
           <h4 class="bg-light p-1">By Hand</h4>
           <b-form-group
@@ -117,13 +116,7 @@ export default {
 </script>
 
 <style scoped>
-.thead {
-  background-color: rgb(2, 117, 216);
-  color: white;
-}
-h2 {
-  font-weight: 600;
-}
+
 .main {
   padding: 0 12px;
 }

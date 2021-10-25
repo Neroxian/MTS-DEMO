@@ -1,5 +1,6 @@
 <template>
   <auth-layout>
+<<<<<<< HEAD
       <!-- <h3 class="text-start text-uppercase p-2 bg-light my-2">
         Received Material from Vendor
       </h3> -->
@@ -77,6 +78,20 @@
           </template>
         </b-table>
       </div>
+=======
+    <h3 class="px-1 ">
+        Acknowledged Material
+      </h3>
+    <div class="main card-box">
+      <b-table
+        bordered
+        :items="items"
+        :fields="fields"
+        thead-class="thead"
+        class=""
+      ></b-table>
+    </div>
+>>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
   </auth-layout>
 </template>
 
@@ -170,6 +185,7 @@ export default {
 };
 </script>
 
+<<<<<<< HEAD
 <style >
 .b-table-details td {
   padding: 0;
@@ -200,6 +216,12 @@ export default {
 
 .inline {
   display: inline;
+=======
+<style scoped>
+
+h2 {
+  font-weight: 600;
+>>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
 }
 #searchBar {
   width: 50%;

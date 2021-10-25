@@ -1,4 +1,12 @@
 
+
+
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  src: url("../fonts/Poppins.woff2") format('woff2'),;
+  font-weight: 500;
+}
+
 @font-face {
   font-family: "Nunito", sans-serif;
   src: url("../fonts/Nunito.woff2") format('woff2'),;
@@ -27,7 +35,7 @@
   font-family: "Nunito", sans-serif;
   src: url("../fonts/Nunito.woff2") format('woff2'),;
   font-weight: 700;
-}
+} 
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -49,6 +57,11 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(105, 105, 105); 
+}
+
+thead{
+  color: #3c4854;
+  vertical-align: middle;
 }
 
 html {
@@ -73,7 +86,7 @@ body {
   padding: 15px;
   /* padding: 0 15px 65px 15px; */
   min-height: 80vh;
-  margin-top: 70px;
+  margin-top: 55px;
   margin-bottom: 45px;
 }
 
@@ -94,13 +107,14 @@ body {
 }
 
 #icon-padding > span {
-  padding: 0px 18px 4px 42px;
+  padding: 0px 19px 6px 42px;
   color: #6e768e;
   display: block;
   position: relative;
   transition: all 0.5s;
   font-family: "Nunito", sans-serif;
-  font-size: 0.90rem;
+  /* font-family: "Cerebri Sans,sans-serif"; */
+  font-size: 0.95rem;
 }
 #icon-padding > span:hover,
 #icon-padding > span:focus,
@@ -127,11 +141,12 @@ body {
 #sidebar-menu > ul > li > a {
   color: #6e768e;
   display: block;
-  padding: 13px 18px 5px 18px;
+  padding: 13px 19px 8px 19px;
   position: relative;
   transition: all 0.4s;
   font-family: "Nunito", sans-serif;
-  font-size: 1rem;
+  /* font-family: "Cerebri Sans,sans-serif"; */
+  font-size: 0.95rem;
   font-weight: 500;
 }
 #sidebar-menu > ul > li > a:hover,
@@ -1464,7 +1479,7 @@ body[data-layout-mode="horizontal"] .logo-box {
   position: absolute;
   right: 0;
   color: #98a6ad;
-  left: 250px;
+  left: 0;
   background-color: #3c4854;
 }
 .footer .footer-links a {
@@ -1709,6 +1724,7 @@ body[data-layout-mode="horizontal"] .content-page {
   padding: calc(33px / 2) 1.1rem;
   color: #6e7488;
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
 }
 .topnav .navbar-nav .nav-link i {
   font-size: 15px;
@@ -1959,6 +1975,7 @@ body[data-layout-mode="two-column"]
   color: #6e768e;
   font-size: 0.95rem;
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
 }
 body[data-layout-mode="two-column"]
   .sidebar-main-menu
@@ -2224,10 +2241,12 @@ body[data-layout-mode="two-column"][data-layout-width="boxed"]:not([data-sidebar
 
 .font-family-primary {
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
 }
 
 .font-family-secondary {
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
 }
 
 .sp-line-1,
@@ -3352,11 +3371,13 @@ s
   font-size: 84px;
   line-height: 90px;
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
 }
 
 .error-text-box {
   font-size: 10rem;
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
   min-height: 200px;
 }
 .error-text-box .text {
@@ -4003,6 +4024,7 @@ s
   margin-bottom: 5px;
   font-weight: 500;
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
 }
 .filter-menu a:hover {
   background-color: rgba(102, 88, 221, 0.15);
@@ -5106,6 +5128,7 @@ div.dt-button-info h2 {
 
 .daterangepicker {
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
 }
 .daterangepicker td.active,
 .daterangepicker td.active:hover,
@@ -5455,13 +5478,15 @@ div.dt-button-info h2 {
 
 .jq-toast-single {
   padding: 15px;
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
   background-color: #6658dd;
   font-size: 13px;
   line-height: 22px;
 }
 .jq-toast-single h2 {
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
 }
 .jq-toast-single a {
   font-size: 0.875rem;
@@ -5562,7 +5587,8 @@ div.dt-button-info h2 {
 }
 
 .swal2-modal {
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
   box-shadow: 0 10px 33px rgba(0, 0, 0, 0.1);
 }
 .swal2-modal .swal2-title {
@@ -5891,7 +5917,8 @@ div.hopscotch-bubble .hopscotch-prev {
   border-color: #6658dd !important;
   text-shadow: none !important;
   margin: 0 0 0 5px !important;
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
   color: #fff !important;
 }
 div.hopscotch-bubble .hopscotch-bubble-number {
@@ -5944,10 +5971,12 @@ div.hopscotch-bubble
 }
 div.hopscotch-bubble h3 {
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
   margin-bottom: 10px;
 }
 div.hopscotch-bubble .hopscotch-content {
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
 }
 
 .flotTip {
@@ -5965,6 +5994,7 @@ div.hopscotch-bubble .hopscotch-content {
 .legend tr {
   height: 30px;
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
 }
 .legend > div {
   background-color: transparent !important;
@@ -6019,12 +6049,14 @@ div.hopscotch-bubble .hopscotch-content {
   padding: 10px 12px;
   background: #323a46;
   color: #fff;
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
 }
 .morris-hover.morris-default-style .morris-hover-row-label {
   font-weight: bold;
   margin: 0.25em 0;
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
 }
 .morris-hover.morris-default-style .morris-hover-point {
   white-space: nowrap;
@@ -6159,7 +6191,8 @@ div.hopscotch-bubble .hopscotch-content {
 }
 .c3-tooltip td {
   border-left: none;
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
 }
 .c3-tooltip td > span {
   background: #323a46;
@@ -6178,12 +6211,14 @@ div.hopscotch-bubble .hopscotch-content {
 }
 
 .c3 text {
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
   fill: #6c757d;
 }
 
 .c3-legend-item {
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
   font-size: 14px;
 }
 
@@ -6219,7 +6254,8 @@ div.hopscotch-bubble .hopscotch-content {
 .rickshaw_graph .detail .item,
 .rickshaw_graph .detail .x_label,
 .rickshaw_graph .x_tick .title {
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
 }
 
 .gauge-chart text {
@@ -6784,6 +6820,7 @@ table[data-toggle="table"] {
   border: none;
   font-weight: 500;
   font-family: "Nunito", sans-serif;
+  /* font-family: "Cerebri Sans,sans-serif"; */
 }
 
 .tablesaw td {
@@ -7008,7 +7045,8 @@ table[data-toggle="table"] {
 
 .ms-optgroup-label {
   font-weight: 500;
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
   color: #323a46 !important;
   font-size: 13px;
 }
@@ -7050,7 +7088,8 @@ table[data-toggle="table"] {
 .autocomplete-group {
   padding: 5px;
   font-weight: 500;
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
 }
 
 .autocomplete-group strong {
@@ -7383,7 +7422,8 @@ span.flatpickr-weekday,
 }
 
 .ql-container {
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
 }
 .ql-container.ql-snow {
   border-color: #ced4da;
@@ -7572,7 +7612,8 @@ span.flatpickr-weekday,
   border: none;
   background: #323a46;
   color: #fff;
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
   font-size: 0.875rem;
   padding: 5px 8px;
 }
@@ -7597,7 +7638,8 @@ span.flatpickr-weekday,
   max-width: 200px;
   display: none;
   color: #fff;
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Cerebri Sans,sans-serif";
 }
 
 .mapael .zoomIn,

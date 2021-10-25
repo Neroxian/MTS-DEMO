@@ -2,6 +2,7 @@
   <auth-layout>
     <div>
       <div>
+<<<<<<< HEAD
         <ValidationObserver ref="form">
           <b-form @submit.prevent="onSubmit">
             <div class="card-box">
@@ -68,10 +69,140 @@
                   type="submit"
                   class="shadow-none width-sm"
                   variant="success"
+=======
+        <h3 class="px-1">Add Material Category</h3>
+
+        <div class="card-box">
+          <ValidationObserver ref="form">
+            <b-form @submit.prevent="onSubmit">
+              <div>
+                <ValidationProvider
+                  mode="eager"
+                  rules="required|alpha"
+                  name="Sub category"
+                  v-slot="{ classes, errors }"
+                >
+                  <b-form-group
+                    class="mb-2"
+                    id="input-group-2"
+                    label-for="input-2"
+                  >
+                    <template v-slot:label> Name </template>
+                    <b-form-input
+                      class="control"
+                      :class="classes"
+                      id="input-2"
+                      v-model="form.subCategory"
+                      placeholder=""
+                    ></b-form-input>
+                    <span class="highlightError">{{ errors[0] }}</span>
+                  </b-form-group>
+                </ValidationProvider>
+
+                <b-form-group
+                  class=""
+                  id="input-group-3"
+                  label="Details:"
+                  label-for="input-2"
+                >
+                  <b-form-textarea
+                    id="input-2"
+                    placeholder=""
+                    v-model="form.details"
+                    no-resize
+                  ></b-form-textarea>
+                </b-form-group>
+
+                <!-- Button  -->
+                <div class="button-list text-center">
+                  <button
+                    type="submit"
+                    class="btn btn-success waves-effect waves-light"
+                  >
+                    Add Category
+                  </button>
+                </div>
+              </div>
+            </b-form>
+          </ValidationObserver>
+        </div>
+
+        <!-- Responsive Table -->
+        <h3 class="px-1 mt-4">
+            Previously added Material category
+          </h3>
+        <div class="card-box">
+          
+          <select v-model="defaultKey" v-if="isSmall">
+            <option v-for="(key, idx) in fields" :key="idx" :value="key">
+              {{ key }}
+            </option>
+          </select>
+          <b-table
+            id="dataTable"
+            responsive="md"
+            stacked="sm"
+            :striped="isSmall"
+            light
+            outlined
+            bordered
+            :items="items"
+            :fields="copy"
+            thead-tr-class="text-center"
+            :tbody-tr-class="isSmall ? '' : 'text-center'"
+          >
+            <template v-slot:[`cell(${defaultKey})`]="row">
+              <div
+                class="d-flex justify-content-between justify-content-sm-center"
+              >
+                <div>{{ row.item[defaultKey] }}</div>
+                <b-button
+                  class="btn btn-xs"
+                  v-if="isSmall"
+                  @click="row.toggleDetails"
+                  ><i class="mdi mdi-plus"> </i
+                  >{{ row.detailsShowing ? "Hide" : "Show" }}
+                </b-button>
+              </div>
+            </template>
+
+            <template #row-details="row" v-if="isSmall">
+              <b-card class="text-left p-0">
+                <template
+                  v-for="(field, idx) in fields.filter(
+                    (f) => f !== defaultKey && f !== 'actions'
+                  )"
+                >
+                  <div :key="idx">
+                    <span class="font-weight-bold">{{ field }}:</span>
+                    {{ row.item[field] }}
+                  </div>
+                </template>
+                <template>
+                  <div class="text-center">
+                    <b-button variant="primary" class="btn width-sm"
+                      >Edit</b-button
+                    >
+                    <b-button variant="danger" class="m-1 width-sm"
+                      >Delete</b-button
+                    >
+                  </div>
+                </template>
+              </b-card>
+            </template>
+
+            <!-- Actions -->
+            <template #cell(actions) v-if="!isSmall">
+              <div>
+                <b-button variant="primary" class="m-1 width-sm">Edit</b-button>
+                <b-button variant="danger" class="m-1 width-sm"
+                  >Delete</b-button
+>>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
                 >
                   Add Material
                 </b-button>
               </div>
+<<<<<<< HEAD
             </div>
           </b-form>
         </ValidationObserver>
@@ -149,6 +280,11 @@
             </div>
           </template>
         </b-table>
+=======
+            </template>
+          </b-table>
+        </div>
+>>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
       </div>
     </div>
   </auth-layout>

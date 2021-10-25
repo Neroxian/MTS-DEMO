@@ -70,15 +70,15 @@
             <template #button-content>
               <span>
                 <img
-                  src="@/assets/user-4.jpg"
+                  src="@/assets/download.png"
                   alt="user-image"
                   class="rounded-circle"
                   style="width: 35px"
-                />Jhon
+                /> Jhon
               </span>
             </template>
-            <b-dropdown-header id="dropdown-header-label" class="text-dark">
-              Welcome Jhon !
+            <b-dropdown-header id="dropdown-header-label" >
+              Welcome Jhon!
             </b-dropdown-header>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
             <b-dropdown-item href="#" @click="$router.push('/login')">Logout</b-dropdown-item>

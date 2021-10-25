@@ -2,10 +2,15 @@
   <auth-layout>
     <div>
       <b-toaster name="toaster"></b-toaster>
+          <h3 class="px-1">Add Material</h3>
+
       <b-form @submit.prevent="submit" class="card-box">
+<<<<<<< HEAD
         <div class="">
           <h4 class="bg-light p-2 text-uppercase">Add Material</h4>
         </div>
+=======
+>>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
         <b-form-group label-for="material-name">
           <template v-slot:label>
             Material name <span class="text-danger">*</span>
@@ -14,7 +19,7 @@
             id="material-name"
             type="text"
             class="shadow-none form-control"
-            placeholder="Enter name of material"
+            placeholder=""
             v-model="name"
             required
           />
@@ -26,7 +31,7 @@
           <b-form-textarea
             id="material-details"
             class="shadow-none"
-            placeholder="Enter details about the material"
+            placeholder=""
             v-model="details"
             no-resize
             required
@@ -85,10 +90,8 @@
         </div>
       </b-form>
 
-      <div class="card-box mt-4">
-        <div>
-          <h3 class="mb-0 bg-light p-2">All Materials</h3>
-        </div>
+          <h3 class="px-1 mt-4">All Materials</h3>
+      <div class="card-box">
         <div class="d-flex justify-content-end row">
           <div class="col-12 col-md-6 my-2">
             <b-form-select

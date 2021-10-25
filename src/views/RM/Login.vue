@@ -59,8 +59,8 @@ export default {
 
 <style scoped>
 .mainform {
-  width: 50%;
-  padding: 1rem 3rem;
+  width: 40%;
+  padding: 2rem 3rem;
   border-radius: 0.4rem;
   /* margin: auto; */
   background-color: white;
@@ -68,6 +68,8 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+    border: 0.01rem solid rgb(194, 193, 193);
+
   /* box-shadow: 0px 0px 5px 1px rgba(143,143,143,0.89);
 -webkit-box-shadow: 0px 0px 5px 1px rgba(143,143,143,0.89);
 -moz-box-shadow: 0px 0px 5px 1px rgba(143,143,143,0.89); */

@@ -1,13 +1,33 @@
 <template>
   <auth-layout>
     <div>
+      <div >
+      <h3 class="text-start px-1">Notification</h3>
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+        <b-alert show dismissible variant="danger">
+          You have 2 Acknowledgement remaining. 
+          <router-link variant="info" class="width-sm" to="receive-material"><b><u>Show</u></b></router-link>
+        </b-alert>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+        <b-alert show dismissible variant="info">
+          A message to all LLC's. 
+          <router-link variant="info" class="width-sm" to="receive-material"></router-link>
+        </b-alert>
+        </div>
+      </div>
+      </div>
+
+      <h3 class="text-start mt-3 px-1">Dashboard</h3>
       <div class="row">
         <div class="col-12 col-md-6">
-          <div class="widget-rounded-circle card-box">
+          <div class="widget-rounded-circle card-box-widget">
             <div class="row">
-              <div class="col-6 pb-2">
+              <div class="col-5 text-center">
                 <div
                   class="
+                    widget-icon
                     avatar-lg
                     rounded-circle
                     bg-soft-primary
@@ -22,30 +42,29 @@
                       text-primary
                     "
                   ></i>
-                  <h4>Material</h4>
                 </div>
+                  <h4>Material</h4>
+
               </div>
-              <div class="col-6 mt-1">
-                <div class="text-start my-1">
-                  <span
-                    class="badge badge-primary badge-pill float-right setBadge"
+              <div class="col-7 mt-1 text-right">
+                <div class="my-1">
+                  <span class="notification">Materials added</span>
+                  <span class="badge badge-primary badge-pill mx-2 setBadge"
                     >4</span
                   >
-                  <span class="notification">Materials added</span>
                 </div>
-                <div class="text-start my-1">
-                  <span
-                    class="badge badge-success badge-pill float-right setBadge"
+                <div class="my-1">
+                  <span class="notification">Vendor added</span>
+                  <span class="badge badge-success badge-pill mx-2 setBadge"
                     >2</span
                   >
-                  <span class="notification">Vendor added</span>
                 </div>
-                <div class="text-start my-1">
-                  <span
-                    class="badge badge-warning badge-pill float-right setBadge"
+                <div class="my-1">
+                  <span class="notification">Materials received</span>
+
+                  <span class="badge badge-warning badge-pill mx-2 setBadge"
                     >4</span
                   >
-                  <span class="notification">Materials received</span>
                 </div>
               </div>
             </div>
@@ -56,11 +75,12 @@
         <!-- end col-->
 
         <div class="col-12 col-md-6">
-          <div class="widget-rounded-circle card-box">
+          <div class="widget-rounded-circle card-box-widget">
             <div class="row">
-              <div class="col-6 pb-2">
+              <div class="col-5 text-center">
                 <div
                   class="
+                    widget-icon
                     avatar-lg
                     rounded-circle
                     bg-soft-success
@@ -69,49 +89,38 @@
                 >
                   <i
                     class="
-                      mdi mdi-package-variant-closed
+                      mdi mdi-truck-delivery-outline
                       font-22
                       avatar-title
                       text-success
                     "
                   ></i>
-                  <h4>Dispatched</h4>
                 </div>
+                  <h4>Dispatched</h4>
+
               </div>
-              <div class="col-6 mt-1">
+              <div class="col-7 mt-1 text-right">
                 <div class="text-start my-1">
                   <div class="text-start my-1">
-                    <span
-                      class="
-                        badge badge-primary badge-pill
-                        float-right
-                        setBadge
-                      "
-                      >4</span
-                    >
                     <span class="notification">Dispatched material</span>
+
+                    <span class="badge badge-primary badge-pill mx-2 setBadge"
+                      >1</span
+                    >
                   </div>
                   <div class="text-start my-1">
-                    <span
-                      class="
-                        badge badge-success badge-pill
-                        float-right
-                        setBadge
-                      "
+                    <span class="notification">Acknowledged</span>
+
+                    <span class="badge badge-success badge-pill mx-2 setBadge"
                       >2</span
                     >
-                    <span class="notification">Acknowledged</span>
                   </div>
                   <div class="text-start my-1">
-                    <span
-                      class="
-                        badge badge-warning badge-pill
-                        float-right
-                        setBadge
-                      "
+                    <span class="notification">Pending</span>
+
+                    <span class="badge badge-warning badge-pill mx-2 setBadge"
                       >4</span
                     >
-                    <span class="notification">Pending</span>
                   </div>
                 </div>
               </div>
@@ -122,18 +131,18 @@
         </div>
       </div>
 
-      <div class="row mt-2">
+      <div class="row mt-3">
         <!-- end col-->
         <div class="col-12 col-md-6">
           <b-card>
-            <h2>BAR CHART</h2>
+            <h4>Bar Chart</h4>
             <bar-chart />
           </b-card>
         </div>
 
         <div class="col-12 col-md-6">
           <b-card>
-            <h2>PIE CHART</h2>
+            <h4>Pie Chart</h4>
             <pie-chart />
           </b-card>
         </div>
@@ -149,6 +158,11 @@ import PieChart from "@/components/PieChart";
 export default {
   components: { authLayout, PieChart, BarChart },
   name: "Home",
+  data(){
+    return{
+      
+    }
+  }
 };
 </script>
 
@@ -156,43 +170,13 @@ export default {
 .setBadge {
   margin-top: 2px;
 }
+
+.widget-icon {
+  margin: auto;
+}
 .notification {
-  margin-left: 4vw;
-  font-size: 13.28px;
-  font-weight: bold;
-}
-
-@media (max-width: 1310px) {
-  .notification {
-    margin-left: 1vw;
-  }
-}
-@media (max-width: 1098px) {
-  .notification {
-    margin-left: -3px;
-  }
-}
-
-@media (max-width: 765px) {
-  .notification {
-    margin-left: 50px;
-  }
-}
-@media (max-width: 535px) {
-  .notification {
-    margin-left: 4px;
-  }
-}
-@media (max-width: 430px) {
-  .notification {
-    margin-left: -5px;
-    font-size: 12.7px;
-  }
-}
-@media (max-width: 400px) {
-  .notification {
-    margin-left: -20px;
-    font-size: 12.7px;
-  }
+  /* margin-left: 4vw; */
+  font-size: 0.8rem;
+  /* font-weight: bold; */
 }
 </style>
