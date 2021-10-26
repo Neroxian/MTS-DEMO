@@ -2,74 +2,6 @@
   <auth-layout>
     <div>
       <div>
-<<<<<<< HEAD
-        <ValidationObserver ref="form">
-          <b-form @submit.prevent="onSubmit">
-            <div class="card-box">
-              <h4 class="bg-light p-2 mb-3 text-uppercase">
-                Add material category
-              </h4>
-
-              <ValidationProvider
-                mode="eager"
-                rules="required|alpha"
-                name="Sub category"
-                v-slot="{ classes, errors }"
-              >
-                <b-form-group
-                  class="mb-2"
-                  id="input-group-2"
-                  label-for="input-2"
-                >
-                  <template v-slot:label>
-                    Sub Category Name<span class="text-danger">*</span>
-                  </template>
-                  <b-form-input
-                    class="control"
-                    :class="classes"
-                    id="input-2"
-                    v-model="form.subCategory"
-                    placeholder="Enter name"
-                  ></b-form-input>
-                  <span class="highlightError">{{ errors[0] }}</span>
-                </b-form-group>
-              </ValidationProvider>
-
-              <b-form-group
-                class=""
-                id="input-group-3"
-                label="Details:"
-                label-for="input-2"
-              >
-                <b-form-textarea
-                  id="input-2"
-                  placeholder="Enter the details here..."
-                  v-model="form.details"
-                  no-resize
-                ></b-form-textarea>
-              </b-form-group>
-
-              <div class="form-group">
-                <b-form-group
-                  id="input-group-8"
-                  label="Select Date:"
-                  label-for="input-8"
-                >
-                  <b-form-datepicker
-                    id="input-8"
-                    v-model="value"
-                    class="mb-2"
-                  ></b-form-datepicker>
-                </b-form-group>
-              </div>
-
-              <!-- Button  -->
-              <div class="text-center mt-2">
-                <b-button
-                  type="submit"
-                  class="shadow-none width-sm"
-                  variant="success"
-=======
         <h3 class="px-1">Add Material Category</h3>
 
         <div class="card-box">
@@ -87,13 +19,15 @@
                     id="input-group-2"
                     label-for="input-2"
                   >
-                    <template v-slot:label> Name </template>
+                    <template v-slot:label>
+                      Category Name<span class="text-danger">*</span>
+                    </template>
                     <b-form-input
                       class="control"
                       :class="classes"
                       id="input-2"
                       v-model="form.subCategory"
-                      placeholder=""
+                      placeholder="Enter material category"
                     ></b-form-input>
                     <span class="highlightError">{{ errors[0] }}</span>
                   </b-form-group>
@@ -102,12 +36,12 @@
                 <b-form-group
                   class=""
                   id="input-group-3"
-                  label="Details:"
+                  label="Details"
                   label-for="input-2"
                 >
                   <b-form-textarea
                     id="input-2"
-                    placeholder=""
+                    placeholder="Enter the details here..."
                     v-model="form.details"
                     no-resize
                   ></b-form-textarea>
@@ -143,9 +77,9 @@
             responsive="md"
             stacked="sm"
             :striped="isSmall"
-            light
-            outlined
-            bordered
+            head-variant="light"
+            borderless
+            hover
             :items="items"
             :fields="copy"
             thead-tr-class="text-center"
@@ -179,13 +113,9 @@
                   </div>
                 </template>
                 <template>
-                  <div class="text-center">
-                    <b-button variant="primary" class="btn width-sm"
-                      >Edit</b-button
-                    >
-                    <b-button variant="danger" class="m-1 width-sm"
-                      >Delete</b-button
-                    >
+                  <div class="d-flex justify-content-start">
+                       <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
+                       <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
                   </div>
                 </template>
               </b-card>
@@ -193,98 +123,11 @@
 
             <!-- Actions -->
             <template #cell(actions) v-if="!isSmall">
-              <div>
-                <b-button variant="primary" class="m-1 width-sm">Edit</b-button>
-                <b-button variant="danger" class="m-1 width-sm"
-                  >Delete</b-button
->>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
-                >
-                  Add Material
-                </b-button>
-              </div>
-<<<<<<< HEAD
-            </div>
-          </b-form>
-        </ValidationObserver>
-      </div>
-
-      <!-- Responsive Table -->
-      <div class="card-box mt-4">
-        <h4 class="bg-light p-2 mb-3 text-uppercase">
-          previously added material category
-        </h4>
-        <select v-model="defaultKey" v-if="isSmall">
-          <option v-for="(key, idx) in fields" :key="idx" :value="key">
-            {{ key }}
-          </option>
-        </select>
-        <b-table
-          id="dataTable"
-          responsive="md"
-          stacked="sm"
-          :striped="isSmall"
-          light
-          outlined
-          head-variant="light"
-          hover
-          :items="items"
-          :fields="copy"
-          thead-tr-class="text-center"
-          :tbody-tr-class="isSmall ? '' : 'text-center'"
-        >
-          <template v-slot:[`cell(${defaultKey})`]="row">
-            <div
-              class="d-flex justify-content-between justify-content-sm-center"
-            >
-              <div>{{ row.item[defaultKey] }}</div>
-              <b-button
-                class="btn btn-xs"
-                v-if="isSmall"
-                @click="row.toggleDetails"
-                ><i class="mdi mdi-plus"> </i
-                >{{ row.detailsShowing ? "Hide" : "Show" }}
-              </b-button>
-            </div>
-          </template>
-
-          <template #row-details="row" v-if="isSmall">
-            <b-card class="text-left p-0">
-              <template
-                v-for="(field, idx) in fields.filter(
-                  (f) => f !== defaultKey && f !== 'actions'
-                )"
-              >
-                <div :key="idx">
-                  <span class="font-weight-bold">{{ field }}:</span>
-                  {{ row.item[field] }}
-                </div>
-              </template>
-              <template>
-                <div>
-                  <b-button size="sm" variant="primary" class="btn btn-xs"
-                    >Edit</b-button
-                  >
-                  <b-button size="sm" variant="danger" class="m-1"
-                    >Delete</b-button
-                  >
-                </div>
-              </template>
-            </b-card>
-          </template>
-
-          <!-- Actions -->
-          <template #cell(actions) v-if="!isSmall">
-            <div>
-              <b-button size="xs" variant="primary" class="m-1">Edit</b-button>
-              <b-button size="sm" variant="danger" class="m-1">Delete</b-button>
-            </div>
-          </template>
-        </b-table>
-=======
+               <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
+               <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
             </template>
           </b-table>
         </div>
->>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
       </div>
     </div>
   </auth-layout>
@@ -324,20 +167,23 @@ export default {
     return {
       size: window.innerWidth,
       defaultKey: "category",
-      fields: ["category", "details", "date", "actions"],
+      fields: ["category", "subCategory", "details", "date", "actions"],
       items: [
         {
           category: "Academics",
+          subCategory: "Study",
           details: "certificates",
           date: "4 Nov 2021",
         },
         {
           category: "Academics",
+          subCategory: "Study",
           details: "certificates",
           date: "4 Nov 2021",
         },
         {
           category: "Academics",
+          subCategory: "Study",
           details: "certificates",
           date: "4 Nov 2021",
         },

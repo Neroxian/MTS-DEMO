@@ -1,11 +1,6 @@
 <template>
   <auth-layout>
-<<<<<<< HEAD
-    <div class="card-box">
-      <h4 class="bg-light p-2 text-uppercase">Edit Vendor</h4>
-=======
     <h3 class="px-1">Edit Vendor</h3>
->>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
 
     <div class="card-box">
       <!-- Parent Form -->

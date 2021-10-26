@@ -5,12 +5,6 @@
           <h3 class="px-1">Add Material</h3>
 
       <b-form @submit.prevent="submit" class="card-box">
-<<<<<<< HEAD
-        <div class="">
-          <h4 class="bg-light p-2 text-uppercase">Add Material</h4>
-        </div>
-=======
->>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
         <b-form-group label-for="material-name">
           <template v-slot:label>
             Material name <span class="text-danger">*</span>
@@ -108,7 +102,7 @@
             />
           </div>
         </div>
-        <div>
+        <!-- <div>
           <b-table
             :items="filteredMaterials"
             :fields="fields"
@@ -133,7 +127,71 @@
               </b-button>
             </template>
           </b-table>
-        </div>
+        </div> -->
+
+
+
+         <!-- NEW TABLE -->
+          <select v-model="defaultKey" v-if="isSmall">
+            <option v-for="(key, idx) in fields" :key="idx" :value="key">
+              {{ key }}
+            </option>
+          </select>
+          <b-table
+            id="dataTable"
+            responsive="md"
+            stacked="sm"
+            :striped="isSmall"
+            head-variant="light"
+            borderless
+            hover
+            :items="items"
+            :fields="copy"
+            thead-tr-class="text-center"
+            :tbody-tr-class="isSmall ? '' : 'text-center'"
+          >
+            <template v-slot:[`cell(${defaultKey})`]="row">
+              <div
+                class="d-flex justify-content-between justify-content-sm-center"
+              >
+                <div>{{ row.item[defaultKey] }}</div>
+                <b-button
+                  class="btn btn-xs"
+                  v-if="isSmall"
+                  @click="row.toggleDetails"
+                  ><i class="mdi mdi-plus"> </i
+                  >{{ row.detailsShowing ? "Hide" : "Show" }}
+                </b-button>
+              </div>
+            </template>
+
+            <template #row-details="row" v-if="isSmall">
+              <b-card class="text-left p-0">
+                <template
+                  v-for="(field, idx) in fields.filter(
+                    (f) => f !== defaultKey && f !== 'actions'
+                  )"
+                >
+                  <div :key="idx">
+                    <span class="font-weight-bold">{{ field }}:</span>
+                    {{ row.item[field] }}
+                  </div>
+                </template>
+                <template>
+                  <div class="d-flex justify-content-start">
+                       <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
+                       <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
+                  </div>
+                </template>
+              </b-card>
+            </template>
+
+            <!-- Actions -->
+            <template #cell(actions) v-if="!isSmall">
+               <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
+               <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
+            </template>
+          </b-table>
       </div>
 
       <!-- Edit Modal -->
@@ -240,6 +298,37 @@ export default {
   },
   data() {
     return {
+      // NEW TABLE
+      size: window.innerWidth,
+      defaultKey: "name",
+      fields: [{ key: "material", label: "Material-ID" }, "name", "details", "vendor", "category", "Actions"],
+      items: [
+       {
+          material: "P25M31",
+          id: 1,
+          name: "Books",
+          details: "Books from XYZ",
+          // manufacturingDate: "2021-08-01",
+          // expiryDate: "2021-10-31",
+          vendor: "XYZ",
+          category: "Academic",
+          subCategory: "MSCIT",
+          price: 100,
+        },
+        {
+          material: "X25M31",
+          id: 2,
+          name: "Pens",
+          details: "Pen from ABC",
+          // manufacturingDate: "2021-08-01",
+          // expiryDate: "2021-10-31",
+          vendor: "ABC",
+          category: "Exams",
+          subCategory: "ERA",
+          price: 500,
+        },
+      ],
+      // NEW TABLE ENDS
       name: "",
       details: "",
       manufacturingDate: "",
@@ -248,42 +337,38 @@ export default {
       category: "",
       subCategory: "",
       price: 0,
-      fields: [
-        { key: "id", label: "Sr no." },
-        { key: "name", label: "Name" },
-        { key: "details", label: "Details" },
-        // { key: "manufacturingDate", label: "Manufacturing Date" },
-        // { key: "expiryDate", label: "Expiry Date" },
-        { key: "vendor", label: "Vendor" },
-        { key: "category", label: "Category" },
-        // { key: "subCategory", label: "Sub Category" },
-        // { key: "price", label: "Price" },
-        { key: "actions", label: "Actions" },
-      ],
-      materials: [
-        {
-          id: 1,
-          name: "Books",
-          details: "Books from XYZ",
-          manufacturingDate: "2021-08-01",
-          expiryDate: "2021-10-31",
-          vendor: "XYZ",
-          category: "Academic",
-          subCategory: "MSCIT",
-          price: 100,
-        },
-        {
-          id: 2,
-          name: "Pens",
-          details: "Pen from ABC",
-          manufacturingDate: "2021-08-01",
-          expiryDate: "2021-10-31",
-          vendor: "ABC",
-          category: "Exams",
-          subCategory: "ERA",
-          price: 500,
-        },
-      ],
+      // fields: [
+      //   { key: "id", label: "Sr no." },
+      //   { key: "name", label: "Name" },
+      //   { key: "details", label: "Details" },
+      //   { key: "vendor", label: "Vendor" },
+      //   { key: "category", label: "Category" },
+      //   { key: "actions", label: "Actions" },
+      // ],
+      // materials: [
+      //   {
+      //     id: 1,
+      //     name: "Books",
+      //     details: "Books from XYZ",
+      //     manufacturingDate: "2021-08-01",
+      //     expiryDate: "2021-10-31",
+      //     vendor: "XYZ",
+      //     category: "Academic",
+      //     subCategory: "MSCIT",
+      //     price: 100,
+      //   },
+      //   {
+      //     id: 2,
+      //     name: "Pens",
+      //     details: "Pen from ABC",
+      //     manufacturingDate: "2021-08-01",
+      //     expiryDate: "2021-10-31",
+      //     vendor: "ABC",
+      //     category: "Exams",
+      //     subCategory: "ERA",
+      //     price: 500,
+      //   },
+      // ],
       searchBy: "name",
       searchInput: "",
       editModal: {
@@ -297,6 +382,17 @@ export default {
       materialToBeDeleted: null,
     };
   },
+  // NEW TABLE
+  mounted() {
+    window.addEventListener(
+      "resize",
+      () => {
+        this.size = window.innerWidth;
+      },
+      true
+    );
+  },
+  // TABLE ENDS
   methods: {
     submit() {
       this.materials.push({
@@ -385,6 +481,21 @@ export default {
       const expiryDate = new Date(this.expiryDate);
 
       return expiryDate.getTime() > manufacturingDate.getTime();
+    },
+    // NEW TABLE
+    copy() {
+      if (this.isSmall) {
+        const idx = this.fields.findIndex((f) => f === this.defaultKey);
+        if (idx !== -1) {
+          let copy = [];
+          copy.push(this.fields[idx]);
+          return copy;
+        }
+      }
+      return this.fields;
+    },
+    isSmall() {
+      return this.size < 576;
     },
   },
 };

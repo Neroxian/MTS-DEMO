@@ -1,37 +1,6 @@
 <template>
   <auth-layout>
-<<<<<<< HEAD
-    <div class="card-box">
-    <h4 class="bg-light text-uppercase p-2 ">Add Vendor</h4>
-
-    <!-- Parent Form -->
-    <b-form @submit.prevent="add">
-      <div class="text-center form-step">
-        <span v-for="(step, idx) in steps" :key="idx">
-          <span role="button" @click="currentStep = idx" class="width-sm" :class="{ 'text-primary': idx === currentStep }">{{ step }}</span>
-          <span v-if="idx !== steps.length - 1"> > </span>
-        </span>
-      </div>
-
-      <!-- FORM 1 / Vendor Details -->
-      <div :class="{ hidden: currentStep !== 0 }">
-        <!-- Vendor Name -->
-        <b-form-group label="Vendor Name: " label-for="vendor-name">
-          <b-form-input
-            id="vendor-name"
-            type="text"
-            placeholder="Vendor Name"
-            v-model="vendorName"
-            class="shadow-none"
-          />
-        </b-form-group>
-        <!-- Company Type -->
-        <b-form-group label="Company Type: " label-for="company-type">
-          <b-form-select v-model="companyType" :options="companyTypeOptions" />
-        </b-form-group>
-=======
     <h3 class="px-1">Add Vendor</h3>
->>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
 
     <div class="card-box">
       <!-- Parent Form -->

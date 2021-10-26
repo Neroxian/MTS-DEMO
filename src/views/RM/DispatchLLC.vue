@@ -4,10 +4,6 @@
         <h3 class="px-1">Dispatch Material</h3>
 
       <div class="card-box">
-<<<<<<< HEAD
-        <h4 class="bg-light p-2 text-uppercase">Dispatch Material</h4>
-=======
->>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
         <table class="table table-bordered text-center">
           <thead class="">
             <tr>

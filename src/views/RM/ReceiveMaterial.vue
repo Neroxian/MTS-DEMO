@@ -1,22 +1,11 @@
 <template>
   <auth-layout>
     <div class="main-div">
-<<<<<<< HEAD
-      <div class="card-box">
-        <div class="row">
-          <div class="col-12">
-            <h4 class="text-start text-uppercase p-2 bg-light">
-              Received Material from Vendor
-            </h4>
-            <!-- <div class="text-right mb-1"></div> -->
-          </div>
-=======
        <h3 class="px-1">
               Received Material from Vendor
             </h3>
       <div class="card-box">
         <div class="row">
->>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
         </div>
         <!-- {{getReceiveMaterial}} -->
         <table class="table table-bordered mb-2">
