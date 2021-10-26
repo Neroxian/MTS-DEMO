@@ -2,9 +2,17 @@
   <auth-layout>
     <div class="main-div">
        <h3 class="px-1">
-              Received Material from Vendor
+              Received Material
             </h3>
       <div class="card-box">
+        <div class="row">
+          <div class="col col-6"><h4 class="px-1">Add Material Entry</h4></div>
+          <div class="col col-6 text-right mb-2">
+            <button @click="showForm" class="btn width-sm btn-success">
+              Add Entry
+            </button>
+          </div>
+        </div>
         <div class="row">
         </div>
         <!-- {{getReceiveMaterial}} -->
@@ -30,11 +38,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="text-center">
-          <button @click="showForm" class="btn width-sm btn-success">
-            Add Entry
-          </button>
-        </div>
+        
 
         <!-- <b-table
             class="m-0"
@@ -57,8 +61,8 @@
       </div>
 
        <div class="mt-4" v-if="show">
-        <h3 class="px-1 ">Add Received Material Details</h3>
       <div class="card-box" >
+        <h4 class="px-1 ">Add Received Material Details</h4>
         <form @submit.prevent="add">
           <div class="row">
             <div class="col-6 align-items-center">

@@ -108,6 +108,7 @@
             :fields="fields"
             bordered
             responsive
+            striped
             class="text-center"
           >
             <template #cell(actions)="row" class="">

@@ -180,6 +180,59 @@
             <span class="badge badge-dark badge-pill">Dark</span>
         </div>
         </div> 
+
+        <div class="card-box">
+            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-3">Track Order</h4>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="mb-4">
+                                                    <h5 class="mt-0">Order ID:</h5>
+                                                    <p>#VL2537</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="mb-4">
+                                                    <h5 class="mt-0">Tracking ID:</h5>
+                                                    <p>894152012012</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="track-order-list">
+                                            <ul class="list-unstyled">
+                                                <li class="completed">
+                                                    <h5 class="mt-0 mb-1">Order Placed</h5>
+                                                    <p class="text-muted">April 21 2019 <small class="text-muted">07:22 AM</small> </p>
+                                                </li>
+                                                <li class="completed">
+                                                    <h5 class="mt-0 mb-1">Packed</h5>
+                                                    <p class="text-muted">April 22 2019 <small class="text-muted">12:16 AM</small></p>
+                                                </li>
+                                                <li>
+                                                    <span class="active-dot dot"></span>
+                                                    <h5 class="mt-0 mb-1">Shipped</h5>
+                                                    <p class="text-muted">April 22 2019 <small class="text-muted">05:16 PM</small></p>
+                                                </li>
+                                                <li>
+                                                    <h5 class="mt-0 mb-1"> Delivered</h5>
+                                                    <p class="text-muted">Estimated delivery within 3 days</p>
+                                                </li>
+                                            </ul>
+
+                                            <div class="text-center mt-4">
+                                                <a href="#" class="btn btn-primary">Show Details</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+        </div>
+
 </div>
 </template>
 

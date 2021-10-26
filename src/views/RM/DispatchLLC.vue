@@ -4,7 +4,7 @@
         <h3 class="px-1">Dispatch Material</h3>
 
       <div class="card-box">
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered table-striped text-center">
           <thead class="">
             <tr>
               <th scope="col">Sr No.</th>

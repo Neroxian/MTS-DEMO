@@ -8,7 +8,6 @@
         <b-form-input
           id="login-id"
           type="text"
-          placeholder="Login ID"
           v-model="loginID"
           class="shadow-none"
         />
@@ -17,7 +16,6 @@
         <b-form-input
           id="password"
           type="password"
-          placeholder="password"
           v-model="password"
           class="shadow-none"
         />
@@ -29,7 +27,7 @@
       >
         Remember me
       </b-form-checkbox>
-      <div class="my-2 text-right">
+      <div class="my-2 text-center">
         <b-button type="submit" variant="success" class="width-sm shadow-none"
           >Login</b-button
         >

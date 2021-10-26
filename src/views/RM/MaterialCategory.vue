@@ -74,10 +74,10 @@
             id="dataTable"
             responsive="md"
             stacked="sm"
-            :striped="isSmall"
             light
             outlined
             bordered
+            striped
             :items="items"
             :fields="copy"
             thead-tr-class="text-center"
@@ -124,7 +124,7 @@
             </template>
 
             <!-- Actions -->
-            <template #cell(actions) v-if="!isSmall">
+            <template #cell(actions) v-if="!isSmall" >
               <div>
                 <b-button variant="primary" class="m-1 width-sm">Edit</b-button>
                 <b-button variant="danger" class="m-1 width-sm"

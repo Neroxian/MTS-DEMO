@@ -9,7 +9,7 @@
         :items="items"
         :fields="fields"
         thead-class="thead"
-        class=""
+        class=" table-striped"
       ></b-table>
     </div>
   </auth-layout>

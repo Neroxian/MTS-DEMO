@@ -58,6 +58,16 @@
           "path": "/acknowledge-report"
         }
       ]
+    },
+    {
+      "name": "Tracking",
+      "icon": "mdi mdi-map-marker-radius-outline",
+      "subLinks": [
+        {
+          "name": "Track Item",
+          "path": "/track"
+        }
+      ]
     }
   ],
   "User1": [

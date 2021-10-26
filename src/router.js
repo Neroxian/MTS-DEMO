@@ -117,6 +117,11 @@ export default new Router({
       component: load(RM, "UIforms")
     },
     {
+      path: "/track",
+      name: "Track",
+      component: load(RM, "Track")
+    },
+    {
       path: "/*",
       name: "404",
       component: load(RM, "404")

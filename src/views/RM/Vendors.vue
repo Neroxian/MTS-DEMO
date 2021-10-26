@@ -11,7 +11,6 @@
               id="vendor-filter"
               type="text"
               class="w-100 shadow-none"
-              placeholder="Search any vendor"
               v-model="filterN"
             />
           </div>

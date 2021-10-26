@@ -1200,9 +1200,9 @@ body[data-sidebar-icon="twotones"] #sidebar-menu > ul > li > a svg {
   display: inline-block;
   height: 55px;
   line-height: 55px;
-  width: 60px;
+  width: 90px;
   background-color: transparent;
-  font-size: 24px;
+  font-size: 27px;
   cursor: pointer;
 }
 .navbar-custom .button-menu-mobile.disable-btn {
