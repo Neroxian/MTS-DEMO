@@ -1,14 +1,82 @@
 <template>
   <auth-layout>
     <div class="main-div">
-       <h3 class="px-1">
-              Received Material from Vendor
-            </h3>
+      <h3 class="px-1">Received Material from Vendor</h3>
       <div class="card-box">
-        <div class="row">
-        </div>
-        <!-- {{getReceiveMaterial}} -->
-        <table class="table table-bordered mb-2">
+        <!-- NEW TABLE -->
+        <select v-model="defaultKey" v-if="isSmall">
+          <option v-for="(key, idx) in fields" :key="idx" :value="key">
+            {{ key }}
+          </option>
+        </select>
+        <b-table
+          id="dataTable"
+          responsive="md"
+          stacked="sm"
+          :striped="isSmall"
+          head-variant="light"
+          borderless
+          hover
+          :items="items"
+          :fields="copy"
+          thead-tr-class="text-center"
+          :tbody-tr-class="isSmall ? '' : 'text-center'"
+        >
+          <template v-slot:[`cell(${defaultKey})`]="row">
+            <div
+              class="d-flex justify-content-between justify-content-sm-center"
+            >
+              <div>{{ row.item[defaultKey] }}</div>
+              <b-button
+                class="btn btn-xs"
+                v-if="isSmall"
+                @click="row.toggleDetails"
+                ><i class="mdi mdi-plus"> </i
+                >{{ row.detailsShowing ? "Hide" : "Show" }}
+              </b-button>
+            </div>
+          </template>
+
+          <template #row-details="row" v-if="isSmall">
+            <b-card class="text-left p-0">
+              <template
+                v-for="(field, idx) in fields.filter(
+                  (f) => f !== defaultKey && f !== 'actions'
+                )"
+              >
+                <div :key="idx">
+                  <span class="font-weight-bold">{{ field }}:</span>
+                  {{ row.item[field] }}
+                </div>
+              </template>
+              <template>
+                <div class="d-flex justify-content-start">
+                  <button class="btn btn-xs btn-light mx-1">
+                    <i class="mdi mdi-plus"></i>
+                  </button>
+                  <button class="btn btn-xs btn-dark">
+                    <i class="mdi mdi-minus"></i>
+                  </button>
+                </div>
+              </template>
+            </b-card>
+          </template>
+
+          <!-- Actions -->
+          <template #cell(actions) v-if="!isSmall">
+            <button class="btn btn-xs btn-light mx-1">
+              <i class="mdi mdi-plus"></i>
+            </button>
+            <button class="btn btn-xs btn-dark">
+              <i class="mdi mdi-minus"></i>
+            </button>
+          </template>
+        </b-table>
+        <!--  TABLE ENDS -->
+
+        <!-- OLD TABLE -->
+
+        <!-- <table class="table table-bordered mb-2">
           <thead class="">
             <tr>
               <th scope="col">Sr no</th>
@@ -29,7 +97,7 @@
               <td>{{ vendor.quantity }}</td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
         <div class="text-center">
           <button @click="showForm" class="btn width-sm btn-success">
             Add Entry
@@ -56,85 +124,85 @@
             ></b-pagination> -->
       </div>
 
-       <div class="mt-4" v-if="show">
-        <h3 class="px-1 ">Add Received Material Details</h3>
-      <div class="card-box" >
-        <form @submit.prevent="add">
-          <div class="row">
-            <div class="col-6 align-items-center">
-              <b-form-group
-                id="input-group-6"
-                label="Vendor :"
-                label-for="input-6"
-              >
-                <b-form-select
-                  id="input-6"
-                  v-model="vendorName"
-                  :options="['Ramesh', 'Suresh', 'Rahul', 'Chirag']"
-                ></b-form-select>
-              </b-form-group>
+      <div class="mt-4" v-if="show">
+        <h3 class="px-1">Add Received Material Details</h3>
+        <div class="card-box">
+          <form @submit.prevent="add">
+            <div class="row">
+              <div class="col-6 align-items-center">
+                <b-form-group
+                  id="input-group-6"
+                  label="Vendor :"
+                  label-for="input-6"
+                >
+                  <b-form-select
+                    id="input-6"
+                    v-model="vendorName"
+                    :options="['Ramesh', 'Suresh', 'Rahul', 'Chirag']"
+                  ></b-form-select>
+                </b-form-group>
+              </div>
+
+              <div class="col-6 align-items-center">
+                <b-form-group
+                  id="input-group-6"
+                  label="Material :"
+                  label-for="input-6"
+                >
+                  <b-form-select
+                    id="input-6"
+                    v-model="material"
+                    :options="['KYP Books', 'MSCIT Certificate', 'Pamplets']"
+                  ></b-form-select>
+                </b-form-group>
+              </div>
             </div>
 
-            <div class="col-6 align-items-center">
-              <b-form-group
-                id="input-group-6"
-                label="Material :"
-                label-for="input-6"
-              >
-                <b-form-select
-                  id="input-6"
-                  v-model="material"
-                  :options="['KYP Books', 'MSCIT Certificate', 'Pamplets']"
-                ></b-form-select>
-              </b-form-group>
-            </div>
-          </div>
+            <div class="row">
+              <div class="col-6 align-items-center">
+                <b-form-group
+                  id="input-group-6"
+                  label="Category :"
+                  label-for="input-6"
+                >
+                  <b-form-select
+                    id="input-6"
+                    v-model="category"
+                    :options="['Academic', 'Marketing Mateerial']"
+                  ></b-form-select>
+                </b-form-group>
+              </div>
 
-          <div class="row">
-            <div class="col-6 align-items-center">
-              <b-form-group
-                id="input-group-6"
-                label="Category :"
-                label-for="input-6"
-              >
-                <b-form-select
-                  id="input-6"
-                  v-model="category"
-                  :options="['Academic', 'Marketing Mateerial']"
-                ></b-form-select>
-              </b-form-group>
-            </div>
-
-            <div class="col-6 align-items-center">
-              <b-form-group
-                id="input-group-8"
-                label="Date of Receipt :"
-                label-for="input-8"
-              >
-                <b-form-datepicker
-                  id="input-8"
-                  v-model="doReceipt"
-                ></b-form-datepicker>
-              </b-form-group>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-6 align-items-center">
-              <b-form-group
-                id="input-group-1"
-                label="Quantity Received :"
-                label-for="input-1"
-              >
-                <b-form-input
-                  id="input-1"
-                  v-model="quantity"
-                  type="text"
-                ></b-form-input>
-              </b-form-group>
+              <div class="col-6 align-items-center">
+                <b-form-group
+                  id="input-group-8"
+                  label="Date of Receipt :"
+                  label-for="input-8"
+                >
+                  <b-form-datepicker
+                    id="input-8"
+                    v-model="doReceipt"
+                  ></b-form-datepicker>
+                </b-form-group>
+              </div>
             </div>
 
-            <!-- <div class="col-6 align-items-center">
+            <div class="row">
+              <div class="col-6 align-items-center">
+                <b-form-group
+                  id="input-group-1"
+                  label="Quantity Received :"
+                  label-for="input-1"
+                >
+                  <b-form-input
+                    id="input-1"
+                    v-model="quantity"
+                    type="text"
+                  ></b-form-input>
+                </b-form-group>
+              </div>
+
+              <!-- <div class="col-6 align-items-center">
                         <div class="col-auto">
                             <label class="form-label">PO Date. :</label>
                         </div>
@@ -142,12 +210,15 @@
                             <input type="date" v-model="vendorName" class="form-control">
                         </div>
                     </div> -->
-          </div>
-          <div class="text-center mt-2">
-            <button type="submit" class="btn width-sm btn-success">Add</button>
-          </div>
-        </form>
-      </div></div>
+            </div>
+            <div class="text-center mt-2">
+              <button type="submit" class="btn width-sm btn-success">
+                Add
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </auth-layout>
 </template>
@@ -161,7 +232,6 @@ td {
 .hide {
   display: none;
 }
-
 </style>
 
 <script>
@@ -175,6 +245,36 @@ export default {
   name: "ReceiveMaterialHome",
   data() {
     return {
+      size: window.innerWidth,
+      defaultKey: "sr",
+      fields: [
+        { key: "sr", label: "Sr No." },
+        "material",
+        "category",
+        "vendor",
+        "received_on",
+        "quantity",
+      ],
+      items: [
+        {
+          sr: 1,
+          material: "Books",
+          category: "Academics",
+          vendor: "Jhon",
+          received_on: "25 Oct 2021",
+          quantity: 100,
+        },
+        {
+          sr: 3,
+          material: "Certificates",
+          category: "Academics",
+          vendor: "Jhon",
+          received_on: "25 Oct 2021",
+          quantity: 100,
+        },
+      ],
+      // NEW TABLE ENDS
+
       show: false,
       vendorName: "",
       material: "",
@@ -208,6 +308,31 @@ export default {
   },
   computed: {
     ...mapGetters(["getReceiveMaterial"]),
+    copy() {
+      if (this.isSmall) {
+        const idx = this.fields.findIndex((f) => f === this.defaultKey);
+        if (idx !== -1) {
+          let copy = [];
+          copy.push(this.fields[idx]);
+          return copy;
+        }
+      }
+      return this.fields;
+    },
+    isSmall() {
+      return this.size < 576;
+    },
   },
+  // NEW TABLE
+  mounted() {
+    window.addEventListener(
+      "resize",
+      () => {
+        this.size = window.innerWidth;
+      },
+      true
+    );
+  },
+  // TABLE ENDS
 };
 </script>

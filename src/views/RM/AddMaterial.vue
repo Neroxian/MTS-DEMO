@@ -192,6 +192,7 @@
                <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
             </template>
           </b-table>
+          <!--  TABLE ENDS -->
       </div>
 
       <!-- Edit Modal -->
@@ -300,7 +301,7 @@ export default {
     return {
       // NEW TABLE
       size: window.innerWidth,
-      defaultKey: "name",
+      defaultKey: "material",
       fields: [{ key: "material", label: "Material-ID" }, "name", "details", "vendor", "category", "Actions"],
       items: [
        {

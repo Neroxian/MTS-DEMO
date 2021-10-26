@@ -3,14 +3,9 @@
     <div>
       <div>
         <b-form @submit.prevent="onSubmit">
-            <h3 class="px-1">Target Generation</h3>
+          <h3 class="px-1">Target Generation</h3>
 
           <div class="card-box">
-<<<<<<< HEAD
-            <h4 class="bg-light p-2 text-uppercase">Target Generation</h4>
-=======
->>>>>>> 3eb9fcd71c79a9aa9c2d2d828988be25656dd259
-
             <b-form-group
               label="Select Material: "
               label-for="material"
@@ -57,13 +52,87 @@
             </div>
           </div>
 
-          <div v-if="showTable" class=" mt-4">
+          <div v-if="showTable" class="mt-4">
             <h3 class="px-1">Generated Target</h3>
 
-          <div class="card-box" >
+            <div class="card-box">
+              <!-- NEW TABLE -->
+              <select v-model="defaultKey" v-if="isSmall">
+                <option v-for="(key, idx) in fields" :key="idx" :value="key">
+                  {{ key }}
+                </option>
+              </select>
+              <b-table
+                id="dataTable"
+                responsive="md"
+                stacked="sm"
+                :striped="isSmall"
+                head-variant="light"
+                borderless
+                hover
+                :items="items"
+                :fields="copy"
+                thead-tr-class="text-center"
+                :tbody-tr-class="isSmall ? '' : 'text-center'"
+              >
+                <template v-slot:[`cell(${defaultKey})`]="row">
+                  <div
+                    class="
+                      d-flex
+                      justify-content-between justify-content-sm-center
+                    "
+                  >
+                    <div>{{ row.item[defaultKey] }}</div>
+                    <b-button
+                      class="btn btn-xs"
+                      v-if="isSmall"
+                      @click="row.toggleDetails"
+                      ><i class="mdi mdi-plus"> </i
+                      >{{ row.detailsShowing ? "Hide" : "Show" }}
+                    </b-button>
+                  </div>
+                </template>
 
-            <div class="mt-2" id="addedMaterial" ref="table">
-              <!-- {{ filteredTask }} -->
+                <template #row-details="row" v-if="isSmall">
+                  <b-card class="text-left p-0">
+                    <template
+                      v-for="(field, idx) in fields.filter(
+                        (f) => f !== defaultKey && f !== 'actions'
+                      )"
+                    >
+                      <div :key="idx">
+                        <span class="font-weight-bold">{{ field }}:</span>
+                        {{ row.item[field] }}
+                      </div>
+                    </template>
+                    <template>
+                      <div class="d-flex justify-content-start">
+                        <button class="btn btn-xs btn-light mx-1">
+                          <i class="mdi mdi-plus"></i>
+                        </button>
+                        <button class="btn btn-xs btn-dark">
+                          <i class="mdi mdi-minus"></i>
+                        </button>
+                      </div>
+                    </template>
+                  </b-card>
+                </template>
+
+                <!-- Actions -->
+                <template #cell(actions) v-if="!isSmall">
+                  <button class="btn btn-xs btn-light mx-1">
+                    <i class="mdi mdi-plus"></i>
+                  </button>
+                  <button class="btn btn-xs btn-dark">
+                    <i class="mdi mdi-minus"></i>
+                  </button>
+                </template>
+              </b-table>
+              <!--  TABLE ENDS -->
+
+              <!-- OLD TABLE -->
+
+              <!-- <div class="mt-2" id="addedMaterial" ref="table">
               <table class="table text-center table-bordered">
                 <thead class="">
                   <tr>
@@ -82,11 +151,7 @@
                     <td>Pune Office</td>
                     <td>Rahul(Buldhana)</td>
                     <td>5000</td>
-                    <!-- <td>
-              <router-link :to="`/editsub/${itm.id}`" style="color: white"
-                ><button class="btn btn-primary">Edit</button></router-link
-              >
-            </td> -->
+              
                     <td>
                       <button class="btn m-1 btn-success width-sm">
                         Save
@@ -110,15 +175,16 @@
                   </tr>
                 </tbody>
               </table>
-            </div>
+            </div> -->
 
-            <!-- <div class="sub-table" v-if="showDetails">
+              <!-- <div class="sub-table" v-if="showDetails">
                 <h3 class="font-weight-bold text-center mb-1 p-0">Details</h3>
                 <div>
                     <span>Pune Office</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Rahul(Buldhana) <code> 500 Units</code></span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Pune Learning Center,Mumbai Learning Center <code>250 Units</code> each</span><i id="mdi-icon" class="mdi mdi-arrow-right-bold"></i><span>Learner</span>
                 </div>
             </div> -->
-          </div></div>
+            </div>
+          </div>
         </b-form>
       </div>
     </div>
@@ -133,6 +199,33 @@ export default {
   name: "TargetGeneration",
   data() {
     return {
+      size: window.innerWidth,
+      defaultKey: "sr",
+      fields: [
+        { key: "sr", label: "Sr No." },
+        "material",
+        "from",
+        "to",
+        "quantity",
+        "actions",
+      ],
+      items: [
+        {
+          sr: 1,
+          material: "Books",
+          from: "Pune",
+          to: "Nashik (LLC)",
+          quantity: 100,
+        },
+        {
+          sr: 1,
+          material: "Books",
+          from: "Pune",
+          to: "Nashik (LLC)",
+          quantity: 100,
+        },
+      ],
+      // NEW TABLE ENDS
       showTable: false,
       showDetails: false,
     };
@@ -145,6 +238,33 @@ export default {
       this.showDetails = !this.showDetails;
     },
   },
+  // NEW TABLE
+  mounted() {
+    window.addEventListener(
+      "resize",
+      () => {
+        this.size = window.innerWidth;
+      },
+      true
+    );
+  },
+  computed: {
+    copy() {
+      if (this.isSmall) {
+        const idx = this.fields.findIndex((f) => f === this.defaultKey);
+        if (idx !== -1) {
+          let copy = [];
+          copy.push(this.fields[idx]);
+          return copy;
+        }
+      }
+      return this.fields;
+    },
+    isSmall() {
+      return this.size < 576;
+    },
+  },
+  // TABLE ENDS
 };
 </script>
 
@@ -158,7 +278,7 @@ tr,
 td {
   vertical-align: middle;
 }
-i{
+i {
   color: black;
 }
 /* .sub-table{
