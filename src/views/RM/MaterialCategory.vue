@@ -19,13 +19,15 @@
                     id="input-group-2"
                     label-for="input-2"
                   >
-                    <template v-slot:label> Name </template>
+                    <template v-slot:label>
+                      Category Name<span class="text-danger">*</span>
+                    </template>
                     <b-form-input
                       class="control"
                       :class="classes"
                       id="input-2"
                       v-model="form.subCategory"
-                      placeholder=""
+                      placeholder="Enter material category"
                     ></b-form-input>
                     <span class="highlightError">{{ errors[0] }}</span>
                   </b-form-group>
@@ -34,12 +36,12 @@
                 <b-form-group
                   class=""
                   id="input-group-3"
-                  label="Details:"
+                  label="Details"
                   label-for="input-2"
                 >
                   <b-form-textarea
                     id="input-2"
-                    placeholder=""
+                    placeholder="Enter the details here..."
                     v-model="form.details"
                     no-resize
                   ></b-form-textarea>
@@ -74,10 +76,10 @@
             id="dataTable"
             responsive="md"
             stacked="sm"
-            light
-            outlined
-            bordered
-            striped
+            :striped="isSmall"
+            head-variant="light"
+            borderless
+            hover
             :items="items"
             :fields="copy"
             thead-tr-class="text-center"
@@ -111,26 +113,18 @@
                   </div>
                 </template>
                 <template>
-                  <div class="text-center">
-                    <b-button variant="primary" class="btn width-sm"
-                      >Edit</b-button
-                    >
-                    <b-button variant="danger" class="m-1 width-sm"
-                      >Delete</b-button
-                    >
+                  <div class="d-flex justify-content-start">
+                       <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
+                       <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
                   </div>
                 </template>
               </b-card>
             </template>
 
             <!-- Actions -->
-            <template #cell(actions) v-if="!isSmall" >
-              <div>
-                <b-button variant="primary" class="m-1 width-sm">Edit</b-button>
-                <b-button variant="danger" class="m-1 width-sm"
-                  >Delete</b-button
-                >
-              </div>
+            <template #cell(actions) v-if="!isSmall">
+               <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
+               <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
             </template>
           </b-table>
         </div>
