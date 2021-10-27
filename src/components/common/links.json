@@ -40,7 +40,7 @@
       "icon": "mdi mdi-truck-delivery-outline",
       "subLinks": [
         {
-          "name": "Target Generation",
+          "name": "Shipment Pattern",
           "path": "/target"  
         },
         {
@@ -78,33 +78,22 @@
         {
           "name": "Acknowledge",
           "path": "/acknowledge"
+        },
+        {
+          "name": "Dispatch Material",
+          "path": "/dispatchLLC"
         }
       ]
     }
   ],
   "User2": [
     {
-      "name": "ALC routes",
+      "name": "Learner",
       "icon": "mdi mdi-account-key",
       "subLinks": [
         {
-          "name": "Dispatch Material",
-          "path": "/dispatch"
-        },
-        {
-          "name": "Stock Declaration",
-          "path": "/stock-declaration"
-
-        }
-      ]
-    },
-    {
-      "name": "Packaging",
-      "icon": "mdi mdi-archive-cog-outline",
-      "subLinks": [
-        {
-          "name": "Packaging Pattern",
-          "path": "/packaging"
+          "name": "AcknowledgeL",
+          "path": "/acknowledgeL"
         }
       ]
     }

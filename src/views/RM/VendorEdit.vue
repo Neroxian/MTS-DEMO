@@ -1,6 +1,6 @@
 <template>
   <auth-layout>
-    <h3 class="px-1">Edit Vendor</h3>
+    <h3 class="px-1 font-weight-bold">Edit Vendor</h3>
 
     <div class="card-box">
       <!-- Parent Form -->

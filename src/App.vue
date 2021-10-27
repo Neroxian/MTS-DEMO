@@ -21,7 +21,7 @@ export default {
 
 <style lang="scss">
 #app {
-  // font-family: Helvetica, Arial, sans-serif;
+  font-family: "Nunito", Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

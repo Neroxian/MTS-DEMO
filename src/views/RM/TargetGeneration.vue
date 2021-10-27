@@ -3,7 +3,7 @@
     <div>
       <div>
         <b-form @submit.prevent="onSubmit">
-          <h3 class="px-1">Target Generation</h3>
+          <h3 class="px-1 font-weight-bold">Shipment Pattern</h3>
 
           <div class="card-box">
             <b-form-group
@@ -25,7 +25,6 @@
             >
               <b-form-file
                 id="file-slect"
-                placeholder="Choose a file or drop it here..."
               ></b-form-file>
             </b-form-group>
 
@@ -47,93 +46,23 @@
                 class="btn width-sm btn-success"
                 @click.prevent="toggleTable"
               >
-                Generate Target
+                Generate Pattern
               </button>
             </div>
           </div>
 
           <div v-if="showTable" class="mt-4">
-            <h3 class="px-1">Generated Target</h3>
 
             <div class="card-box">
+            <h4 class="mb-2">Generated Pattern</h4>
               <!-- NEW TABLE -->
-              <select v-model="defaultKey" v-if="isSmall">
-                <option v-for="(key, idx) in fields" :key="idx" :value="key">
-                  {{ key }}
-                </option>
-              </select>
-              <b-table
-                id="dataTable"
-                responsive="md"
-                stacked="sm"
-                :striped="isSmall"
-                head-variant="light"
-                borderless
-                hover
-                :items="items"
-                :fields="copy"
-                thead-tr-class="text-center"
-                :tbody-tr-class="isSmall ? '' : 'text-center'"
-              >
-                <template v-slot:[`cell(${defaultKey})`]="row">
-                  <div
-                    class="
-                      d-flex
-                      justify-content-between justify-content-sm-center
-                    "
-                  >
-                    <div>{{ row.item[defaultKey] }}</div>
-                    <b-button
-                      class="btn btn-xs"
-                      v-if="isSmall"
-                      @click="row.toggleDetails"
-                      ><i class="mdi mdi-plus"> </i
-                      >{{ row.detailsShowing ? "Hide" : "Show" }}
-                    </b-button>
-                  </div>
-                </template>
-
-                <template #row-details="row" v-if="isSmall">
-                  <b-card class="text-left p-0">
-                    <template
-                      v-for="(field, idx) in fields.filter(
-                        (f) => f !== defaultKey && f !== 'actions'
-                      )"
-                    >
-                      <div :key="idx">
-                        <span class="font-weight-bold">{{ field }}:</span>
-                        {{ row.item[field] }}
-                      </div>
-                    </template>
-                    <template>
-                      <div class="d-flex justify-content-start">
-                        <button class="btn btn-xs btn-light mx-1">
-                          <i class="mdi mdi-plus"></i>
-                        </button>
-                        <button class="btn btn-xs btn-dark">
-                          <i class="mdi mdi-minus"></i>
-                        </button>
-                      </div>
-                    </template>
-                  </b-card>
-                </template>
-
-                <!-- Actions -->
-                <template #cell(actions) v-if="!isSmall">
-                  <button class="btn btn-xs btn-light mx-1">
-                    <i class="mdi mdi-plus"></i>
-                  </button>
-                  <button class="btn btn-xs btn-dark">
-                    <i class="mdi mdi-minus"></i>
-                  </button>
-                </template>
-              </b-table>
+              
               <!--  TABLE ENDS -->
 
               <!-- OLD TABLE -->
 
-              <!-- <div class="mt-2" id="addedMaterial" ref="table">
-              <table class="table text-center table-bordered">
+              <div class="mt-2" id="addedMaterial" ref="table">
+              <table class="table text-center table-bordered table-striped">
                 <thead class="">
                   <tr>
                     <th>Sr No.</th>
@@ -141,7 +70,7 @@
                     <th>From</th>
                     <th>To</th>
                     <th>Quantity</th>
-                    <th>Action</th>
+                    <th style="width:12rem">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -153,11 +82,11 @@
                     <td>5000</td>
               
                     <td>
-                      <button class="btn m-1 btn-success width-sm">
+                      <button class="btn m-1 btn-success btn-sm width-xs">
                         Save
                       </button>
                       <button
-                        class="btn m-1 waves-effect waves-light btn-primary"
+                        class="btn m-1 waves-effect waves-light btn-sm btn-primary"
                         @click.prevent="toggleDetails"
                       >
                        <span v-if="showDetails == false"><i class="mdi mdi-plus-thick text-white"></i></span>
@@ -175,7 +104,7 @@
                   </tr>
                 </tbody>
               </table>
-            </div> -->
+            </div>
 
               <!-- <div class="sub-table" v-if="showDetails">
                 <h3 class="font-weight-bold text-center mb-1 p-0">Details</h3>

@@ -2,12 +2,13 @@
   <auth-layout>
     <div>
       <b-toaster name="toaster"></b-toaster>
-          <h3 class="px-1">Add Material</h3>
+          <h3 class="px-1 font-weight-bold">Material</h3>
 
-      <b-form @submit.prevent="submit" class="card-box">
+      <b-form @submit.prevent="submit" class="card-box mb-4" v-if="show">
+          <h4 class="mb-2">Add Material</h4>
         <b-form-group label-for="material-name">
           <template v-slot:label>
-            Material name <span class="text-danger">*</span>
+            Material name 
           </template>
           <b-form-input
             id="material-name"
@@ -20,7 +21,7 @@
         </b-form-group>
         <b-form-group label-for="material-details">
           <template v-slot:label>
-            Material description <span class="text-danger">*</span>
+            Material description 
           </template>
           <b-form-textarea
             id="material-details"
@@ -68,7 +69,6 @@
             <b-form-file
               id="file-slect"
               v-model="file"
-              placeholder="Choose a file or drop it here..."
             ></b-form-file>
           </b-form-group>
         </div>
@@ -79,13 +79,26 @@
             class="shadow-none width-sm"
             variant="success"
           >
-            Add Material
+            Add
           </b-button>
         </div>
       </b-form>
 
-          <h3 class="px-1 mt-4">All Materials</h3>
       <div class="card-box">
+          <div class="row">
+          <h4 class="col-6">All Materials</h4>
+          <div class="col-6 text-right">
+          <b-button
+            type="submit"
+            class="shadow-none width-sm"
+            variant="success"
+            @click="toggleAdd"
+          >
+            Add Material
+          </b-button>
+        </div>
+        </div>
+
         <div class="d-flex justify-content-end row">
           <div class="col-12 col-md-6 my-2">
             <b-form-select
@@ -189,8 +202,8 @@
 
             <!-- Actions -->
             <template #cell(actions) v-if="!isSmall">
-               <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
-               <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
+               <button class="btn btn-primary btn-sm width-xs my-1 mx-1">Edit</button>
+               <button class="btn btn-danger btn-sm width-xs">Delete</button>
             </template>
           </b-table>
           <!--  TABLE ENDS -->
@@ -301,9 +314,14 @@ export default {
   data() {
     return {
       // NEW TABLE
+      show:false,
       size: window.innerWidth,
       defaultKey: "material",
-      fields: [{ key: "material", label: "Material-ID" }, "name", "details", "vendor", "category", "Actions"],
+      fields: [{ key: "material", label: "Material-ID" }, "name", "details", "vendor", "category", {
+        key: "Actions",
+        label: "Actions",
+        thClass: "back"
+      }],
       items: [
        {
           material: "P25M31",
@@ -371,7 +389,7 @@ export default {
       //     price: 500,
       //   },
       // ],
-      searchBy: "name",
+      searchBy: "",
       searchInput: "",
       editModal: {
         id: "edit-modal",
@@ -379,7 +397,7 @@ export default {
       },
       categories: ["Certificate", "Books"],
       vendors: ["XYZ Company", "ABC Vendors"],
-      searchByOptions: ["name", "vendor", "category"],
+      searchByOptions: [" ","name", "vendor", "category"],
       materialToBeUpdated: null,
       materialToBeDeleted: null,
     };
@@ -396,6 +414,9 @@ export default {
   },
   // TABLE ENDS
   methods: {
+    toggleAdd(){
+      this.show = !this.show
+    },
     submit() {
       this.materials.push({
         id: Date.now(),
@@ -504,6 +525,9 @@ export default {
 </script>
 
 <style scoped>
+.back{
+  width: 13rem;
+}
 .card-box {
   margin: auto;
 }

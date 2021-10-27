@@ -2,13 +2,13 @@
   <div class="navbar-custom">
     <div class="container-fluid">
       <ul class="list-unstyled topnav-menu m-0">
-        <li class="logo-lg">
-          <img
+        <li class="logo-lg d-none d-md-block">
+          <router-link to="dashboard"><img
             src="@/assets/logo1.png"
             alt="Solar Logo"
             height="45px"
             class="ml-4 mr-2 mt-1"
-          />
+          /></router-link>
         </li>
 
         <li>
@@ -40,8 +40,8 @@
           </a>
         </li>
 
-        <li class=" notification-list float-right">
-          <b-dropdown>
+        <li class=" notification-list float-right mr-4">
+          <b-dropdown text="Left align">
             <template #button-content>
               <span>
                 <img
@@ -51,7 +51,7 @@
                   style="width: 35px"
                 />
                 Jhon
-                <!-- <i class="mdi mdi-chevron-down"></i> -->
+                <i class="mdi mdi-chevron-down"></i>
               </span>
             </template>
             <b-dropdown-header>
@@ -119,6 +119,9 @@ export default {
   box-shadow: none;
 }
 .middle {
-  margin-left: 24%;
+  margin-left: 25vw;
+}
+.dropdown-toggle::after {
+  display: none !important; 
 }
 </style>

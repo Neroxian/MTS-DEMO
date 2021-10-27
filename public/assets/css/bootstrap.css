@@ -51,7 +51,7 @@ File: Custom Bootstrap Css File
   box-sizing: border-box; }
 
 html {
-  font-family: sans-serif;
+  font-family: "Nunito", sans-serif !important;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -80,9 +80,12 @@ hr {
   overflow: visible; }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
+  margin-top: 0 ;
   margin-bottom: 1.5rem;
+}
 
+h4{
+  font-weight: 400;
 }
 
 p {
@@ -311,12 +314,15 @@ template {
 [hidden] {
   display: none !important; }
 
+h3{
+  color: #3c4854 !important;
+}
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 1.5rem;
   font-weight: 500;
   line-height: 1.1;
-
 }
 
 h1, .h1 {
@@ -1458,7 +1464,7 @@ pre {
   font-weight: 400;
   line-height: 1.5;
   color: #6c757d;
-  background-color: #fff;
+  background-color: #f5f6f9;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.2rem;
@@ -2863,7 +2869,9 @@ input[type="button"].btn-block {
   line-height: 1.5;
   color: #6c757d;
   vertical-align: middle;
-  background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.9rem center/8px 10px;
+  background-color: #f5f6f9;
+
+  /* background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.9rem center/8px 10px; */
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   -webkit-appearance: none;
@@ -2875,7 +2883,8 @@ input[type="button"].btn-block {
     box-shadow: none; }
     .custom-select:focus::-ms-value {
       color: #6c757d;
-      background-color: #fff; }
+      background-color: #fff;
+     }
   .custom-select[multiple], .custom-select[size]:not([size="1"]) {
     height: auto;
     padding-right: 0.9rem;
@@ -2922,7 +2931,10 @@ input[type="button"].btn-block {
     box-shadow: none; }
   .custom-file-input[disabled] ~ .custom-file-label,
   .custom-file-input:disabled ~ .custom-file-label {
-    background-color: #fff; }
+    /* background-color: #fff; */
+  background-color: #f5f6f9;
+    
+  }
   .custom-file-input:lang(en) ~ .custom-file-label::after {
     content: "Browse"; }
   .custom-file-input ~ .custom-file-label[data-browse]::after {
@@ -2939,7 +2951,9 @@ input[type="button"].btn-block {
   font-weight: 400;
   line-height: 1.5;
   color: #6c757d;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: #f5f6f9;
+
   border: 1px solid #ced4da;
   border-radius: 0.2rem; }
   .custom-file-label::after {
@@ -8063,7 +8077,7 @@ a.text-blue:hover, a.text-blue:focus {
   /* margin-bottom: 24px; */
   border-radius: 0.25rem;
   background-color: white;
-  padding: 1rem 3rem 1rem 1.5rem;
+  padding: 1rem 3rem 0.5rem 1.5rem;
   /* padding: 2rem 4rem !important; */
  }
 

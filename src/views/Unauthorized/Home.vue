@@ -25,9 +25,9 @@
         </div>
       </div> -->
 
-      <h3 class="text-start mt-3 px-1">Dashboard</h3>
+      <h3 class="text-start font-weight-bold mt-2 px-1">Dashboard</h3>
       <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 mb-1">
           <div class="widget-rounded-circle card-box-widget">
             <div class="row">
               <div class="col-5 text-center">
@@ -137,7 +137,7 @@
 
       <div class="row mt-3">
         
-        <div class="col-md-6 col-xl-3">
+        <div class="col-md-6 col-xl-3 mb-1">
           <div class="card-box">
             <i
               class="mdi mdi-information-outline text-muted float-right"
@@ -237,7 +237,6 @@ export default {
 </script>
 
 <style>
-
 .setBadge {
   margin-top: 2px;
 }

@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <div>
-      <h3 class="px-1">All Vendor</h3>
+      <h3 class="px-1 font-weight-bold">Vendor</h3>
       <div class="main card-box">
         <div class="row d-flex justify-content-end mt-2">
           <div class="col-6 d-flex align-items-center">
@@ -23,9 +23,9 @@
             >
           </div>
         </div>
-                 <!-- NEW TABLE -->
+        <!-- NEW TABLE -->
         <div class="my-2">
-            <select v-model="defaultKey" v-if="isSmall">
+          <select v-model="defaultKey" v-if="isSmall">
             <option v-for="(key, idx) in fields" :key="idx" :value="key">
               {{ key }}
             </option>
@@ -72,24 +72,38 @@
                 </template>
                 <template>
                   <div class="d-flex justify-content-start">
-                       <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
-                       <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
+                    <button class="btn btn-xs btn-light mx-1">
+                      <i class="mdi mdi-plus"></i>
+                    </button>
+                    <button class="btn btn-xs btn-danger">
+                      <i class="mdi mdi-minus"></i>
+                    </button>
                   </div>
                 </template>
               </b-card>
             </template>
 
             <!-- Actions -->
-            <template #cell(actions) v-if="!isSmall">
-               <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
-               <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
+            <template #cell(actions)="row" v-if="!isSmall">
+              <!-- <button class="btn btn-sm width-sm btn-light mx-1"><i class="mdi mdi-plus"></i>Edit</button> -->
+
+              <router-link
+                :to="`/vendorEdit/${row.item.id - 1}`"
+                class="btn btn-sm width-xs btn-primary my-1 mx-1"
+                >Edit</router-link
+              >
+              <b-button
+                class="btn btn-sm width-xs btn-primary"
+                variant="danger"
+                @click.prevent="del(id)"
+                >Delete</b-button
+              >
             </template>
           </b-table>
           <!--  TABLE ENDS -->
         </div>
 
-         
-         <!-- OLD TABLE -->
+        <!-- OLD TABLE -->
 
         <!-- <div class="my-2">
           <b-table
@@ -131,16 +145,28 @@ export default {
   name: "Vendors",
   data() {
     return {
-            // NEW TABLE
+      // NEW TABLE
       size: window.innerWidth,
       defaultKey: "vendorName",
-      fields: [{ key: "id", label: "Vendor ID" }, "vendorName", "companyType", "organisationName", "organisationMobile",
-       "state","district", "telephone1","telephone2", "faxNumber", "email", "Actions"],
+      fields: [
+        { key: "id", label: "Vendor ID" },
+        "vendorName",
+        "companyType",
+        "organisationName",
+        "organisationMobile",
+        "state",
+        "district",
+        "telephone1",
+        "telephone2",
+        "faxNumber",
+        "email",
+        "Actions",
+      ],
       items: [
         {
-          id: 101,
-          vendorName: "XYZ",
-          companyType: "ORG",
+          id: 1,
+          vendorName: "Suresh",
+          companyType: "Pvt Ltd.",
           organisationName: "MKCL",
           organisationMobile: "9876543210",
           address1: "PQR Park",
@@ -152,9 +178,9 @@ export default {
           faxNumber: "9283746501",
           email: "vendor@vendor.com",
         },
-         {
-          id: 101,
-          vendorName: "XYZ",
+        {
+          id: 2,
+          vendorName: "Virat",
           companyType: "ORG",
           organisationName: "MKCL",
           organisationMobile: "9876543210",
@@ -176,7 +202,7 @@ export default {
       filteredVendors: [],
       vendorDetails: [
         {
-          id: 101,
+          id: 1,
           vendorName: "XYZ",
           companyType: "ORG",
           organisationName: "MKCL",
@@ -210,7 +236,7 @@ export default {
     this.filteredVendors = this.getAllVendor;
     console.log(this.filteredVendors);
   },
-    // NEW TABLE
+  // NEW TABLE
   mounted() {
     window.addEventListener(
       "resize",

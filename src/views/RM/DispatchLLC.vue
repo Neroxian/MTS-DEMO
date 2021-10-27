@@ -1,13 +1,14 @@
 <template>
   <auth-layout>
     <div class="main">
-        <h3 class="px-1">Dispatch Material</h3>
+        <h3 class="px-1 font-weight-bold">Dispatch</h3>
 
       <div class="card-box">
+        <h4 class="mb-3">Dispatch Material</h4>
         <table class="table table-bordered table-striped text-center">
           <thead class="">
             <tr>
-              <th scope="col">Sr No.</th>
+              <th scope="col">Tracking ID.</th>
               <th scope="col">Material</th>
               <th scope="col">Category</th>
               <th scope="col">Quantity</th>
@@ -16,34 +17,34 @@
           </thead>
           <tbody>
             <tr>
-              <td>1</td>
+              <td>486512</td>
               <td>Certificate</td>
               <td>Academic</td>
               <td>100</td>
               <td class="text-center">
-                <button @click="showDispatch" class="btn width-sm btn-danger">
+                <button @click="showDispatch" class="btn width-xs btn-sm btn-danger">
                   Dispatch
                 </button>
               </td>
             </tr>
             <tr>
-              <td>2</td>
+              <td>65514</td>
               <td>Books</td>
               <td>Academic</td>
               <td>5000</td>
               <td class="text-center">
-                <button @click="showDispatch" class="btn width-sm btn-danger">
+                <button @click="showDispatch" class="btn width-xs btn-sm btn-danger">
                   Dispatch
                 </button>
               </td>
             </tr>
             <tr>
-              <td>3</td>
+              <td>784512</td>
               <td>Bio-metric Devices</td>
               <td>Tech</td>
               <td>200</td>
               <td class="text-center">
-                <button @click="showDispatch" class="btn width-sm btn-danger">
+                <button @click="showDispatch" class="btn width-xs btn-sm btn-danger">
                   Dispatch
                 </button>
               </td>
@@ -53,8 +54,9 @@
       </div>
 
       <div  v-if="showD">
-          <h3 class="px-1 mt-4">Dispatch Details</h3>
-      <div class="dispatch-detail card-box">
+      <div class="dispatch-detail card-box mt-4">
+          <h4 class="mb-2">Dispatch Details</h4>
+
         <div>
           <div class="row">
             <div class="px-2 col-6">
@@ -204,12 +206,13 @@
     </div>
 
       <div class="mt-4" v-if="transportMode !== ''">
-          <h3 class="px-1 mt-4">Transport Details</h3>
 
-      <div class="transport-detail card-box">
+      <div class="transport-detail card-box mt-4">
+          <h4 class="mb-2">Transport Details</h4>
+
         <b-form>
           <div class="transport-form byRoad" v-if="transportMode == 'By Road'">
-            <h4 class="bg-light p-1">Enter Details</h4>
+            <h4 class="">Enter Details</h4>
             <b-form-group
               label="Vehicle Type:"
               label-for="vehicleType"
@@ -279,7 +282,7 @@
             class="transport-form byPost"
             v-if="transportMode == 'By Post'"
           >
-            <h4 class="bg-light p-1">Enter Details</h4>
+            <h4 class="">Enter Details</h4>
             <b-form-group
               label="ERP No:"
               label-for="contact"
@@ -301,7 +304,7 @@
             class="transport-form byHand"
             v-if="transportMode == 'By Hand'"
           >
-            <h4 class="bg-light p-1">Enter Details</h4>
+            <h4 class="">Enter Details</h4>
             <b-form-group
               label="Description:"
               label-for="contact"
