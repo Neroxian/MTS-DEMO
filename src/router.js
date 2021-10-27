@@ -122,9 +122,14 @@ export default new Router({
       component: load(RM, "Track")
     },
     {
+      path: "/llcdashboard",
+      name: "LlcDashBoard",
+      component: load(RM, "LlcDashboard")
+    },
+    {
       path: "/*",
       name: "404",
       component: load(RM, "404")
-    },
+    }
   ]
 });

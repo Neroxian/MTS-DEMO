@@ -1,191 +1,200 @@
 <template>
   <auth-layout>
     <div>
-      <!-- <h3 class="text-start px-1">Notification</h3>
-      <div class="widget-rounded-circle card-box-widget">
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-6">
-            <b-alert show dismissible variant="danger" class="m-0">
-              You have 2 Acknowledgement remaining.
-              <router-link variant="info" class="width-sm" to="receive-material"
-                ><b><u>Show</u></b></router-link
-              >
-            </b-alert>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-6">
-            <b-alert show dismissible variant="info" class="m-0">
-              A message to all LLC's.
-              <router-link
-                variant="info"
-                class="width-sm"
-                to="receive-material"
-              ></router-link>
-            </b-alert>
-          </div>
-        </div>
-      </div> -->
-
-      <h3 class="text-start mt-3 px-1">Dashboard</h3>
+      <h3 class="text-start mt-2 px-1">Dashboard</h3>
+  
       <div class="row">
         <div class="col-12 col-md-6">
-          <div class="widget-rounded-circle card-box-widget">
-            <div class="row">
-              <div class="col-5 text-center">
-                <div
-                  class="
-                    widget-icon
-                    avatar-lg
-                    rounded-circle
-                    bg-soft-danger
-                    border-danger border
-                  "
-                >
-                  <i
-                    class="
-                      mdi mdi-cart-outline
-                      font-22
-                      avatar-title
-                      text-danger
-                    "
-                  ></i>
-                </div>
-                <h4 class="text-dark">Material</h4>
+          <div class="card-dashboard bg-pattern">
+            <div class="text-center">
+              <div
+                class="
+                  widget-icon
+                  avatar-lg
+                  rounded-circle
+                  bg-soft-success
+                  border-success border
+                "
+              >
+                <i
+                  class="mdi mdi-cart-outline font-22 avatar-title text-success"
+                ></i>
               </div>
-              <div class="col-7 mt-1 text-right">
-                <div class="my-1">
-                  <span class="notification text-dark">Materials added</span>
-                  <span class="badge badge-primary badge-pill mx-2 setBadge"
-                    >4</span
-                  >
-                </div>
-                <div class="my-1">
-                  <span class="notification text-dark">Vendor added</span>
-                  <span class="badge badge-success badge-pill mx-2 setBadge"
-                    >2</span
-                  >
-                </div>
-                <div class="my-1">
-                  <span class="notification text-dark">Materials received</span>
+              <h4 class="mb-1 font-20">Materials</h4>
+              <p class="text-muted font-14">
+                Materials added/available notification
+              </p>
+            </div>
 
-                  <span class="badge badge-warning badge-pill mx-2 setBadge"
-                    >4</span
-                  >
-                </div>
+            <div class="row mt-2 text-center">
+              <div class="col-6">
+                <p class="badge badge-warning badge-pill setBadge1">4</p>
+                <h5 class="text-dark mt-0">Materials added</h5>
+              </div>
+              <div class="col-6">
+                <p class="badge badge-primary badge-pill setBadge1">13</p>
+                <h5 class="text-dark mt-0">Materials available</h5>
               </div>
             </div>
-            <!-- end row-->
           </div>
-          <!-- end widget-rounded-circle-->
+          <!-- end card-box -->
         </div>
-        <!-- end col-->
+        <!-- end col -->
 
         <div class="col-12 col-md-6">
-          <div class="widget-rounded-circle card-box-widget">
-            <div class="row ">
-              <div class="col-5 text-center">
-                <div
+          <div class="card-dashboard bg-pattern">
+            <div class="text-center">
+              <div
+                class="
+                  widget-icon
+                  avatar-lg
+                  rounded-circle
+                  bg-soft-warning
+                  border-warning border
+                "
+              >
+                <i
                   class="
-                    widget-icon
-                    avatar-lg
-                    rounded-circle
-                    bg-soft-success
-                    border-success border
+                    mdi mdi-truck-delivery-outline
+                    font-22
+                    avatar-title
+                    text-warning
                   "
-                >
-                  <i
-                    class="
-                      mdi mdi-truck-delivery-outline
-                      font-22
-                      avatar-title
-                      text-success
-                    "
-                  ></i>
-                </div>
-                <h4>Dispatched</h4>
+                ></i>
               </div>
-              <div class="col-7 mt-1 text-right">
-                <div class="text-start my-1">
-                  <div class="text-start my-1">
-                    <span class="notification">Dispatched material</span>
+              <h4 class="mb-1 font-20">Dispatched</h4>
+              <p class="text-muted font-14">Dispatched material notification</p>
+            </div>
 
-                    <span class="badge badge-primary badge-pill mx-2 setBadge"
-                      >1</span
-                    >
-                  </div>
-                  <div class="text-start my-1">
-                    <span class="notification">Acknowledged</span>
-
-                    <span class="badge badge-success badge-pill mx-2 setBadge"
-                      >2</span
-                    >
-                  </div>
-                  <div class="text-start my-1">
-                    <span class="notification">Pending</span>
-
-                    <span class="badge badge-warning badge-pill mx-2 setBadge"
-                      >4</span
-                    >
-                  </div>
-                </div>
+            <div class="row mt-2 text-center">
+              <div class="col-4">
+                <p class="badge badge-warning badge-pill setBadge1">20</p>
+                <h5 class="text-dark mt-0">Dispatched</h5>
+              </div>
+              <div class="col-4">
+                <p class="badge badge-primary badge-pill setBadge1">13</p>
+                <h5 class="text-dark mt-0">Pending</h5>
+              </div>
+              <div class="col-4">
+                <p class="badge badge-danger badge-pill setBadge1">7</p>
+                <h5 class="text-dark mt-0">Acknowledged</h5>
               </div>
             </div>
-            <!-- end row-->
           </div>
-          <!-- end widget-rounded-circle-->
+          <!-- end card-box -->
         </div>
+        <!-- end col -->
       </div>
+      <!-- end row -->
 
-      <div class="row mt-3">
-        
-        <div class="col-md-6 col-xl-3">
-          <div class="card-box">
-            <i
-              class="mdi mdi-information-outline text-muted float-right"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              title=""
-              data-original-title="More Info"
-            ></i>
-            <h4 class="mt-0">E-Devices Stocks</h4>
-            <h2 class="text-success my-3 text-center">
-              Bio-Metric Devices : 200
-            </h2>
-            <p class="text-muted mb-0">
-              Total : 650
-              <span class="float-right"
-                ><i class="mdi mdi-arrow-bottom-right text-danger mr-1"></i>7.85%</span
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="card-dashboard bg-pattern">
+            <div class="text-center">
+              <div
+                class="
+                  widget-icon
+                  avatar-lg
+                  rounded-circle
+                  bg-soft-primary
+                  border-primary border
+                "
               >
-            </p>
-          </div>
-        </div>
+                <i
+                  class="
+                    mdi mdi-map-marker-radius
+                    font-28
+                    avatar-title
+                    text-primary
+                    p-0
+                  "
+                ></i>
+              </div>
+              <h4 class="font-20">Track your Shipment</h4>
+              <!-- <p class="text-muted font-14">Materials added/available notification</p> -->
+            </div>
 
-        <div class="col-md-6 col-xl-3">
-          <div class="card-box">
-            <i
-              class="mdi mdi-information-outline text-secondary float-right"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              title=""
-              data-original-title="More Info"
-            ></i>
-            <h4 class="mt-0 text-dark">Books Stocks</h4>
-            <h2 class="text-success my-3 text-center">
-              Klic Books : 12,000
-            </h2>
-            <p class="text-muted mb-0">
-              Total dispatched: 1000
-              <span class="float-right text-muted"
-                ><i class="mdi mdi-arrow-top-right text-success mr-1"></i>10.25%</span
+            <div class="row mt-2 text-center">
+              <div class="col-12">
+                <b-form @submit.prevent="track">
+                  <div class="mt-2 mb-1 text-center">
+                    <b-form-input
+                      v-model="text"
+                      placeholder="Enter the Tracking-ID"
+                    ></b-form-input>
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary waves-effect waves-light mt-1 mb-0"
+                  >
+                    Track
+                  </button>
+                </b-form>
+              </div>
+            </div>
+          </div>
+          <!-- end card-box -->
+        </div>
+        <!-- end col -->
+
+        <div class="col-12 col-md-6">
+          <div class="card-dashboard bg-pattern">
+            <div class="text-center">
+              <div
+                class="
+                  widget-icon
+                  avatar-lg
+                  rounded-circle
+                  bg-soft-success
+                  border-success border
+                "
               >
-            </p>
-          </div>
-        </div>
+                <i
+                  class="
+                    mdi mdi-package-variant-closed
+                    font-22
+                    avatar-title
+                    text-success
+                  "
+                ></i>
+              </div>
+              <h4 class="font-20">Books Stocks</h4>
+              <!-- <p class="text-muted font-14">Dispatched material notification</p> -->
+            </div>
 
+            <div class="row mt-2 text-center">
+              <div class="col-12">
+                <h2 class="text-success mb-3 text-center">
+                  Klic Books : 12,000
+                </h2>
+                <p class="text-muted mb-1 text-center">
+                  Total dispatched: 1000
+                  <!-- <span class="float-right text-muted"
+                ><i class="mdi mdi-arrow-top-right text-success mr-1"></i
+                >10.25%</span
+              > -->
+                </p>
+              </div>
+              <!-- <div class="col-4">
+                   <p class="badge badge-primary badge-pill setBadge1">13</p>
+                  <h5 class="text-dark mt-0">Pending</h5>
+              </div>
+               <div class="col-4">
+                   <p class="badge badge-primary badge-pill setBadge1">7</p>
+                  <h5 class="text-dark mt-0">Acknowledged</h5>
+              </div> -->
+            </div>
+          </div>
+          <!-- end card-box -->
+        </div>
+        <!-- end col -->
       </div>
+      <!-- end row -->
+
 
       <div class="row mt-3">
         <!-- end col-->
-        <div class="col-12 col-md-6 ">
+        <div class="col-12 col-md-6">
           <b-card>
             <h4>Bar Chart</h4>
             <bar-chart />
@@ -232,12 +241,14 @@ export default {
         solid: true,
       });
     },
+    track() {
+      this.$router.push("/track");
+    },
   },
 };
 </script>
 
 <style>
-
 .setBadge {
   margin-top: 2px;
 }
@@ -248,5 +259,9 @@ export default {
   /* margin-left: 4vw; */
   font-size: 0.8rem;
   /* font-weight: bold; */
+}
+
+.setBadge1 {
+  font-size: 15px;
 }
 </style>

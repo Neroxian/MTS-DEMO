@@ -80,6 +80,16 @@
           "path": "/acknowledge"
         }
       ]
+    },
+    {
+      "name": "Dashboard",
+      "icon": "mdi mdi-package-variant-closed",
+      "subLinks": [
+        {
+          "name": "LLC Dashboard",
+          "path": "/llcdashboard"
+        }
+      ]
     }
   ],
   "User2": [

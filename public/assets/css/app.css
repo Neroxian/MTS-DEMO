@@ -91,7 +91,7 @@ body {
 }
 
 .left-side-menu {
-  width: 250px;
+  width: 243px;
   background: white;
   padding-top: 10px;
   bottom: 0;
@@ -1128,7 +1128,7 @@ body[data-sidebar-icon="twotones"] #sidebar-menu > ul > li > a svg {
   position: fixed;
   left: 0;
   right: 0;
-  height: 55px;
+  height: 58px;
   z-index: 1001;
   /* Search */
 }
@@ -3209,7 +3209,9 @@ body[data-layout-mode="two-column"][data-layout-width="boxed"]:not([data-sidebar
 }
 
 .bg-pattern {
+  background-image: url("../../img/bg-pattern-2.png");
   background-size: cover;
+  
 }
 
 body.authentication-bg {
@@ -3964,6 +3966,15 @@ s
 .search-result-box .nav-bordered .nav-link {
   padding: 10px 5px !important;
   margin-right: 10px;
+}
+
+.card-dashboard {
+  background-color: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 0 35px 0 rgb(154 161 171 / 15%) !important;
+  /* -webkit-box-shadow: none; */
+  margin-bottom: 24px;
+  border-radius: 0.25rem;
 }
 
 .card-pricing {
