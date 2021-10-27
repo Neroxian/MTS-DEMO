@@ -29,7 +29,7 @@
             <div class="row mt-2 text-center">
               <div class="col-6">
                 <p class="badge badge-warning badge-pill setBadge1">4</p>
-                <h5 class="text-dark mt-0">Materials added</h5>
+                <h5 class="text-dark mt-0" @click="goToMaterial">Materials added</h5>
               </div>
               <div class="col-6">
                 <p class="badge badge-primary badge-pill setBadge1">13</p>
@@ -244,11 +244,15 @@ export default {
     track() {
       this.$router.push("/track");
     },
+    goToMaterial() {
+      this.$router.push("add-material")
+    }
   },
 };
 </script>
 
 <style>
+
 .setBadge {
   margin-top: 2px;
 }

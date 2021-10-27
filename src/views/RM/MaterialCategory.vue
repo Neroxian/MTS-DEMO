@@ -2,9 +2,10 @@
   <auth-layout>
     <div>
       <div>
-        <h3 class="px-1">Add Material Category</h3>
+        <h3 class="px-1 font-weight-bold">Material Category</h3>
 
-        <div class="card-box">
+        <div class="card-box mb-4" v-if="show">
+          <h4 class="mb-2">Add Material Category</h4>
           <ValidationObserver ref="form">
             <b-form @submit.prevent="onSubmit">
               <div>
@@ -20,14 +21,13 @@
                     label-for="input-2"
                   >
                     <template v-slot:label>
-                      Category Name<span class="text-danger">*</span>
+                      Category Name
                     </template>
                     <b-form-input
                       class="control"
                       :class="classes"
                       id="input-2"
                       v-model="form.subCategory"
-                      placeholder="Enter material category"
                     ></b-form-input>
                     <span class="highlightError">{{ errors[0] }}</span>
                   </b-form-group>
@@ -41,7 +41,6 @@
                 >
                   <b-form-textarea
                     id="input-2"
-                    placeholder="Enter the details here..."
                     v-model="form.details"
                     no-resize
                   ></b-form-textarea>
@@ -53,7 +52,7 @@
                     type="submit"
                     class="btn btn-success waves-effect waves-light"
                   >
-                    Add Category
+                    Add 
                   </button>
                 </div>
               </div>
@@ -62,12 +61,22 @@
         </div>
 
         <!-- Responsive Table -->
-        <h3 class="px-1 mt-4">
-            Previously added Material category
-          </h3>
+
         <div class="card-box">
-          
-          <select v-model="defaultKey" v-if="isSmall">
+          <div class="row mb-2">
+          <h4 class="mb-2 col-6">Previously added Material category</h4>
+          <div class="col-6 button-list text-right">
+            <button
+              type="submit"
+              class="btn btn-success waves-effect waves-light"
+              @click="toggleAdd"
+            >
+              Add Category
+            </button>
+          </div>
+          </div>
+
+          <select v-model="defaultKey" v-if="isSmall" style="width: 100%;">
             <option v-for="(key, idx) in fields" :key="idx" :value="key">
               {{ key }}
             </option>
@@ -114,17 +123,22 @@
                 </template>
                 <template>
                   <div class="d-flex justify-content-start">
-                       <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
-                       <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
+                    <button class="btn btn-xs btn-light mx-1">
+                      <i class="mdi mdi-plus"></i>
+                    </button>
+                    <button class="btn btn-xs btn-dark">
+                      <i class="mdi mdi-minus"></i>
+                    </button>
                   </div>
                 </template>
               </b-card>
             </template>
 
             <!-- Actions -->
+            
             <template #cell(actions) v-if="!isSmall">
-               <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
-               <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
+              <button class="btn btn-sm width-xs my-1 mx-1 btn-primary">Edit</button>
+              <button class="btn btn-sm width-xs  btn-danger">Delete</button>            
             </template>
           </b-table>
         </div>
@@ -165,9 +179,14 @@ export default {
   name: "Form",
   data() {
     return {
+      show:false,
       size: window.innerWidth,
       defaultKey: "category",
-      fields: ["category", "subCategory", "details", "date", "actions"],
+      fields: ["category", "subCategory", "details", "date", {
+        key: "actions",
+        label: "Actions",
+        thClass: "back"
+      }],
       items: [
         {
           category: "Academics",
@@ -224,6 +243,9 @@ export default {
     AuthLayout,
   },
   methods: {
+    toggleAdd(){
+      this.show = !this.show
+    },
     onSubmit() {
       this.$refs.form.validate().then((success) => {
         if (!success) {
@@ -263,6 +285,9 @@ export default {
 </script>
 
 <style>
+.back{
+  width: 13rem;
+}
 .b-table-details td {
   padding: 0;
 }

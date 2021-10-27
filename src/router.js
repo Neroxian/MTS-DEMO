@@ -107,6 +107,11 @@ export default new Router({
       component: load(RM, "Acknowledgement")
     },
     {
+      path: "/acknowledgeL",
+      name: "AcknowledgeL",
+      component: load(RM, "Acknowledge")
+    },
+    {
       path: "/uicomponent",
       name: "UIcomponent",
       component: load(RM, "UIcomponent")

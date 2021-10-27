@@ -2,7 +2,7 @@
   <div class="navbar-custom">
     <div class="container-fluid">
       <ul class="list-unstyled topnav-menu m-0">
-        <li class="logo-lg mt-1">
+        <li class="logo-lg mt-1" @click="dash">
           <!-- <img
             src="@/assets/logo1.png"
             alt="Solar Logo"
@@ -14,7 +14,7 @@
           <!-- <span id="logo-text">MTS</span> -->
         </li>
 
-        <li>
+        <li class="d-block d-lg-none">
           <button
             @click="toggleSidebar"
             class="button-menu-mobile waves-effect waves-light"
@@ -23,7 +23,7 @@
           </button>
         </li>
 
-        <li class="middle">
+        <li class="middle d-none d-sm-block">
           <a
             class="nav-link waves-effect waves-light"
             data-toggle="dropdown"
@@ -88,7 +88,23 @@ export default {
     changeRole(e) {
       // console.log(e.target.value)
       this.$store.commit("CHANGE_ROLE", e.target.value);
+      this.$nextTick(() => {
+        // console.log()
+        switch (this.user.role) {
+          case "User1":
+            this.$router.push("/llcdashboard")
+            break;
+          case "Admin":
+            this.$router.push("/dashboard")
+            break;
+          default:
+            return
+        }
+      })
     },
+    dash() {
+      this.$router.push("/dashboard");
+    }
   },
   computed: {
     ...mapState(["user"]),
@@ -111,7 +127,10 @@ export default {
 }
 
 .middle {
-  margin-left: 24%;
+  margin-left: 25vw;
+}
+.dropdown-toggle::after {
+  display: none !important; 
 }
 
 @media(max-width: 500px) {

@@ -1,8 +1,116 @@
 <template>
   <auth-layout>
     <div class="main-div">
-      <h3 class="px-1">Received Material from Vendor</h3>
+      <h3 class="px-1 font-weight-bold">Received Material</h3>
+
+      <div class="mb-4" v-if="show">
+        <div class="card-box">
+        <h4 class="mb-2">Add Received Material Details</h4>
+
+          <form @submit.prevent="add">
+            <div class="row">
+              <div class="col-6 align-items-center">
+                <b-form-group
+                  id="input-group-6"
+                  label="Vendor :"
+                  label-for="input-6"
+                >
+                  <b-form-select
+                    id="input-6"
+                    v-model="vendorName"
+                    :options="['Ramesh', 'Suresh', 'Rahul', 'Chirag']"
+                  ></b-form-select>
+                </b-form-group>
+              </div>
+
+              <div class="col-6 align-items-center">
+                <b-form-group
+                  id="input-group-6"
+                  label="Material :"
+                  label-for="input-6"
+                >
+                  <b-form-select
+                    id="input-6"
+                    v-model="material"
+                    :options="['KYP Books', 'MSCIT Certificate', 'Pamplets']"
+                  ></b-form-select>
+                </b-form-group>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 align-items-center">
+                <b-form-group
+                  id="input-group-6"
+                  label="Category :"
+                  label-for="input-6"
+                >
+                  <b-form-select
+                    id="input-6"
+                    v-model="category"
+                    :options="['Academic', 'Marketing Mateerial']"
+                  ></b-form-select>
+                </b-form-group>
+              </div>
+
+              <div class="col-6 align-items-center">
+                <b-form-group
+                  id="input-group-8"
+                  label="Date of Receipt :"
+                  label-for="input-8"
+                >
+                  <b-form-datepicker
+                    id="input-8"
+                    v-model="doReceipt"
+                  ></b-form-datepicker>
+                </b-form-group>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 align-items-center">
+                <b-form-group
+                  id="input-group-1"
+                  label="Quantity Received :"
+                  label-for="input-1"
+                >
+                  <b-form-input
+                    id="input-1"
+                    v-model="quantity"
+                    type="text"
+                  ></b-form-input>
+                </b-form-group>
+              </div>
+
+              <!-- <div class="col-6 align-items-center">
+                        <div class="col-auto">
+                            <label class="form-label">PO Date. :</label>
+                        </div>
+                        <div class="mb-3 col-auto">
+                            <input type="date" v-model="vendorName" class="form-control">
+                        </div>
+                    </div> -->
+            </div>
+            <div class="text-center mt-2">
+              <button type="submit" class="btn width-sm btn-success">
+                Add
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
       <div class="card-box">
+      
+      <div class="row mb-2">
+      <h4 class="col-6">Received Material from Vendor</h4>
+      <div class="col-6 text-right">
+          <button @click="showForm" class="btn width-sm btn-success">
+            Add Entry
+          </button>
+        </div>
+        </div>
+
         <!-- NEW TABLE -->
         <select v-model="defaultKey" v-if="isSmall">
           <option v-for="(key, idx) in fields" :key="idx" :value="key">
@@ -98,11 +206,7 @@
             </tr>
           </tbody>
         </table> -->
-        <div class="text-center">
-          <button @click="showForm" class="btn width-sm btn-success">
-            Add Entry
-          </button>
-        </div>
+
 
         <!-- <b-table
             class="m-0"
@@ -124,101 +228,7 @@
             ></b-pagination> -->
       </div>
 
-      <div class="mt-4" v-if="show">
-        <h3 class="px-1">Add Received Material Details</h3>
-        <div class="card-box">
-          <form @submit.prevent="add">
-            <div class="row">
-              <div class="col-6 align-items-center">
-                <b-form-group
-                  id="input-group-6"
-                  label="Vendor :"
-                  label-for="input-6"
-                >
-                  <b-form-select
-                    id="input-6"
-                    v-model="vendorName"
-                    :options="['Ramesh', 'Suresh', 'Rahul', 'Chirag']"
-                  ></b-form-select>
-                </b-form-group>
-              </div>
-
-              <div class="col-6 align-items-center">
-                <b-form-group
-                  id="input-group-6"
-                  label="Material :"
-                  label-for="input-6"
-                >
-                  <b-form-select
-                    id="input-6"
-                    v-model="material"
-                    :options="['KYP Books', 'MSCIT Certificate', 'Pamplets']"
-                  ></b-form-select>
-                </b-form-group>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-6 align-items-center">
-                <b-form-group
-                  id="input-group-6"
-                  label="Category :"
-                  label-for="input-6"
-                >
-                  <b-form-select
-                    id="input-6"
-                    v-model="category"
-                    :options="['Academic', 'Marketing Mateerial']"
-                  ></b-form-select>
-                </b-form-group>
-              </div>
-
-              <div class="col-6 align-items-center">
-                <b-form-group
-                  id="input-group-8"
-                  label="Date of Receipt :"
-                  label-for="input-8"
-                >
-                  <b-form-datepicker
-                    id="input-8"
-                    v-model="doReceipt"
-                  ></b-form-datepicker>
-                </b-form-group>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-6 align-items-center">
-                <b-form-group
-                  id="input-group-1"
-                  label="Quantity Received :"
-                  label-for="input-1"
-                >
-                  <b-form-input
-                    id="input-1"
-                    v-model="quantity"
-                    type="text"
-                  ></b-form-input>
-                </b-form-group>
-              </div>
-
-              <!-- <div class="col-6 align-items-center">
-                        <div class="col-auto">
-                            <label class="form-label">PO Date. :</label>
-                        </div>
-                        <div class="mb-3 col-auto">
-                            <input type="date" v-model="vendorName" class="form-control">
-                        </div>
-                    </div> -->
-            </div>
-            <div class="text-center mt-2">
-              <button type="submit" class="btn width-sm btn-success">
-                Add
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+      
     </div>
   </auth-layout>
 </template>

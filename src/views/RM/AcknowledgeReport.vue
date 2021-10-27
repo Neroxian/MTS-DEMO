@@ -1,11 +1,12 @@
 <template>
   <auth-layout>
          <!-- Responsive Table -->
-        <h3 class="px-1 mt-4">
-            Previously added Material category
-          </h3>
+        <h3 class="px-1 font-weight-bold">Report</h3>
         <div class="card-box">
-          
+
+      <h4 class="mb-3">
+            Acknowledge History
+          </h4>  
           <select v-model="defaultKey" v-if="isSmall">
             <option v-for="(key, idx) in fields" :key="idx" :value="key">
               {{ key }}

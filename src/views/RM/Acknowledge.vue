@@ -1,15 +1,62 @@
 <template>
   <auth-layout>
-    <div class="main card-box">
-    <h4 class="text-start text-uppercase p-2 bg-light my-2">Received Material from Vendor</h4>
-    <b-table
-      hover
-      :items="items"
-      :fields="fields"
-      thead-class="thead"
-      class="border"
-    ></b-table>
-  </div>
+    <div class="main">
+      <h3 class="px-1 font-weight-bold">
+          Acknowledge 
+        </h3>
+      <div class="card-box">
+        <h4 class="mb-2">
+          Acknowledge Material
+        </h4>
+        <b-table
+          head-variant="light"
+            borderless
+            hover
+          :items="items"
+          :fields="fields"
+          thead-class="thead"
+          class=" text-center"
+          bordered
+        >
+          <template #cell(Action)="" class="row">
+            <b-button
+              variant="primary"
+              class="shadow-none btn-sm width-sm"
+              @click="toggleShow"
+            >
+              Details
+            </b-button>
+          </template>
+        </b-table>
+      </div>
+
+      <div v-if="show" class="card-box mt-4">
+        <h4 class="mb-2">
+          Transport Details
+        </h4>
+        <div class="transport-detail mt-2">
+          <h4 class="bg-light p-1">By Hand</h4>
+          <b-form-group
+            label="Feedback:"
+            label-cols-sm="2"
+            label-cols-lg="2"
+            label-cols-md="2"
+            content-cols-sm
+            content-cols-lg="10"
+          >
+            <b-form-textarea
+              id="contact"
+              type="textarea"
+              rows="2"
+              
+            ></b-form-textarea>
+          </b-form-group>
+          <div class="text-center">
+            <button class="btn width-sm btn-success">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </auth-layout>
 </template>
 
@@ -17,74 +64,59 @@
 import AuthLayout from "@/layouts/auth-layout"
 
 export default {
-  name: "Acknowledge",
+  name: "AcknowledgeL",
   components: {
     AuthLayout
   },
   data() {
     return {
+      show: false,
       idx: 0,
       fields: [
-        "no",
-        "material",
-        "dispatched",
-        "date",
-        "status",
-        "acknowledge",
-        "notAcknowledge",
+        "Sr_no",
+        "Material_Name",
+        "Dispatch_From",
+        "Expected_date_of_delivery",
+        "Status",
+        "Action",
       ],
       items: [
         {
-          no: 1,
-          material: "Biometric Devices",
-          dispatched: "2",
-          date: "4-March-2021",
-          status: "Done",
-          acknowledge: "2",
-          notAcknowledge: "0",
+          Sr_no: 1,
+          Material_Name: "Books",
+          Dispatch_From: "LLC (Pune office)",
+          Expected_date_of_delivery: "6-Nov-2021",
+          Status: "Dispatched",
         },
         {
-          no: 2,
-          material: "Books",
-          dispatched: "21",
-          date: "6-June-2021",
-          status: "Not  Done",
-          acknowledge: "0",
-          notAcknowledge: "22",
-        },
-        {
-          no: 3,
-          material: "Certificates",
-          dispatched: "44",
-          date: "10-Oct-2021",
-          status: "Done",
-          acknowledge: "3",
-          notAcknowledge: "0",
-        },
-        {
-          no: 4,
-          material: "Books",
-          dispatched: "543",
-          date: "11-Nov-2021",
-          status: "Not Done",
-          acknowledge: "0",
-          notAcknowledge: "10",
+          Sr_no: 2,
+          Material_Name: "Certificates",
+          Dispatch_From: "LLC (Pune office)",
+          Expected_date_of_delivery: "29-Oct-2021",
+          Status: "Dispatched",
         },
       ],
     };
   },
+  methods:{
+      toggleShow(){
+          this.show = !this.show
+      }
+  }
 };
 </script>
 
 <style scoped>
-.thead {
-  background-color: rgb(2, 117, 216);
-  color: white;
-}
-h2{
-  font-weight: 600;
-}
-.main{
+
+.main {
   padding: 0 12px;
+}
+.transport-detail {
+  width: 50%;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0.4rem;
+  border: 1px solid rgb(175, 175, 175);
 }
 </style>

@@ -1,8 +1,11 @@
 <template>
   <auth-layout>
     <div class="main">
+      <h3 class="px-1 font-weight-bold">
+          Acknowledge 
+        </h3>
       <div class="card-box">
-        <h4 class="text-start text-uppercase p-2 bg-light">
+        <h4 class="mb-2">
           Acknowledge Material
         </h4>
         <b-table
@@ -15,7 +18,7 @@
           <template #cell(Action)="" class="row">
             <b-button
               variant="primary"
-              class="shadow-none width-sm"
+              class="shadow-none btn-sm width-sm"
               @click="toggleShow"
             >
               Details
@@ -25,13 +28,13 @@
       </div>
 
       <div v-if="show" class="card-box mt-4">
-        <h4 class="text-start text-uppercase p-2 bg-light">
+        <h4 class="mb-2">
           Transport Details
         </h4>
         <div class="transport-detail mt-2">
-          <h4 class="bg-light p-1">By Hand</h4>
+          <h4 class="bg-light p-1">By Road</h4>
           <b-form-group
-            label="Description:"
+            label="Feedback: "
             label-cols-sm="2"
             label-cols-lg="2"
             label-cols-md="2"
@@ -42,12 +45,10 @@
               id="contact"
               type="textarea"
               rows="2"
-              value="when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-              readonly
             ></b-form-textarea>
           </b-form-group>
           <div class="text-center">
-            <button class="btn width-sm btn-success">Approve</button>
+            <button class="btn width-sm btn-success">Send</button>
           </div>
         </div>
       </div>
@@ -79,28 +80,28 @@ export default {
         {
           Sr_no: 1,
           Material_Name: "Biometric Devices",
-          Dispatch_From: "Ramesh",
+          Dispatch_From: "RM (Pune)",
           Expected_date_of_delivery: "4-March-2021",
           Status: "Dispatched",
         },
         {
           Sr_no: 2,
           Material_Name: "Books",
-          Dispatch_From: "Virat",
+          Dispatch_From: "RM (Pune)",
           Expected_date_of_delivery: "6-June-2021",
           Status: "Dispatched",
         },
         {
           Sr_no: 3,
           Material_Name: "Certificates",
-          Dispatch_From: "Raina",
+          Dispatch_From: "RM (Pune)",
           Expected_date_of_delivery: "10-Oct-2021",
           Status: "Dispatched",
         },
         {
           Sr_no: 4,
           Material_Name: "Books",
-          Dispatch_From: "Chetri",
+          Dispatch_From: "RM (Buldhana)",
           Expected_date_of_delivery: "11-Nov-2021",
           Status: "Dispatched",
         },

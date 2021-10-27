@@ -58,21 +58,21 @@
           <ul class="list-unstyled">
             
             <li class="completed">
-              <h5 class="mt-0 mb-1">RM (Pune)</h5>
+              <h5 class="mt-0 mb-1">Dispatched</h5>
               <p class="text-muted">
-                Dispatched on October 22 2021 <small class="text-muted">12:16 AM</small>
+                October 22 2021 <small class="text-muted">12:16 AM</small>
               </p>
             </li>
             <li>
               <span class="active-dot dot"></span>
-              <h5 class="mt-0 mb-1">LLC  (Solapur)</h5>
+              <h5 class="mt-0 mb-1">On the Way</h5>
               <p class="text-muted">
-                Pending at Solapur <small class="text-muted">05:16 PM</small>
+                October 25 2021 <small class="text-muted">05:16 PM</small>
               </p>
             </li>
             <li>
-              <h5 class="mt-0 mb-1">ALC (Nashik)</h5>
-              <p class="text-muted">Pending yet to come</p>
+              <h5 class="mt-0 mb-1">Delivered</h5>
+              <p class="text-muted">Estimated delivery within 3 days</p>
             </li>
           </ul>
 
