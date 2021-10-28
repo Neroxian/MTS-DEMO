@@ -2,15 +2,16 @@
   <div class="navbar-custom">
     <div class="container-fluid">
       <ul class="list-unstyled topnav-menu m-0">
-        <li class="logo-lg mt-1" @click="dash">
+        <li class="logo-lg mt-1">
           <!-- <img
             src="@/assets/logo1.png"
             alt="Solar Logo"
             height="45px"
             class="ml-4 mr-2 mt-1"
           /> -->
-          <i class="mdi mdi-map-marker-radius"></i>
-          <span id="logo-text">Material Tracking</span>
+          <router-link to="dashboard">
+          <i class="mdi mdi-map-marker-radius ml-2"></i>
+          <span id="logo-text">Material Tracking</span></router-link>
           <!-- <span id="logo-text">MTS</span> -->
         </li>
 
@@ -102,9 +103,6 @@ export default {
         }
       })
     },
-    dash() {
-      this.$router.push("/dashboard");
-    }
   },
   computed: {
     ...mapState(["user"]),
@@ -127,7 +125,7 @@ export default {
 }
 
 .middle {
-  margin-left: 25vw;
+  margin-left: 27vw;
 }
 .dropdown-toggle::after {
   display: none !important; 

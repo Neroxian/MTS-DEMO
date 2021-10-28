@@ -125,7 +125,7 @@ import authLayout from "../../layouts/auth-layout.vue";
 
 export default {
   components: { authLayout },
-  name: "TargetGeneration",
+  name: "ShipmentPattern",
   data() {
     return {
       size: window.innerWidth,

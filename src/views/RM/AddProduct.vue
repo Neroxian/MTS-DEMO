@@ -307,7 +307,7 @@ import AuthLayout from "@/layouts/auth-layout";
 import { mapMutations } from "vuex";
 
 export default {
-  name: "AddMaterial",
+  name: "AddProduct",
   components: {
     AuthLayout,
   },

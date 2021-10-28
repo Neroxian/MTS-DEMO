@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <div>
-      <h3 class="text-start mt-2 px-1">Dashboard</h3>
+      <h3 class="font-weight-bold px-1">Dashboard</h3>
   
       <div class="row">
         <div class="col-12 col-md-6">
@@ -20,20 +20,20 @@
                   class="mdi mdi-cart-outline font-22 avatar-title text-success"
                 ></i>
               </div>
-              <h4 class="mb-1 font-20">Materials</h4>
+              <h4 class="mb-1 font-20">Product</h4>
               <p class="text-muted font-14">
-                Materials added/available notification
+                Product notification
               </p>
             </div>
 
             <div class="row mt-2 text-center">
               <div class="col-6">
-                <p class="badge badge-warning badge-pill setBadge1">4</p>
-                <h5 class="text-dark mt-0" @click="goToMaterial">Materials added</h5>
+                <span class="mb-1 badge badge-success badge-pill setBadge1">4</span>
+                <h5 class="text-dark mt-0"><router-link to="addProduct"> Product added</router-link></h5>
               </div>
               <div class="col-6">
-                <p class="badge badge-primary badge-pill setBadge1">13</p>
-                <h5 class="text-dark mt-0">Materials available</h5>
+                <span class="mb-1 badge badge-primary badge-pill setBadge1">13</span>
+                <h5 class="text-dark mt-0">Product available</h5>
               </div>
             </div>
           </div>
@@ -63,20 +63,20 @@
                 ></i>
               </div>
               <h4 class="mb-1 font-20">Dispatched</h4>
-              <p class="text-muted font-14">Dispatched material notification</p>
+              <p class="text-muted font-14">Dispatched product notification</p>
             </div>
 
             <div class="row mt-2 text-center">
               <div class="col-4">
-                <p class="badge badge-warning badge-pill setBadge1">20</p>
+                <span class="mb-1 badge badge-warning badge-pill setBadge1">20</span>
                 <h5 class="text-dark mt-0">Dispatched</h5>
               </div>
               <div class="col-4">
-                <p class="badge badge-primary badge-pill setBadge1">13</p>
+                <span class="mb-1 badge badge-primary badge-pill setBadge1">13</span>
                 <h5 class="text-dark mt-0">Pending</h5>
               </div>
               <div class="col-4">
-                <p class="badge badge-danger badge-pill setBadge1">7</p>
+                <span class="mb-1 badge badge-danger badge-pill setBadge1">7</span>
                 <h5 class="text-dark mt-0">Acknowledged</h5>
               </div>
             </div>
@@ -111,7 +111,7 @@
                 ></i>
               </div>
               <h4 class="font-20">Track your Shipment</h4>
-              <!-- <p class="text-muted font-14">Materials added/available notification</p> -->
+              <!-- <p class="text-muted font-14">Product added/available notification</p> -->
             </div>
 
             <div class="row mt-2 text-center">
@@ -192,7 +192,7 @@
       <!-- end row -->
 
 
-      <div class="row mt-3">
+      <div class="row">
         <!-- end col-->
         <div class="col-12 col-md-6">
           <b-card>
@@ -244,9 +244,6 @@ export default {
     track() {
       this.$router.push("/track");
     },
-    goToMaterial() {
-      this.$router.push("add-material")
-    }
   },
 };
 </script>
@@ -266,6 +263,6 @@ export default {
 }
 
 .setBadge1 {
-  font-size: 15px;
+  font-size: 14px;
 }
 </style>

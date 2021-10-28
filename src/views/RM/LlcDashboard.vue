@@ -7,7 +7,7 @@
           <div class="widget-rounded-circle card-dashboard">
             <div class="row">
               <div class="col-4">
-                <h4 class="text-dark mt-0 font-16">Materials</h4>
+                <h4 class="text-dark mt-0 font-16">Products</h4>
                 <div
                   class="
                     avatar-lg
@@ -29,14 +29,14 @@
               <div class="col-4 text-center mt-4 pt-2">
                 <div>
                   <p class="badge badge-warning badge-pill setBadge1">4</p>
-                  <h5 class="text-dark mt-0">Materials added</h5>
+                  <h5 class="text-dark mt-0">Products added</h5>
                 </div>
               </div>
             
               <div class="col-4 text-center mt-4 pt-2">
                 <div>
                   <p class="badge badge-success badge-pill setBadge1">10</p>
-                  <h5 class="text-dark mt-0">Materials received</h5>
+                  <h5 class="text-dark mt-0">Products received</h5>
                 </div>
               </div>
             </div>
@@ -66,31 +66,31 @@
                     "
                   ></i>
                 </div>
-                <h4>Materials</h4>
+                <h4>Products</h4>
               </div>
               <div class="col-7 mt-1 text-right">
                 <div class="text-start my-1">
                   <div class="text-start my-1">
-                    <span class="notification">Materials received</span>
+                    <span class="notification">Products received</span>
 
                     <span class="badge badge-primary badge-pill mx-2 setBadge"
                       >13</span
                     >
                   </div>
                   <div class="text-start my-1">
-                    <span class="notification">Materials available</span>
+                    <span class="notification">Products available</span>
 
                     <span class="badge badge-success badge-pill mx-2 setBadge"
-                      >15</span
+                      >150</span
                     >
                   </div>
-                  <!-- <div class="text-start my-1">
-                    <span class="notification">Pending</span>
+                  <div class="text-start my-1">
+                    <span class="notification">Add Product</span>
 
                     <span class="badge badge-warning badge-pill mx-2 setBadge"
-                      >4</span
+                      ><i class="mdi mdi-plus"></i></span
                     >
-                  </div> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -125,7 +125,7 @@
               <div class="col-7 mt-1 text-right">
                 <div class="text-start my-1">
                   <div class="text-start my-1">
-                    <span class="notification">Dispatched material</span>
+                    <span class="notification">Dispatched Product</span>
 
                     <span class="badge badge-primary badge-pill mx-2 setBadge"
                       >10</span
@@ -154,24 +154,52 @@
 
 
       <div class="row mt-3">
-        <div class="col-md-6 col-xl-3">
-          <div class="card-box">
-            <h4 class="mt-0">Track Your Shipment</h4>
-            <b-form @submit.prevent="track">
-              <div class="mt-2 mb-1 text-center">
-                <b-form-input
-                  v-model="text"
-                  placeholder="Enter the Tracking-ID"
-                ></b-form-input>
-              </div>
-              <button
-                type="submit"
-                class="btn btn-primary waves-effect waves-light mt-1 mb-0"
+        <div class="col-12 col-md-6">
+          <div class="card-dashboard">
+            <div class="text-center">
+              <div
+                class="
+                  widget-icon
+                  avatar-lg
+                  rounded-circle
+                  bg-soft-primary
+                  border-primary border
+                "
               >
-                Track
-              </button>
-            </b-form>
+                <i
+                  class="
+                    mdi mdi-map-marker-radius
+                    font-28
+                    avatar-title
+                    text-primary
+                    p-0
+                  "
+                ></i>
+              </div>
+              <h4 class="font-20">Track your Shipment</h4>
+              <!-- <p class="text-muted font-14">Product added/available notification</p> -->
+            </div>
+
+            <div class="row mt-2 text-center">
+              <div class="col-12">
+                <b-form @submit.prevent="track">
+                  <div class="mt-2 mb-1 text-center">
+                    <b-form-input
+                      v-model="text"
+                      placeholder="Enter the Tracking-ID"
+                    ></b-form-input>
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary waves-effect waves-light mt-1 mb-0"
+                  >
+                    Track
+                  </button>
+                </b-form>
+              </div>
+            </div>
           </div>
+          <!-- end card-box -->
         </div>
 
         <div class="col-md-6 col-xl-3">

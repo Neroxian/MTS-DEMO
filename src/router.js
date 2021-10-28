@@ -27,9 +27,9 @@ export default new Router({
       component: load(RM, "Login"),
     },
     {
-      path: "/add-material",
-      name: "Add Material",
-      component: load(RM, "AddMaterial"),
+      path: "/addProduct",
+      name: "Add Product",
+      component: load(RM, "AddProduct"),
     },
     {
       path: "/stock-declaration",
@@ -67,9 +67,9 @@ export default new Router({
       component: load(RM, "Dispatch"),
     },
     {
-      path: "/target",
-      name: "TargetGeneration",
-      component: load(RM, "TargetGeneration"),
+      path: "/shipPattern",
+      name: "Shipment Pattern",
+      component: load(RM, "ShipmentPattern"),
     },
     {
       path: "/dispatchLLC",
@@ -87,9 +87,9 @@ export default new Router({
       component: load(RM, "HomeDemo")
     },
     {
-      path: "/materialCategory",
-      name: "Matcat",
-      component: load(RM, "MaterialCategory"),
+      path: "/productCategory",
+      name: "ProdCat",
+      component: load(RM, "ProductCategory"),
     },
     {
       path: "/packaging",
