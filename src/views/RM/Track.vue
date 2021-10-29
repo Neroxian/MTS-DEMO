@@ -2,8 +2,8 @@
   <auth-layout>
     <h3 class="p-1">Tracking</h3>
     <div class="row">
-      <div class="col col-lg-6 col-md-6 col-sm-12">
-        <div class="card-box">
+      <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="card-box mb-3">
           <b-form-group
             id="input-group-1"
             label="Enter Tracking ID:"
@@ -21,7 +21,7 @@
           </div>
         </div>
 
-        <div class="card-box mt-3">
+        <div class="card-box mb-3">
           <h4 class="font-weight-bold mb-2">Delivery Info</h4>
 
           <div class="text-center">
@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-      <div class="col col-lg-6 col-md-6 col-sm-12">
+      <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
         <div class="card">
           <div class="card-box">
             <h4 class="font-weight-bold mb-3">Track Material</h4>

@@ -2,14 +2,12 @@
   <auth-layout>
     <div>
       <b-toaster name="toaster"></b-toaster>
-          <h3 class="px-1 font-weight-bold">Material</h3>
+      <h3 class="px-1 font-weight-bold">Product</h3>
 
       <b-form @submit.prevent="submit" class="card-box mb-4" v-if="show">
-          <h4 class="mb-2">Add Material</h4>
+        <h4 class="mb-2">Add Product</h4>
         <b-form-group label-for="material-name">
-          <template v-slot:label>
-            Material name 
-          </template>
+          <template v-slot:label> Product name :</template>
           <b-form-input
             id="material-name"
             type="text"
@@ -20,9 +18,7 @@
           />
         </b-form-group>
         <b-form-group label-for="material-details">
-          <template v-slot:label>
-            Material description 
-          </template>
+          <template v-slot:label> Product description :</template>
           <b-form-textarea
             id="material-details"
             class="shadow-none"
@@ -35,7 +31,7 @@
 
         <div class="row">
           <b-form-group
-            label="Material Category"
+            label="Product Category :"
             label-for="category"
             class="col-12 col-md-6"
           >
@@ -47,29 +43,11 @@
             />
           </b-form-group>
           <b-form-group
-            label="Select Vendor: "
-            label-for="vendor"
-            class="col-12 col-md-6"
-          >
-            <b-form-select
-              id="vendor"
-              class="shadow-none"
-              v-model="vendor"
-              :options="vendors"
-            />
-          </b-form-group>
-        </div>
-
-        <div class="row">
-          <b-form-group
-            label="Upload image:"
+            label="Upload image :"
             label-for="file-slect"
             class="col-12 col-md-6"
           >
-            <b-form-file
-              id="file-slect"
-              v-model="file"
-            ></b-form-file>
+            <b-form-file id="file-slect" v-model="file"></b-form-file>
           </b-form-group>
         </div>
 
@@ -85,29 +63,29 @@
       </b-form>
 
       <div class="card-box">
-          <div class="row">
-          <h4 class="col-6">All Materials</h4>
+        <div class="row">
+          <h4 class="col-6">All Product</h4>
           <div class="col-6 text-right">
-          <b-button
-            type="submit"
-            class="shadow-none width-sm"
-            variant="success"
-            @click="toggleAdd"
-          >
-            Add Material
-          </b-button>
-        </div>
+            <b-button
+              type="submit"
+              class="shadow-none width-sm"
+              variant="success"
+              @click="toggleAdd"
+            >
+              Add Product
+            </b-button>
+          </div>
         </div>
 
-        <div class="d-flex justify-content-end row">
-          <div class="col-12 col-md-6 my-2">
+        <div class="d-flex justify-content-end row mb-3" v-if="!isSmall">
+          <div class="col-12 col-md-6 my-1">
             <b-form-select
               v-model="searchBy"
               :options="searchByOptions"
               class="shadow-none"
             />
           </div>
-          <div class="col-12 col-md-6 my-2">
+          <div class="col-12 col-md-6 my-1">
             <b-form-input
               :placeholder="`Search by ${this.searchBy}`"
               class="shadow-none"
@@ -143,78 +121,89 @@
           </b-table>
         </div> -->
 
+        <!-- NEW TABLE -->
 
+        <div class="form-group">
+          <b-form-group label="Sort by :" v-if="isSmall">
+            <b-form-select v-model="defaultKey" style="width: 100%">
+              <option v-for="(key, idx) in fields" :key="idx" :value="key">
+                {{ key }}
+              </option>
+            </b-form-select>
+          </b-form-group>
+        </div>
 
-         <!-- NEW TABLE -->
-          <select v-model="defaultKey" v-if="isSmall">
-            <option v-for="(key, idx) in fields" :key="idx" :value="key">
-              {{ key }}
-            </option>
-          </select>
-          <b-table
-            id="dataTable"
-            responsive="md"
-            stacked="sm"
-            :striped="isSmall"
-            head-variant="light"
-            borderless
-            hover
-            :items="items"
-            :fields="copy"
-            thead-tr-class="text-center"
-            :tbody-tr-class="isSmall ? '' : 'text-center'"
-          >
-            <template v-slot:[`cell(${defaultKey})`]="row">
-              <div
-                class="d-flex justify-content-between justify-content-sm-center"
+        <b-table
+          id="dataTable"
+          responsive="md"
+          stacked="sm"
+          :striped="isSmall"
+          head-variant="light"
+          borderless
+          hover
+          :items="items"
+          :fields="copy"
+          thead-tr-class="text-center"
+          :tbody-tr-class="isSmall ? '' : 'text-center'"
+        >
+          <template v-slot:[`cell(${defaultKey})`]="row">
+            <div
+              class="d-flex justify-content-between justify-content-sm-center"
+            >
+              <div>{{ row.item[defaultKey] }}</div>
+              <b-button
+                style="margin: 0% 5%"
+                class="btn btn-xs"
+                v-if="isSmall"
+                @click="row.toggleDetails"
+                ><i class="mdi mdi-plus"> </i
+                >{{ row.detailsShowing ? "Hide" : "Show" }}
+              </b-button>
+            </div>
+          </template>
+
+          <template #row-details="row" v-if="isSmall">
+            <b-card class="text-left p-0">
+              <template
+                v-for="(field, idx) in fields.filter(
+                  (f) => f !== defaultKey && f !== 'actions'
+                )"
               >
-                <div>{{ row.item[defaultKey] }}</div>
-                <b-button
-                  class="btn btn-xs"
-                  v-if="isSmall"
-                  @click="row.toggleDetails"
-                  ><i class="mdi mdi-plus"> </i
-                  >{{ row.detailsShowing ? "Hide" : "Show" }}
-                </b-button>
-              </div>
-            </template>
+                <div :key="idx">
+                  <span class="font-weight-bold">{{ field }}:</span>
+                  {{ row.item[field] }}
+                </div>
+              </template>
+              <template>
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-xs btn-success mx-1">
+                    <i class="mdi mdi-plus"></i>
+                  </button>
+                  <button class="btn btn-xs btn-danger">
+                    <i class="mdi mdi-minus"></i>
+                  </button>
+                </div>
+              </template>
+            </b-card>
+          </template>
 
-            <template #row-details="row" v-if="isSmall">
-              <b-card class="text-left p-0">
-                <template
-                  v-for="(field, idx) in fields.filter(
-                    (f) => f !== defaultKey && f !== 'actions'
-                  )"
-                >
-                  <div :key="idx">
-                    <span class="font-weight-bold">{{ field }}:</span>
-                    {{ row.item[field] }}
-                  </div>
-                </template>
-                <template>
-                  <div class="d-flex justify-content-start">
-                       <button class="btn btn-xs btn-light mx-1"><i class="mdi mdi-plus"></i></button>
-                       <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus"></i></button>
-                  </div>
-                </template>
-              </b-card>
-            </template>
-
-            <!-- Actions -->
-            <template #cell(actions) v-if="!isSmall">
-               <button class="btn btn-primary btn-sm width-xs my-1 mx-1">Edit</button>
-               <button class="btn btn-danger btn-sm width-xs">Delete</button>
-            </template>
-          </b-table>
-          <!--  TABLE ENDS -->
+          <!-- Actions -->
+          <template #cell(actions) v-if="!isSmall">
+            <button class="btn btn-primary btn-sm width-xs my-1 mx-1">
+              Edit
+            </button>
+            <button class="btn btn-danger btn-sm width-xs">Delete</button>
+          </template>
+        </b-table>
+        <!--  TABLE ENDS -->
       </div>
 
       <!-- Edit Modal -->
       <b-modal ref="edit-modal" hide-footer centered>
-        <template #modal-title> Edit Material </template>
+        <template #modal-title> Edit Product </template>
         <div v-if="materialToBeUpdated">
           <b-form>
-            <b-form-group label="Material name: " label-for="update-name">
+            <b-form-group label="Product name: " label-for="update-name">
               <b-form-input
                 id="update-name"
                 type="text"
@@ -223,7 +212,7 @@
               />
             </b-form-group>
             <b-form-group
-              label="Material details: "
+              label="Product details: "
               label-for="material-details"
             >
               <b-form-textarea
@@ -314,23 +303,26 @@ export default {
   data() {
     return {
       // NEW TABLE
-      show:false,
+      show: false,
       size: window.innerWidth,
-      defaultKey: "material",
-      fields: [{ key: "material", label: "Material-ID" }, "name", "details", "vendor", "category", {
-        key: "Actions",
-        label: "Actions",
-        thClass: "back"
-      }],
+      defaultKey: "category",
+      fields: [
+        { key: "material", label: "Material-ID" },
+        "name",
+        "details",
+        "category",
+        {
+          key: "Actions",
+          label: "Actions",
+          thClass: "back",
+        },
+      ],
       items: [
-       {
+        {
           material: "P25M31",
           id: 1,
           name: "Books",
           details: "Books from XYZ",
-          // manufacturingDate: "2021-08-01",
-          // expiryDate: "2021-10-31",
-          vendor: "XYZ",
           category: "Academic",
           subCategory: "MSCIT",
           price: 100,
@@ -340,9 +332,6 @@ export default {
           id: 2,
           name: "Pens",
           details: "Pen from ABC",
-          // manufacturingDate: "2021-08-01",
-          // expiryDate: "2021-10-31",
-          vendor: "ABC",
           category: "Exams",
           subCategory: "ERA",
           price: 500,
@@ -353,7 +342,6 @@ export default {
       details: "",
       manufacturingDate: "",
       expiryDate: "",
-      vendor: "",
       category: "",
       subCategory: "",
       price: 0,
@@ -397,7 +385,7 @@ export default {
       },
       categories: ["Certificate", "Books"],
       vendors: ["XYZ Company", "ABC Vendors"],
-      searchByOptions: [" ","name", "vendor", "category"],
+      searchByOptions: [" ", "name", "category"],
       materialToBeUpdated: null,
       materialToBeDeleted: null,
     };
@@ -414,8 +402,8 @@ export default {
   },
   // TABLE ENDS
   methods: {
-    toggleAdd(){
-      this.show = !this.show
+    toggleAdd() {
+      this.show = !this.show;
     },
     submit() {
       this.materials.push({
@@ -520,26 +508,66 @@ export default {
     isSmall() {
       return this.size < 576;
     },
+    isLarge() {
+      return this.size < 691;
+    },
   },
 };
 </script>
 
 <style scoped>
-.back{
+.back {
   width: 13rem;
 }
-.card-box {
-  margin: auto;
+.b-table-details td {
+  padding: 0;
+}
+tr {
+  border: none !important;
+}
+td {
+  padding: 0.4rem !important;
+  border: none !important;
 }
 
 @media (max-width: 700px) {
   .card-box {
-    width: 90%;
+    width: 100%;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 575.98px) {
   .card-box {
     width: 100%;
   }
+  #dataTable td::before {
+    /* width: 30% !important; */
+    text-align: left !important;
+    padding-left: 1.5rem;
+  }
+  div .card-body {
+    padding: 0.2rem 2rem !important;
+    /* margin-top: -8px !important; */
+  }
+  .card {
+    margin-bottom: 0px !important;
+  }
+}
+
+.inline {
+  display: inline;
+}
+#searchBar {
+  width: 50%;
+  margin: auto;
+}
+
+/* Validation */
+
+.highlightError {
+  color: #eb0600;
+}
+
+.control.is-valid input {
+  border: 1px #045929 solid;
 }
 </style>

@@ -194,7 +194,7 @@
 
       <div class="row">
         <!-- end col-->
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 mb-3">
           <b-card>
             <h4>Bar Chart</h4>
             <bar-chart />

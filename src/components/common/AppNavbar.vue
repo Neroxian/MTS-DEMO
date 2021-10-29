@@ -125,7 +125,8 @@ export default {
 }
 
 .middle {
-  margin-left: 27vw;
+  position: absolute;
+  margin-left: 45%;
 }
 .dropdown-toggle::after {
   display: none !important; 
@@ -152,7 +153,7 @@ background: linear-gradient(to right, #b1a8a8, #4286f4, #f9f9fa);
 }
 
 #logo-text {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 25px;
   color: rgb(244, 246, 248);
 }

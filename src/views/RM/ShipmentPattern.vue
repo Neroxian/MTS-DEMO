@@ -7,7 +7,7 @@
 
           <div class="card-box">
             <b-form-group
-              label="Select Material: "
+              label="Select Product: "
               label-for="material"
               class="col-12 p-0"
             >
@@ -62,11 +62,11 @@
               <!-- OLD TABLE -->
 
               <div class="mt-2" id="addedMaterial" ref="table">
-              <table class="table text-center table-bordered table-striped">
-                <thead class="">
+              <table class="table text-center">
+                <thead class="table-light">
                   <tr>
                     <th>Sr No.</th>
-                    <th>Material</th>
+                    <th>Product</th>
                     <th>From</th>
                     <th>To</th>
                     <th>Quantity</th>
