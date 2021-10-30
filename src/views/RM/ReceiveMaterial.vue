@@ -256,7 +256,7 @@ export default {
   data() {
     return {
       size: window.innerWidth,
-      defaultKey: "sr",
+      defaultKey: "material",
       fields: [
         { key: "sr", label: "Sr No." },
         "material",

@@ -137,8 +137,10 @@
             <!-- Actions -->
             
             <template #cell(actions) v-if="!isSmall">
-              <button class="btn btn-sm width-xs my-1 mx-1 btn-primary">Edit</button>
-              <button class="btn btn-sm width-xs  btn-danger">Delete</button>            
+              <!-- <button class="btn btn-sm width-xs my-1 mx-1 btn-primary">Edit</button> -->
+              <button class="btn btn-xs btn-light mx-2"><i class="mdi mdi-plus ml-1"></i>Edit</button>
+             <button class="btn btn-xs btn-dark"><i class="mdi mdi-minus ml-1"></i>Delete</button>
+              <!-- <button class="btn btn-sm width-xs  btn-danger">Delete</button>             -->
             </template>
           </b-table>
         </div>
@@ -307,7 +309,7 @@ export default {
   }
   div .card-body {
     padding: 0px !important;
-    padding-left: 40px !important;
+    padding-left: 10px !important;
     /* margin-top: -8px !important; */
   }
   .card {

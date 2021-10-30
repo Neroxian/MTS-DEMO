@@ -3,7 +3,7 @@
     <div>
       <h3 class="text-start mt-2 px-1">Dashboard</h3>
       <div class="row">
-        <!-- <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6">
           <div class="widget-rounded-circle card-dashboard">
             <div class="row">
               <div class="col-4">
@@ -41,7 +41,7 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
 
 
         <div class="col-12 col-md-6">
