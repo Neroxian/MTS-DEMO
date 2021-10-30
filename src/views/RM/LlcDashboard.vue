@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <div>
-      <h3 class="text-start mt-2 px-1">Dashboard</h3>
+      <h3 class="text-start font-weight-bold py-2 px-1">Dashboard</h3>
       <div class="row">
         <!-- <div class="col-12 col-md-6">
           <div class="widget-rounded-circle card-dashboard">

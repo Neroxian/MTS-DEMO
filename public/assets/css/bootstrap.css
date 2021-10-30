@@ -1171,7 +1171,7 @@ pre {
   .table th,
   .table td {
     padding: 0.85rem;
-    vertical-align: top;
+    vertical-align: middle;
     border-top: 0px solid #dee2e6; }
   .table thead th {
     vertical-align: bottom;
@@ -1824,6 +1824,7 @@ textarea.form-control {
   padding: 0.45rem 0.9rem;
   font-size: 0.875rem;
   line-height: 1.5;
+  letter-spacing: 0.5px;
   border-radius: 0.15rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media (prefers-reduced-motion: reduce) {
@@ -8066,7 +8067,7 @@ a.text-blue:hover, a.text-blue:focus {
   /* padding: 1.5rem; */
   box-shadow: 0 0.75rem 6rem rgba(56, 65, 74, 0.03);
   /* margin-bottom: 24px; */
-  border-radius: 0.30rem;
+  border-radius: 0.5rem;
   background-color: white;
   padding: 2rem !important;
  }

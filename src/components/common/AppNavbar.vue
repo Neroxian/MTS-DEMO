@@ -32,7 +32,7 @@
             role="button"
           >
               <select
-                class="btn btn-light"
+                class="btn btn-sm  btn-light"
                 @change="changeRole"
                 :value="user.role"
               >
@@ -44,7 +44,7 @@
         </li>
 
         <li class="dropdown notification-list topbar-dropdown float-right">
-          <b-dropdown class="mt-1" id="dropdown-left" right  no-caret>
+          <b-dropdown class="m-1" id="dropdown-left" right no-caret>
             <template #button-content>
               <!-- <span> -->
               <img
@@ -52,11 +52,11 @@
                 alt="user-image"
                 class="rounded-circle"
                 style="width: 35px;"
-              /><span id="hide" class="text-light"> Jhon</span>
-              <span class="mdi mdi-chevron-down ml-1"></span>
+              /><span id="hide" class="text-light ml-1">Jhon</span>
+              <span class="mdi mdi-chevron-down"></span>
               <!-- </span> -->
             </template>
-            <b-dropdown-header id="dropdown-header-label" class="text-primary">
+            <b-dropdown-header id="dropdown-header-label" class="text-dark font-weight-bold">
               Welcome Jhon !
             </b-dropdown-header>
             <b-dropdown-item href="#">Profile</b-dropdown-item>

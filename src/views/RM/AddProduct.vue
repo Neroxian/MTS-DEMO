@@ -2,7 +2,7 @@
   <auth-layout>
     <div>
       <b-toaster name="toaster"></b-toaster>
-      <h3 class="px-1 font-weight-bold">Product</h3>
+      <h3 class="px-1 py-2 font-weight-bold">Product</h3>
 
       <b-form @submit.prevent="submit" class="card-box mb-4" v-if="show">
         <h4 class="mb-2">Add Product</h4>
@@ -57,7 +57,7 @@
             class="shadow-none width-sm"
             variant="success"
           >
-            Add
+            <i class="mdi mdi-plus-thick"></i> Add
           </b-button>
         </div>
       </b-form>
@@ -189,10 +189,12 @@
 
           <!-- Actions -->
           <template #cell(actions) v-if="!isSmall">
-            <button class="btn btn-primary btn-sm width-xs my-1 mx-1">
-              Edit
+            <button class="btn btn-info btn-sm width-xs my-1 mx-1">
+              <i class="mdi mdi-pencil-outline"></i> Edit
             </button>
-            <button class="btn btn-danger btn-sm width-xs">Delete</button>
+            <button class="btn btn-danger btn-sm width-xs">
+              <i class="mdi mdi-trash-can-outline"></i>Delete
+            </button>
           </template>
         </b-table>
         <!--  TABLE ENDS -->

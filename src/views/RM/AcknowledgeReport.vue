@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <!-- Responsive Table -->
-    <h3 class="px-1 font-weight-bold">Report</h3>
+    <h3 class="px-1 py-2 font-weight-bold">Report</h3>
     <div class="card-box">
       <h4 class="mb-2">Acknowledge History</h4>
 

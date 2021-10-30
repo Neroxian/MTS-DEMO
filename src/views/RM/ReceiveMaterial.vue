@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <div class="main-div">
-      <h3 class="px-1 font-weight-bold">Received Product</h3>
+      <h3 class="px-1 py-2 font-weight-bold">Received Product</h3>
 
       <div class="mb-4" v-if="show">
         <div class="card-box">
@@ -68,7 +68,7 @@
 
             <div class="text-center mt-2">
               <button type="submit" class="btn width-sm btn-success">
-                Add
+                <i class="mdi mdi-plus-thick"></i>Add
               </button>
             </div>
           </form>

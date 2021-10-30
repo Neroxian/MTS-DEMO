@@ -1,6 +1,6 @@
 <template>
   <auth-layout>
-    <h3 class="p-1">Tracking</h3>
+    <h3 class="py-2 font-weight-bold px-1">Tracking</h3>
     <div class="row">
       <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
         <div class="card-box mb-3">
@@ -22,7 +22,7 @@
         </div>
 
         <div class="card-box mb-3">
-          <h4 class="font-weight-bold mb-2">Delivery Info</h4>
+          <h4 class="mb-2">Delivery Info</h4>
 
           <div class="text-center">
             <i class="mdi mdi-truck-fast h2 text-muted"></i>
@@ -42,7 +42,7 @@
       <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
         <div class="card">
           <div class="card-box">
-            <h4 class="font-weight-bold mb-3">Track Material</h4>
+            <h4 class=" mb-3">Track Material</h4>
 
             <div class="row">
               <div class="col-lg-6">

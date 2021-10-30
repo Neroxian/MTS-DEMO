@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <div class="main">
-      <h3 class="px-1 font-weight-bold">
+      <h3 class="px-1 py-2 font-weight-bold">
           Acknowledge 
         </h3>
       <div class="card-box">

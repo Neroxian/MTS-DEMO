@@ -2,7 +2,7 @@
   <auth-layout>
     <div>
       <div>
-        <h3 class="px-1 font-weight-bold">Product Category</h3>
+        <h3 class="px-1 py-2 font-weight-bold">Product Category</h3>
 
         <div class="card-box mb-4" v-if="show">
           <h4 class="mb-2">Add Product Category</h4>
@@ -48,9 +48,9 @@
                 <div class="button-list text-center">
                   <button
                     type="submit"
-                    class="btn btn-success waves-effect waves-light"
+                    class="btn width-sm btn-success waves-effect waves-light"
                   >
-                    Add
+                    <i class="mdi mdi-plus-thick"></i> Add
                   </button>
                 </div>
               </div>
@@ -62,14 +62,14 @@
 
         <div class="card-box">
           <div class="d-flex align-items-center row mb-2">
-            <h4 class="mb-2 col-6">Product Category</h4>
+            <h4 class="mb-2 col-6">All Product Category</h4>
             <div class="col-6 button-list text-right">
               <button
                 type="submit"
                 class="btn btn-success waves-effect waves-light"
                 @click="toggleAdd"
               >
-                Add Category
+               Add Category
               </button>
             </div>
           </div>
@@ -143,13 +143,15 @@
             <!-- Actions -->
 
             <template #cell(actions) v-if="!isSmall">
-              <button class="btn btn-sm width-xs my-1 mx-1 btn-primary">
+              <button class="btn btn-sm width-xs my-1 mx-1 btn-blue">
+                <i class="mdi mdi-pencil-outline"></i>
                 Edit
               </button>
-              <button class="btn btn-sm width-xs btn-danger">Delete</button>
+              <button class="btn btn-sm width-xs btn-danger">
+                <i class="mdi mdi-trash-can-outline"></i>Delete
+              </button>
             </template>
           </b-table>
-
         </div>
       </div>
     </div>
