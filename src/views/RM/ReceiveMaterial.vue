@@ -5,7 +5,7 @@
 
       <div class="mb-4" v-if="show">
         <div class="card-box">
-        <h4 class="mb-2">Add Received Product Details</h4>
+          <h4 class="mb-2">Add Received Product Details</h4>
 
           <form @submit.prevent="add">
             <div class="row">
@@ -76,31 +76,24 @@
       </div>
 
       <div class="card-box">
-      
-      <div class="row mb-2">
-      <h4 class="col-6">Received Product from Vendor</h4>
-      <div class="col-6 text-right">
-          <button @click="showForm" class="btn width-sm btn-success">
-            Add Entry
-          </button>
-        </div>
+        <div class="row mb-2">
+          <h4 class="col-6">Received Product from Vendor</h4>
+          <div class="col-6 text-right">
+            <button @click="showForm" class="btn width-sm btn-success">
+              Add Entry
+            </button>
+          </div>
         </div>
 
         <!-- NEW TABLE -->
 
         <div class="form-group">
-          <b-form-group
-          label="Sort by :"
-            v-if="isSmall"
-          >
-          <b-form-select
-            v-model="defaultKey"
-            style="width: 100%"
-          >
-            <option v-for="(key, idx) in fields" :key="idx" :value="key">
-              {{ key }}
-            </option>
-          </b-form-select>
+          <b-form-group label="Sort by :" v-if="isSmall">
+            <b-form-select v-model="defaultKey" style="width: 100%">
+              <option v-for="(key, idx) in fields" :key="idx" :value="key">
+                {{ key }}
+              </option>
+            </b-form-select>
           </b-form-group>
         </div>
 
@@ -123,7 +116,7 @@
             >
               <div>{{ row.item[defaultKey] }}</div>
               <b-button
-                  style="margin: 0% 5%"
+                style="margin: 0% 5%"
                 class="btn btn-xs"
                 v-if="isSmall"
                 @click="row.toggleDetails"
@@ -165,7 +158,6 @@
             </button>
             <button class="btn btn-danger btn-sm width-xs">Delete</button>
           </template>
-
         </b-table>
         <!--  TABLE ENDS -->
 
@@ -194,7 +186,6 @@
           </tbody>
         </table> -->
 
-
         <!-- <b-table
             class="m-0"
             id="my-table"
@@ -214,8 +205,6 @@
             aria-controls="my-table"
             ></b-pagination> -->
       </div>
-
-      
     </div>
   </auth-layout>
 </template>
@@ -276,7 +265,7 @@ export default {
       size: window.innerWidth,
       defaultKey: "product",
       fields: [
-        { key: "sr", label: "Sr No." },
+        "srNo",
         "product",
         "category",
         "vendor",
@@ -285,7 +274,7 @@ export default {
       ],
       items: [
         {
-          sr: 1,
+          srNo: 1,
           product: "Books",
           category: "Academics",
           vendor: "Jhon",
@@ -293,7 +282,7 @@ export default {
           quantity: 100,
         },
         {
-          sr: 3,
+          srNo: 3,
           product: "Certificates",
           category: "Academics",
           vendor: "Jhon",
@@ -331,6 +320,9 @@ export default {
         lSeries: this.lSeries,
       });
       alert("Added Materials into list"), this.showForm();
+    },
+    handleDropDownChange(e) {
+      console.log(e)
     },
     ...mapMutations(["addReceiveMaterial"]),
   },

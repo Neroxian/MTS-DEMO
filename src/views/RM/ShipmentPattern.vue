@@ -52,7 +52,7 @@
           </div>
 
           <div v-if="showTable" class="mt-4">
-
+q
             <div class="card-box">
             <h4 class="mb-2">Generated Pattern</h4>
               <!-- NEW TABLE -->

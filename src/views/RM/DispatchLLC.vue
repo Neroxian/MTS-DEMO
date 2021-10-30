@@ -5,7 +5,7 @@
 
       <div class="card-box">
         <h4 class="mb-3">Dispatch Product</h4>
-        <table class="table table-striped text-center">
+        <!-- <table class="table table-striped text-center">
           <thead class="">
             <tr>
               <th scope="col">Tracking ID.</th>
@@ -50,8 +50,97 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
+
+
+        <!-- NEW TABLE -->
+         <div class="form-group">
+            <b-form-select
+              v-model="defaultKey"
+              v-if="isSmall"
+              style="width: 100%"
+            >
+              <option v-for="(key, idx) in fields" :key="idx" :value="key">
+                {{ key }}
+              </option>
+            </b-form-select>
+          </div>
+
+          <b-table
+            id="dataTable"
+            responsive="md"
+            stacked="sm"
+            :striped="isSmall"
+            head-variant="light"
+            bordereless
+            hover
+            :items="items"
+            :fields="copy"
+            thead-tr-class="text-center"
+            :tbody-tr-class="isSmall ? '' : 'text-center'"
+          >
+            <template v-slot:[`cell(${defaultKey})`]="row">
+              <div
+                class="d-flex justify-content-between justify-content-sm-center"
+              >
+                <div>{{ row.item[defaultKey] }}</div>
+                <b-button
+                  style="margin: 0% 5%"
+                  class="btn btn-xs"
+                  v-if="isSmall"
+                  @click="row.toggleDetails"
+                  ><i class="mdi mdi-plus"> </i
+                  >{{ row.detailsShowing ? "Hide" : "Show" }}
+                </b-button>
+              </div>
+            </template>
+
+            <template #row-details="row" v-if="isSmall">
+              <b-card class="text-left p-0">
+                <template
+                  v-for="(field, idx) in fields.filter(
+                    (f) => f !== defaultKey && f !== 'actions'
+                  )"
+                >
+                  <div :key="idx">
+                    <span class="font-weight-bold">{{ field }} :</span>
+                    {{ row.item[field] }}
+                  </div>
+                </template>
+                <template>
+                  <div class="d-flex justify-content-center">
+                      <button @click="showDispatch" class="btn btn-sm width-xs my-1 mx-1 btn-blue">
+                      <i class="mdi mdi-pencil-outline"></i>
+                        Dispatch
+                       </button>
+                    <!-- <button class="btn btn-xs btn-success mx-1">
+                      <i class="mdi mdi-plus"></i>
+                    </button>
+                    <button class="btn btn-xs btn-danger">
+                      <i class="mdi mdi-minus"></i>
+                    </button> -->
+                  </div>
+                </template>
+              </b-card>
+            </template>
+
+            <!-- Actions -->
+
+            <template #cell(actions) v-if="!isSmall">
+              <button @click="showDispatch" class="btn btn-sm width-xs my-1 mx-1 btn-blue">
+                <i class="mdi mdi-pencil-outline"></i>
+                Dispatch
+              </button>
+              <!-- <button class="btn btn-sm width-xs btn-danger">
+                <i class="mdi mdi-trash-can-outline"></i>Delete
+              </button> -->
+            </template>
+          </b-table>
       </div>
+
+      <!-- <button @click="showDispatch" class="btn width-xs btn-sm btn-danger">
+                  Dispatch
+                </button> -->
 
       <div  v-if="showD">
       <div class="dispatch-detail card-box mt-4">
@@ -87,7 +176,7 @@
         </div>
 
         <div>
-          <table class="table table-bordered text-center mb-2">
+          <!-- <table class="table table-bordered text-center mb-2">
             <thead class="">
               <tr>
                 <th scope="col">Sr No.</th>
@@ -183,7 +272,87 @@
                 </td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
+
+
+
+          <!-- NEW TABLE -->
+          <div class="form-group">
+            <b-form-select
+              v-model="defaultKey"
+              v-if="isSmall"
+              style="width: 100%"
+            >
+              <option v-for="(key, idx) in fields2" :key="idx" :value="key">
+                {{ key }}
+              </option>
+            </b-form-select>
+          </div>
+
+          <b-table
+            id="dataTable"
+            responsive="md"
+            stacked="sm"
+            :striped="isSmall"
+            head-variant="light"
+            bordereless
+            hover
+            :items="items2"
+            :fields="copy2"
+            thead-tr-class="text-center"
+            :tbody-tr-class="isSmall ? '' : 'text-center'"
+          >
+            <template v-slot:[`cell(${defaultKey2})`]="row">
+              <div
+                class="d-flex justify-content-between justify-content-sm-center"
+              >
+                <div>{{ row.item[defaultKey2] }}</div>
+                <b-button
+                  style="margin: 0% 5%"
+                  class="btn btn-xs"
+                  v-if="isSmall"
+                  @click="row.toggleDetails"
+                  ><i class="mdi mdi-plus"> </i
+                  >{{ row.detailsShowing ? "Hide" : "Show" }}
+                </b-button>
+              </div>
+            </template>
+
+            <template #row-details="row" v-if="isSmall">
+              <b-card class="text-left p-0">
+                <template
+                  v-for="(field, idx) in fields2.filter(
+                    (f) => f !== defaultKey2 && f !== 'actions'
+                  )"
+                >
+                  <div :key="idx">
+                    <span class="font-weight-bold">{{ field }} :</span>
+                    {{ row.item[field] }}
+                  </div>
+                </template>
+                <template>
+                  <div class="d-flex justify-content-center">
+                    <button class="btn btn-xs btn-success mx-1">
+                      <i class="mdi mdi-plus"></i>
+                    </button>
+                    <button class="btn btn-xs btn-danger">
+                      <i class="mdi mdi-minus"></i>
+                    </button>
+                  </div>
+                </template>
+              </b-card>
+            </template>
+
+            <!-- Actions -->
+
+            <template #cell(select) v-if="!isSmall">
+                   <b-form-checkbox
+                    name="checkbox-4"
+                    value="accepted"
+                    unchecked-value="not_accepted"
+                  ></b-form-checkbox>
+            </template>
+          </b-table>
         </div>
 
         <div>
@@ -378,6 +547,80 @@ export default {
   },
   data(){
     return {
+      // NEW TABLE 1
+          show: false,
+      size: window.innerWidth,
+      defaultKey: "tracking_id",
+      fields: [
+        "tracking_id",
+        "product",
+        "category",
+        "quantity",
+        "actions"
+      ],
+      items: [
+        {
+          category: "Academics",
+          product: "Certificates",
+          tracking_id: "OW214",
+          quantity: "100",
+        },
+          {
+          category: "Academics",
+          product: "Certificates",
+          tracking_id: "OW214",
+          quantity: "100",
+        },
+          {
+          category: "Academics",
+          product: "Certificates",
+          tracking_id: "OW214",
+          quantity: "100",
+        },
+      ],
+      // TABLE ENDS
+
+      // NEW TABLE 2
+          defaultKey2: "srNo",
+      fields2: [
+        "srNo",
+        "code",
+        "box",
+        "packets",
+        "loose_items",
+        "center_name",
+        "region",
+        "select"
+      ],
+      items2: [
+        {
+          srNo: "1",
+          code: "PVQ45",
+          box: "10",
+          packets: "13",
+          loose_items: "NO",
+          center_name: "LLC (Nashik)",
+          region: "Nashik"
+        },
+           {
+          srNo: "1",
+          code: "PVQ45",
+          box: "10",
+          packets: "13",
+          loose_items: "NO",
+          center_name: "LLC (Nashik)",
+          region: "Nashik"
+        },
+           {
+          srNo: "1",
+          code: "PVQ45",
+          box: "10",
+          packets: "13",
+          loose_items: "NO",
+          center_name: "LLC (Nashik)",
+          region: "Nashik"
+        },
+      ],
       searchInput: "",
       searchBy: "",
       showD: false,
@@ -388,6 +631,42 @@ export default {
     showDispatch(){
       this.showD = !this.showD
     }
+  },
+    mounted() {
+    window.addEventListener(
+      "resize",
+      () => {
+        this.size = window.innerWidth;
+      },
+      true
+    );
+  },
+    computed: {
+    copy() {
+      if (this.isSmall) {
+        const idx = this.fields.findIndex((f) => f === this.defaultKey);
+        if (idx !== -1) {
+          let copy = [];
+          copy.push(this.fields[idx]);
+          return copy;
+        }
+      }
+      return this.fields;
+    },
+      copy2() {
+      if (this.isSmall) {
+        const idx = this.fields2.findIndex((f) => f === this.defaultKey2);
+        if (idx !== -1) {
+          let copy2 = [];
+          copy2.push(this.fields[idx]);
+          return copy2;
+        }
+      }
+      return this.fields2;
+    },
+    isSmall() {
+      return this.size < 576;
+    },
   },
 };
 </script>

@@ -198,11 +198,7 @@ export default {
         "subCategory",
         "details",
         "date",
-        {
-          key: "actions",
-          label: "Actions",
-          thClass: "back",
-        },
+        "actions"
       ],
       items: [
         {

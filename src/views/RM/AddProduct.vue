@@ -309,19 +309,15 @@ export default {
       size: window.innerWidth,
       defaultKey: "category",
       fields: [
-        { key: "material", label: "Material-ID" },
+        "materialID",
         "name",
         "details",
         "category",
-        {
-          key: "Actions",
-          label: "Actions",
-          thClass: "back",
-        },
+        "actions"
       ],
       items: [
         {
-          material: "P25M31",
+          materialID: "P25M31",
           id: 1,
           name: "Books",
           details: "Books from XYZ",
