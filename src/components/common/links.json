@@ -1,31 +1,21 @@
 {
   "Admin": [
     {
-      "name": "Vendors",
-      "icon": "mdi mdi-storefront-outline",
-      "subLinks": [
-        {
-          "name": "Vendor",
-          "path": "/vendors"
-        }
-      ]
-    },
-    {
-      "name": "Material",
+      "name": "Product",
       "icon": "mdi mdi-cart-outline",
       "subLinks": [
         {
-          "name": "Material Category",
-          "path": "/materialCategory"
+          "name": "Product Category",
+          "path": "/productCategory"
         },
         {
-          "name": "Material",
-          "path": "/add-material"
+          "name": "Product",
+          "path": "/addProduct"
         }
       ]
     },
     {
-      "name": "Stock",
+      "name": "Inventory",
       "icon": "mdi mdi-package-variant-closed",
       "subLinks": [
         {
@@ -41,7 +31,7 @@
       "subLinks": [
         {
           "name": "Shipment Pattern",
-          "path": "/target"  
+          "path": "/shipPattern"  
         },
         {
           "name": "Dispatch",
@@ -72,7 +62,17 @@
   ],
   "User1": [
     {
-      "name": "Stock",
+      "name": "Dashboard",
+      "icon": "mdi mdi-view-dashboard-outline",
+      "subLinks": [
+        {
+          "name": "LLC Dashboard",
+          "path": "/llcdashboard"
+        }
+      ]
+    },
+    {
+      "name": "Inventory",
       "icon": "mdi mdi-package-variant-closed",
       "subLinks": [
         {
@@ -80,29 +80,19 @@
           "path": "/acknowledge"
         },
         {
-          "name": "Dispatch Material",
+          "name": "Dispatch",
           "path": "/dispatchLLC"
         }
       ]
-    },
-    {
-      "name": "Dashboard",
-      "icon": "mdi mdi-package-variant-closed",
-      "subLinks": [
-        {
-          "name": "LLC Dashboard",
-          "path": "/llcdashboard"
-        }
-      ]
-    }
+    } 
   ],
   "User2": [
     {
       "name": "Learner",
-      "icon": "mdi mdi-account-key",
+      "icon": "mdi mdi-school-outline",
       "subLinks": [
         {
-          "name": "AcknowledgeL",
+          "name": "Acknowledge",
           "path": "/acknowledgeL"
         }
       ]

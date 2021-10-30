@@ -82,6 +82,57 @@
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
                         </div>
+
+                    <div class="row">
+              
+              <div class="col-6">
+              <ul class="list-unstyled">
+                <li style="visibility:hidden">
+                  <h5 class="mt-0 mb-1 font-weight-bold">RM (Pune)</h5>
+                  <p class="text-muted">
+                   Dispatched on October 22 2021 <small class="text-muted">12:16 AM</small>
+                  </p>
+                </li>
+                <li class="text-right">
+                  <span class=""></span>
+                  <h5 class="mt-4 mb-1 font-weight-bold">LLC (Pune Office)</h5>
+                  <p class="text-muted">
+                  Pending at Pune Office
+                  </p>
+                </li>
+                <li style="visibility:hidden">
+                  <h5 class="mt-3 mb-1 font-weight-bold">ALC (Computer center)</h5>
+                  <p class="text-muted">Pending (Yet to come).</p>
+                </li>
+              </ul>
+              </div>
+
+              <div class="track-order-list col-6">
+              <ul class="list-unstyled ">
+                <li class="completed">
+                  <h5 class="mt-0 mb-1 font-weight-bold">RM (Pune)</h5>
+                  <p class="text-muted">
+                   Dispatched on October 22 2021 <small class="text-muted">12:16 AM</small>
+                  </p>
+                </li>
+                <li >
+                  <span class="active-dot dot"></span>
+                  <div style="visibility:hidden">
+                    <h5 class="mt-0 mb-1 font-weight-bold">LLC (Pune Office)</h5>
+                  <p class="text-muted">
+                  Pending at Pune Office
+                  </p>
+                  </div>
+                </li>
+                <li>
+                  <h5 class="mt-0 mb-1 font-weight-bold">ALC (Computer center)</h5>
+                  <p class="text-muted">Pending (Yet to come).</p>
+                </li>
+              </ul>
+              </div>
+
+            </div>
+
   </div>
 </template>
 

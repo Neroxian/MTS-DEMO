@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <div class="main">
-      <h3 class="px-1 font-weight-bold">
+      <h3 class="px-1 py-2 font-weight-bold">
           Acknowledge 
         </h3>
       <div class="card-box">
@@ -11,13 +11,17 @@
         <b-table
           :items="items"
           :fields="fields"
+          borderless
+          hover
+          head-variant="light"
+
           thead-class="thead"
           class=" text-center"
           bordered
         >
           <template #cell(Action)="" class="row">
             <b-button
-              variant="primary"
+              variant="blue"
               class="shadow-none btn-sm width-sm"
               @click="toggleShow"
             >
@@ -31,8 +35,8 @@
         <h4 class="mb-2">
           Transport Details
         </h4>
-        <div class="transport-detail mt-2">
-          <h4 class="bg-light p-1">By Road</h4>
+        <div class="transport-detail mt-3 mb-3">
+          <h4 class="mb-3">By Road</h4>
           <b-form-group
             label="Feedback: "
             label-cols-sm="2"
@@ -122,11 +126,12 @@ export default {
   padding: 0 12px;
 }
 .transport-detail {
-  width: 50%;
+  width: 60%;
   margin: auto;
-  padding: 1rem;
+  padding: 2rem;
   text-align: center;
   border-radius: 0.4rem;
-  border: 1px solid rgb(175, 175, 175);
+  /* border: 1px solid rgb(175, 175, 175); */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 </style>

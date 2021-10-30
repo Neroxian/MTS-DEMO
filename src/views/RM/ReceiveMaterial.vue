@@ -1,32 +1,31 @@
 <template>
   <auth-layout>
     <div class="main-div">
-      <h3 class="px-1 font-weight-bold">Received Material</h3>
+      <h3 class="px-1 py-2 font-weight-bold">Received Product</h3>
 
       <div class="mb-4" v-if="show">
         <div class="card-box">
-        <h4 class="mb-2">Add Received Material Details</h4>
+        <h4 class="mb-2">Add Received Product Details</h4>
 
           <form @submit.prevent="add">
             <div class="row">
               <div class="col-6 align-items-center">
                 <b-form-group
                   id="input-group-6"
-                  label="Vendor :"
+                  label="Vendor name:"
                   label-for="input-6"
                 >
-                  <b-form-select
+                  <b-form-input
                     id="input-6"
                     v-model="vendorName"
-                    :options="['Ramesh', 'Suresh', 'Rahul', 'Chirag']"
-                  ></b-form-select>
+                  ></b-form-input>
                 </b-form-group>
               </div>
 
               <div class="col-6 align-items-center">
                 <b-form-group
                   id="input-group-6"
-                  label="Material :"
+                  label="Product :"
                   label-for="input-6"
                 >
                   <b-form-select
@@ -34,35 +33,6 @@
                     v-model="material"
                     :options="['KYP Books', 'MSCIT Certificate', 'Pamplets']"
                   ></b-form-select>
-                </b-form-group>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-6 align-items-center">
-                <b-form-group
-                  id="input-group-6"
-                  label="Category :"
-                  label-for="input-6"
-                >
-                  <b-form-select
-                    id="input-6"
-                    v-model="category"
-                    :options="['Academic', 'Marketing Mateerial']"
-                  ></b-form-select>
-                </b-form-group>
-              </div>
-
-              <div class="col-6 align-items-center">
-                <b-form-group
-                  id="input-group-8"
-                  label="Date of Receipt :"
-                  label-for="input-8"
-                >
-                  <b-form-datepicker
-                    id="input-8"
-                    v-model="doReceipt"
-                  ></b-form-datepicker>
                 </b-form-group>
               </div>
             </div>
@@ -82,18 +52,23 @@
                 </b-form-group>
               </div>
 
-              <!-- <div class="col-6 align-items-center">
-                        <div class="col-auto">
-                            <label class="form-label">PO Date. :</label>
-                        </div>
-                        <div class="mb-3 col-auto">
-                            <input type="date" v-model="vendorName" class="form-control">
-                        </div>
-                    </div> -->
+              <div class="col-6 align-items-center">
+                <b-form-group
+                  id="input-group-8"
+                  label="Date of Receipt :"
+                  label-for="input-8"
+                >
+                  <b-form-datepicker
+                    id="input-8"
+                    v-model="doReceipt"
+                  ></b-form-datepicker>
+                </b-form-group>
+              </div>
             </div>
+
             <div class="text-center mt-2">
               <button type="submit" class="btn width-sm btn-success">
-                Add
+                <i class="mdi mdi-plus-thick"></i>Add
               </button>
             </div>
           </form>
@@ -103,7 +78,7 @@
       <div class="card-box">
       
       <div class="row mb-2">
-      <h4 class="col-6">Received Material from Vendor</h4>
+      <h4 class="col-6">Received Product from Vendor</h4>
       <div class="col-6 text-right">
           <button @click="showForm" class="btn width-sm btn-success">
             Add Entry
@@ -112,11 +87,23 @@
         </div>
 
         <!-- NEW TABLE -->
-        <select v-model="defaultKey" v-if="isSmall">
-          <option v-for="(key, idx) in fields" :key="idx" :value="key">
-            {{ key }}
-          </option>
-        </select>
+
+        <div class="form-group">
+          <b-form-group
+          label="Sort by :"
+            v-if="isSmall"
+          >
+          <b-form-select
+            v-model="defaultKey"
+            style="width: 100%"
+          >
+            <option v-for="(key, idx) in fields" :key="idx" :value="key">
+              {{ key }}
+            </option>
+          </b-form-select>
+          </b-form-group>
+        </div>
+
         <b-table
           id="dataTable"
           responsive="md"
@@ -136,6 +123,7 @@
             >
               <div>{{ row.item[defaultKey] }}</div>
               <b-button
+                  style="margin: 0% 5%"
                 class="btn btn-xs"
                 v-if="isSmall"
                 @click="row.toggleDetails"
@@ -158,11 +146,11 @@
                 </div>
               </template>
               <template>
-                <div class="d-flex justify-content-start">
-                  <button class="btn btn-xs btn-light mx-1">
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-xs btn-success mx-1">
                     <i class="mdi mdi-plus"></i>
                   </button>
-                  <button class="btn btn-xs btn-dark">
+                  <button class="btn btn-xs btn-danger">
                     <i class="mdi mdi-minus"></i>
                   </button>
                 </div>
@@ -172,13 +160,12 @@
 
           <!-- Actions -->
           <template #cell(actions) v-if="!isSmall">
-            <button class="btn btn-xs btn-light mx-1">
-              <i class="mdi mdi-plus"></i>
+            <button class="btn btn-primary btn-sm width-xs my-1 mx-1">
+              Edit
             </button>
-            <button class="btn btn-xs btn-dark">
-              <i class="mdi mdi-minus"></i>
-            </button>
+            <button class="btn btn-danger btn-sm width-xs">Delete</button>
           </template>
+
         </b-table>
         <!--  TABLE ENDS -->
 
@@ -234,11 +221,42 @@
 </template>
 
 <style scoped>
-/* th,
+.back {
+  width: 13rem;
+}
+.b-table-details td {
+  padding: 0;
+}
+tr {
+  border: none !important;
+}
 td {
-  font-weight: 500;
-  border: 0.001rem solid rgb(138, 138, 138);
-} */
+  padding: 0.4rem !important;
+  border: none !important;
+}
+
+@media (max-width: 700px) {
+  .card-box {
+    width: 100%;
+  }
+}
+@media (max-width: 575.98px) {
+  .card-box {
+    width: 100%;
+  }
+  #dataTable td::before {
+    /* width: 30% !important; */
+    text-align: left !important;
+    padding-left: 1.5rem;
+  }
+  div .card-body {
+    padding: 0.2rem 2rem !important;
+    /* margin-top: -8px !important; */
+  }
+  .card {
+    margin-bottom: 0px !important;
+  }
+}
 .hide {
   display: none;
 }
@@ -256,10 +274,10 @@ export default {
   data() {
     return {
       size: window.innerWidth,
-      defaultKey: "material",
+      defaultKey: "product",
       fields: [
         { key: "sr", label: "Sr No." },
-        "material",
+        "product",
         "category",
         "vendor",
         "received_on",
@@ -268,7 +286,7 @@ export default {
       items: [
         {
           sr: 1,
-          material: "Books",
+          product: "Books",
           category: "Academics",
           vendor: "Jhon",
           received_on: "25 Oct 2021",
@@ -276,7 +294,7 @@ export default {
         },
         {
           sr: 3,
-          material: "Certificates",
+          product: "Certificates",
           category: "Academics",
           vendor: "Jhon",
           received_on: "25 Oct 2021",
@@ -287,7 +305,7 @@ export default {
 
       show: false,
       vendorName: "",
-      material: "",
+      product: "",
       category: "",
       doReceipt: "",
       quantity: "",
@@ -300,7 +318,7 @@ export default {
     add() {
       this.addReceiveMaterial({
         vendorName: this.vendorName,
-        material: this.material,
+        product: this.product,
         category: this.category,
         subCategory: this.subCategory,
         PoNo: this.PoNo,

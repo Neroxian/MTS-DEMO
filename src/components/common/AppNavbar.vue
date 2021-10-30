@@ -2,15 +2,16 @@
   <div class="navbar-custom">
     <div class="container-fluid">
       <ul class="list-unstyled topnav-menu m-0">
-        <li class="logo-lg mt-1" @click="dash">
+        <li class="logo-lg mt-1">
           <!-- <img
             src="@/assets/logo1.png"
             alt="Solar Logo"
             height="45px"
             class="ml-4 mr-2 mt-1"
           /> -->
-          <i class="mdi mdi-map-marker-radius"></i>
-          <span id="logo-text">Material Tracking</span>
+          <router-link to="dashboard">
+          <i class="mdi mdi-map-marker-radius ml-2"></i>
+          <span id="logo-text">Material Tracking</span></router-link>
           <!-- <span id="logo-text">MTS</span> -->
         </li>
 
@@ -31,7 +32,7 @@
             role="button"
           >
               <select
-                class="btn btn-light"
+                class="btn btn-sm  btn-light"
                 @change="changeRole"
                 :value="user.role"
               >
@@ -43,7 +44,7 @@
         </li>
 
         <li class="dropdown notification-list topbar-dropdown float-right">
-          <b-dropdown class="mt-1" id="dropdown-left" right  no-caret>
+          <b-dropdown class="m-1" id="dropdown-left" right no-caret>
             <template #button-content>
               <!-- <span> -->
               <img
@@ -51,11 +52,11 @@
                 alt="user-image"
                 class="rounded-circle"
                 style="width: 35px;"
-              /><span id="hide" class="text-light"> Jhon</span>
-              <span class="mdi mdi-chevron-down ml-1"></span>
+              /><span id="hide" class="text-light ml-1">Jhon</span>
+              <span class="mdi mdi-chevron-down"></span>
               <!-- </span> -->
             </template>
-            <b-dropdown-header id="dropdown-header-label" class="text-primary">
+            <b-dropdown-header id="dropdown-header-label" class="text-dark font-weight-bold">
               Welcome Jhon !
             </b-dropdown-header>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
@@ -102,9 +103,6 @@ export default {
         }
       })
     },
-    dash() {
-      this.$router.push("/dashboard");
-    }
   },
   computed: {
     ...mapState(["user"]),
@@ -127,7 +125,8 @@ export default {
 }
 
 .middle {
-  margin-left: 25vw;
+  position: absolute;
+  margin-left: 45%;
 }
 .dropdown-toggle::after {
   display: none !important; 
@@ -154,7 +153,7 @@ background: linear-gradient(to right, #b1a8a8, #4286f4, #f9f9fa);
 }
 
 #logo-text {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 25px;
   color: rgb(244, 246, 248);
 }

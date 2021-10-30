@@ -3,11 +3,11 @@
     <div>
       <div>
         <b-form @submit.prevent="onSubmit">
-          <h3 class="px-1 font-weight-bold">Shipment Pattern</h3>
+          <h3 class="px-1 py-2 font-weight-bold">Shipment Pattern</h3>
 
           <div class="card-box">
             <b-form-group
-              label="Select Material: "
+              label="Select Product: "
               label-for="material"
               class="col-12 p-0"
             >
@@ -62,11 +62,11 @@
               <!-- OLD TABLE -->
 
               <div class="mt-2" id="addedMaterial" ref="table">
-              <table class="table text-center table-bordered table-striped">
-                <thead class="">
+              <table class="table table-hover text-center">
+                <thead class="table-light">
                   <tr>
                     <th>Sr No.</th>
-                    <th>Material</th>
+                    <th>Product</th>
                     <th>From</th>
                     <th>To</th>
                     <th>Quantity</th>
@@ -82,11 +82,11 @@
                     <td>5000</td>
               
                     <td>
-                      <button class="btn m-1 btn-success btn-sm width-xs">
-                        Save
+                      <button class="btn m-1 btn-blue btn-sm width-xs">
+                       <i class="mdi mdi-content-save-outline text-white"></i> Save
                       </button>
                       <button
-                        class="btn m-1 waves-effect waves-light btn-sm btn-primary"
+                        class="btn m-1 waves-effect waves-light btn-sm btn-secondary"
                         @click.prevent="toggleDetails"
                       >
                        <span v-if="showDetails == false"><i class="mdi mdi-plus-thick text-white"></i></span>
@@ -125,7 +125,7 @@ import authLayout from "../../layouts/auth-layout.vue";
 
 export default {
   components: { authLayout },
-  name: "TargetGeneration",
+  name: "ShipmentPattern",
   data() {
     return {
       size: window.innerWidth,

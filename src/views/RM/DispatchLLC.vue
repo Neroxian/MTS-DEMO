@@ -1,15 +1,15 @@
 <template>
   <auth-layout>
     <div class="main">
-        <h3 class="px-1 font-weight-bold">Dispatch</h3>
+        <h3 class="px-1 py-2 font-weight-bold">Dispatch</h3>
 
       <div class="card-box">
-        <h4 class="mb-3">Dispatch Material</h4>
-        <table class="table table-bordered table-striped text-center">
+        <h4 class="mb-3">Dispatch Product</h4>
+        <table class="table table-striped text-center">
           <thead class="">
             <tr>
               <th scope="col">Tracking ID.</th>
-              <th scope="col">Material</th>
+              <th scope="col">Product</th>
               <th scope="col">Category</th>
               <th scope="col">Quantity</th>
               <th scope="col">Action</th>
@@ -352,7 +352,7 @@
 
 <style scoped>
 .transport-form {
-  width: 50%;
+  width: 60%;
   margin: auto;
   padding: 1.5rem;
   text-align: center;
