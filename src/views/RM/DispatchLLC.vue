@@ -128,15 +128,11 @@
 
           <!-- Actions -->
 
-          <template #cell(actions) v-if="!isSmall">
-            <button
-              @click="showDispatch"
-              class="btn btn-sm width-xs my-1 mx-1 btn-blue"
-            >
-              <i class="mdi mdi-pencil-outline"></i>
-              Dispatch
-            </button>
-            <!-- <button class="btn btn-sm width-xs btn-danger">
+            <template #cell(actions) v-if="!isSmall">
+              <button @click="showDispatch" class="btn btn-sm width-xs mx-1 btn-blue">
+                Dispatch
+              </button>
+              <!-- <button class="btn btn-sm width-xs btn-danger">
                 <i class="mdi mdi-trash-can-outline"></i>Delete
               </button> -->
           </template>
@@ -279,13 +275,37 @@
             </tbody>
           </table> -->
 
-            <!-- NEW TABLE -->
-            <div class="form-group">
-              <b-form-select
-                v-model="defaultKey"
-                v-if="isSmall"
-                style="width: 100%"
+
+
+          <!-- NEW TABLE -->
+          <div class="form-group">
+            <b-form-select
+              v-model="defaultKey2"
+              v-if="isSmall"
+              :options="fields2"
+              style="width: 100%"
+            >
+            </b-form-select>
+          </div>
+
+          <b-table
+            id="dataTable"
+            responsive="md"
+            stacked="sm"
+            :striped="isSmall"
+            head-variant="light"
+            bordereless
+            hover
+            :items="items2"
+            :fields="copy2"
+            thead-tr-class="text-center"
+            :tbody-tr-class="isSmall ? '' : 'text-center'"
+          >
+            <template v-slot:[`cell(${defaultKey2})`]>
+              <div
+                class="d-flex justify-content-between justify-content-sm-center"
               >
+              <b-form-select>
                 <option v-for="(key, idx) in fields2" :key="idx" :value="key">
                   {{ key }}
                 </option>
@@ -597,7 +617,7 @@ export default {
       // TABLE ENDS
 
       // NEW TABLE 2
-      defaultKey2: "srNo",
+          defaultKey2: "code",
       fields2: [
         "srNo",
         "code",
@@ -674,7 +694,7 @@ export default {
         const idx = this.fields2.findIndex((f) => f === this.defaultKey2);
         if (idx !== -1) {
           let copy2 = [];
-          copy2.push(this.fields[idx]);
+          copy2.push(this.fields2[idx]);
           return copy2;
         }
       }
