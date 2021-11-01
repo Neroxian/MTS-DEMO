@@ -127,8 +127,7 @@
             <!-- Actions -->
 
             <template #cell(actions) v-if="!isSmall">
-              <button @click="showDispatch" class="btn btn-sm width-xs my-1 mx-1 btn-blue">
-                <i class="mdi mdi-pencil-outline"></i>
+              <button @click="showDispatch" class="btn btn-sm width-xs mx-1 btn-blue">
                 Dispatch
               </button>
               <!-- <button class="btn btn-sm width-xs btn-danger">
@@ -279,13 +278,11 @@
           <!-- NEW TABLE -->
           <div class="form-group">
             <b-form-select
-              v-model="defaultKey"
+              v-model="defaultKey2"
               v-if="isSmall"
+              :options="fields2"
               style="width: 100%"
             >
-              <option v-for="(key, idx) in fields2" :key="idx" :value="key">
-                {{ key }}
-              </option>
             </b-form-select>
           </div>
 
@@ -581,7 +578,7 @@ export default {
       // TABLE ENDS
 
       // NEW TABLE 2
-          defaultKey2: "srNo",
+          defaultKey2: "code",
       fields2: [
         "srNo",
         "code",
@@ -658,7 +655,7 @@ export default {
         const idx = this.fields2.findIndex((f) => f === this.defaultKey2);
         if (idx !== -1) {
           let copy2 = [];
-          copy2.push(this.fields[idx]);
+          copy2.push(this.fields2[idx]);
           return copy2;
         }
       }
