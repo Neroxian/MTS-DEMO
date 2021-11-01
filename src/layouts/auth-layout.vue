@@ -31,8 +31,7 @@ export default {
 </script>
 
 <style>
-/* #wrapper{
-  background-image: url("../assets/background.jpg");
-  background-position: center;
-} */
+#wrapper{
+  
+}
 </style>

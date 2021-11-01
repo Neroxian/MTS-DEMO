@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <div>
-      <h3 class="font-weight-bold px-1">Dashboard</h3>
+      <h3 class="font-weight-bold py-2 px-1">Dashboard</h3>
   
       <div class="row">
         <div class="col-12 col-md-6">
@@ -222,25 +222,25 @@ export default {
   data() {
     return {};
   },
-  beforeMount() {
-    this.makeToast2("info");
-    this.makeToast("danger");
-  },
+  // beforeMount() {
+  //   this.makeToast2("info");
+  //   this.makeToast("danger");
+  // },
   methods: {
-    makeToast(variant = null) {
-      this.$bvToast.toast("Your 2 Acknowledgement is Pending", {
-        title: `Reminder`,
-        variant: variant,
-        solid: true,
-      });
-    },
-    makeToast2(variant = null) {
-      this.$bvToast.toast("Please update your Stocks detail.", {
-        title: `Message from Admin`,
-        variant: variant,
-        solid: true,
-      });
-    },
+    // makeToast(variant = null) {
+    //   this.$bvToast.toast("Your 2 Acknowledgement is Pending", {
+    //     title: `Reminder`,
+    //     variant: variant,
+    //     solid: true,
+    //   });
+    // },
+    // makeToast2(variant = null) {
+    //   this.$bvToast.toast("Please update your Stocks detail.", {
+    //     title: `Message from Admin`,
+    //     variant: variant,
+    //     solid: true,
+    //   });
+    // },
     track() {
       this.$router.push("/track");
     },

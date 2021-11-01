@@ -110,7 +110,7 @@
                     <p class="text-muted">Pending (Yet to come).</p>
                   </li>
                 </ul>
-              </div>
+                </div>
             </div>
           </div>
         </div>

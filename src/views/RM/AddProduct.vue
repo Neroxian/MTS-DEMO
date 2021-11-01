@@ -135,10 +135,11 @@
 
         <b-table
           id="dataTable"
-          responsive="md"
+          responsive
           stacked="sm"
           :striped="isSmall"
           head-variant="light"
+            fixed="fixed"
           borderless
           hover
           :items="items"
@@ -162,7 +163,7 @@
             </div>
           </template>
 
-          <template #row-details="row" v-if="isSmall">
+          <template #row-details="row" v-if="isSmall" >
             <b-card class="text-left p-0">
               <template
                 v-for="(field, idx) in fields.filter(
@@ -188,7 +189,7 @@
           </template>
 
           <!-- Actions -->
-          <template #cell(actions) v-if="!isSmall">
+          <template #cell(actions) v-if="!isSmall" class="special">
             <button class="btn btn-info btn-sm width-xs my-1 mx-1">
               <i class="mdi mdi-pencil-outline"></i> Edit
             </button>
@@ -326,7 +327,7 @@ export default {
           price: 100,
         },
         {
-          material: "X25M31",
+          materialID: "X25M31",
           id: 2,
           name: "Pens",
           details: "Pen from ABC",
@@ -514,6 +515,9 @@ export default {
 </script>
 
 <style scoped>
+.special{
+  background-color: black;
+}
 .back {
   width: 13rem;
 }

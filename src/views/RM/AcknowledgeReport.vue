@@ -19,6 +19,7 @@
         stacked="sm"
         :striped="isSmall"
         head-variant="light"
+        fixed="fixed"
         borderless
         hover
         :items="items"

@@ -52,7 +52,6 @@
           </div>
 
           <div v-if="showTable" class="mt-4">
-q
             <div class="card-box">
             <h4 class="mb-2">Generated Pattern</h4>
               <!-- NEW TABLE -->
@@ -61,8 +60,8 @@ q
 
               <!-- OLD TABLE -->
 
-              <div class="mt-2" id="addedMaterial" ref="table">
-              <table class="table table-hover text-center">
+              <div class="mt-2 table-responsive" id="addedMaterial" ref="table">
+              <table class="table table-hover table-fixed text-center">
                 <thead class="table-light">
                   <tr>
                     <th>Sr No.</th>

@@ -32,7 +32,7 @@
                 </ValidationProvider>
 
                 <b-form-group
-                  class=""
+                  class="mb-3"
                   id="input-group-3"
                   label="Details :"
                   label-for="input-2"
@@ -88,10 +88,11 @@
 
           <b-table
             id="dataTable"
-            responsive="md"
+            responsive
             stacked="sm"
             :striped="isSmall"
             head-variant="light"
+            fixed="fixed"
             bordereless
             hover
             :items="items"
@@ -142,8 +143,8 @@
 
             <!-- Actions -->
 
-            <template #cell(actions) v-if="!isSmall">
-              <button class="btn btn-sm width-xs my-1 mx-1 btn-blue">
+            <template #cell(actions) v-if="!isSmall" class="special">
+              <button class="btn btn-sm width-xs my-1 mx-1 btn-info">
                 <i class="mdi mdi-pencil-outline"></i>
                 Edit
               </button>
@@ -298,6 +299,9 @@ export default {
 </script>
 
 <style>
+.special{
+  background-color: black;
+}
 .back {
   width: 13rem;
 }
