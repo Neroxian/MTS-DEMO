@@ -35,15 +35,10 @@
         <h4 class="mb-2">
           Transport Details
         </h4>
-        <div class="transport-detail mt-3 mb-3">
-          <h4 class="mb-3">By Road</h4>
+        <div class=" mt-3 mb-3">
           <b-form-group
-            label="Feedback: "
-            label-cols-sm="2"
-            label-cols-lg="2"
-            label-cols-md="2"
-            content-cols-sm
-            content-cols-lg="10"
+            label="Feedback: (By Road) "
+          
           >
             <b-form-textarea
               id="contact"
@@ -52,7 +47,7 @@
             ></b-form-textarea>
           </b-form-group>
           <div class="text-center">
-            <button class="btn width-sm btn-success">Send</button>
+            <button class="btn width-sm btn-success">Acknowledge</button>
           </div>
         </div>
       </div>
@@ -74,7 +69,7 @@ export default {
       idx: 0,
       fields: [
         "Sr_no",
-        "Material_Name",
+        "Product_Name",
         "Dispatch_From",
         "Expected_date_of_delivery",
         "Status",
@@ -83,28 +78,28 @@ export default {
       items: [
         {
           Sr_no: 1,
-          Material_Name: "Biometric Devices",
+          Product_Name: "Biometric Devices",
           Dispatch_From: "RM (Pune)",
           Expected_date_of_delivery: "4-March-2021",
           Status: "Dispatched",
         },
         {
           Sr_no: 2,
-          Material_Name: "Books",
+          Product_Name: "Books",
           Dispatch_From: "RM (Pune)",
           Expected_date_of_delivery: "6-June-2021",
           Status: "Dispatched",
         },
         {
           Sr_no: 3,
-          Material_Name: "Certificates",
+          Product_Name: "Certificates",
           Dispatch_From: "RM (Pune)",
           Expected_date_of_delivery: "10-Oct-2021",
           Status: "Dispatched",
         },
         {
           Sr_no: 4,
-          Material_Name: "Books",
+          Product_Name: "Books",
           Dispatch_From: "RM (Buldhana)",
           Expected_date_of_delivery: "11-Nov-2021",
           Status: "Dispatched",
@@ -124,14 +119,5 @@ export default {
 
 .main {
   padding: 0 12px;
-}
-.transport-detail {
-  width: 60%;
-  margin: auto;
-  padding: 2rem;
-  text-align: center;
-  border-radius: 0.4rem;
-  /* border: 1px solid rgb(175, 175, 175); */
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 </style>

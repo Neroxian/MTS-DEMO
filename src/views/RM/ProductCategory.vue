@@ -2,10 +2,10 @@
   <auth-layout>
     <div>
       <div>
-        <h3 class="px-1 py-2 font-weight-bold">Product Category</h3>
+        <h3 class="px-1 py-2 font-weight-bold">Product Details</h3>
 
         <div class="card-box mb-4" v-if="show">
-          <h4 class="mb-2">Add Product Category</h4>
+          <h4 class="mb-2">Add Product Details</h4>
           <ValidationObserver ref="form">
             <b-form @submit.prevent="onSubmit">
               <div>
@@ -62,14 +62,14 @@
 
         <div class="card-box">
           <div class="d-flex align-items-center row mb-2">
-            <h4 class="mb-2 col-6">All Product Category</h4>
+            <h4 class="mb-2 col-6">All Product Details</h4>
             <div class="col-6 button-list text-right">
               <button
                 type="submit"
                 class="btn btn-success waves-effect waves-light"
                 @click="toggleAdd"
               >
-               Add Category
+                Add Category
               </button>
             </div>
           </div>
@@ -110,7 +110,7 @@
                   class="btn btn-xs"
                   v-if="isSmall"
                   @click="row.toggleDetails"
-                  ><i class="mdi mdi-plus"> </i
+                  ><i :class="`mdi ${row.detailsShowing ? 'mdi-minus' : 'mdi-plus'}`"> </i
                   >{{ row.detailsShowing ? "Hide" : "Show" }}
                 </b-button>
               </div>
@@ -194,31 +194,25 @@ export default {
       show: false,
       size: window.innerWidth,
       defaultKey: "category",
-      fields: [
-        "category",
-        "subCategory",
-        "details",
-        "date",
-        "actions"
-      ],
+      fields: ["category", "details", "date", "actions"],
       items: [
         {
           category: "Academics",
           subCategory: "Study",
-          details: "certificates",
+          details: "Klic certificates",
+          date: "9 Oct 2021",
+        },
+        {
+          category: "Academics",
+          subCategory: "Study",
+          details: "MsCit certificates",
           date: "4 Nov 2021",
         },
         {
           category: "Academics",
           subCategory: "Study",
-          details: "certificates",
-          date: "4 Nov 2021",
-        },
-        {
-          category: "Academics",
-          subCategory: "Study",
-          details: "certificates",
-          date: "4 Nov 2021",
+          details: "Klic certificates",
+          date: "12 Aug 2021",
         },
       ],
       form: {
@@ -299,7 +293,7 @@ export default {
 </script>
 
 <style>
-.special{
+.special {
   background-color: black;
 }
 .back {

@@ -10,7 +10,7 @@
             <tr>
               <th scope="col">Tracking ID.</th>
               <th scope="col">Product</th>
-              <th scope="col">Category</th>
+              <th scope="col">Deatils</th>
               <th scope="col">Quantity</th>
               <th scope="col">Action</th>
             </tr>
@@ -128,11 +128,20 @@
 
           <!-- Actions -->
 
+          <template #cell(actions) v-if="!isSmall">
+            <button
+              @click="showDispatch"
+              class="btn btn-sm width-xs my-1 mx-1 btn-blue"
+            >
+              <i class="mdi mdi-pencil-outline"></i>
+              Dispatch
+            </button>
+            <!-- <button class="btn btn-sm width-xs btn-danger">
             <template #cell(actions) v-if="!isSmall">
               <button @click="showDispatch" class="btn btn-sm width-xs mx-1 btn-blue">
                 Dispatch
               </button>
-              <!-- <button class="btn btn-sm width-xs btn-danger">
+              <button class="btn btn-sm width-xs btn-danger">
                 <i class="mdi mdi-trash-can-outline"></i>Delete
               </button> -->
           </template>
@@ -147,8 +156,7 @@
         <div class="dispatch-detail card-box mt-4">
           <h4 class="mb-3">Dispatch Details</h4>
 
-          <div>
-            <div class="row">
+            <div class="row mb-1">
               <div class="px-2 col-6">
                 <b-form-group
                   id="input-group-1"
@@ -157,7 +165,7 @@
                 >
                   <b-form-select
                     v-model="searchBy"
-                    :options="['Center Code', 'Region', 'Name']"
+                    :options="['Center TrackingID', 'Region', 'Name']"
                     class="shadow-none"
                 /></b-form-group>
               </div>
@@ -174,14 +182,13 @@
                 /></b-form-group>
               </div>
             </div>
-          </div>
 
           <div class="mb-4">
             <!-- <table class="table table-bordered text-center mb-2">
             <thead class="">
               <tr>
                 <th scope="col">Sr No.</th>
-                <th scope="col">Code</th>
+                <th scope="col">TrackingID</th>
                 <th scope="col">Box</th>
                 <th scope="col">Packet</th>
                 <th scope="col">Loose Items</th>
@@ -275,40 +282,14 @@
             </tbody>
           </table> -->
 
-
-
-          <!-- NEW TABLE -->
-          <div class="form-group">
-            <b-form-select
-              v-model="defaultKey2"
-              v-if="isSmall"
-              :options="fields2"
-              style="width: 100%"
-            >
-            </b-form-select>
-          </div>
-
-          <b-table
-            id="dataTable"
-            responsive="md"
-            stacked="sm"
-            :striped="isSmall"
-            head-variant="light"
-            bordereless
-            hover
-            :items="items2"
-            :fields="copy2"
-            thead-tr-class="text-center"
-            :tbody-tr-class="isSmall ? '' : 'text-center'"
-          >
-            <template v-slot:[`cell(${defaultKey2})`]>
-              <div
-                class="d-flex justify-content-between justify-content-sm-center"
+            <!-- NEW TABLE -->
+            <div class="form-group">
+              <b-form-select
+                v-model="defaultKey2"
+                v-if="isSmall"
+                :options="fields2"
+                style="width: 100%"
               >
-              <b-form-select>
-                <option v-for="(key, idx) in fields2" :key="idx" :value="key">
-                  {{ key }}
-                </option>
               </b-form-select>
             </div>
 
@@ -318,6 +299,7 @@
               stacked="sm"
               :striped="isSmall"
               head-variant="light"
+              fixed="fixed"
               bordereless
               hover
               :items="items2"
@@ -326,6 +308,35 @@
               :tbody-tr-class="isSmall ? '' : 'text-center'"
             >
               <template v-slot:[`cell(${defaultKey2})`]="row">
+                <div
+                  class="d-flex justify-content-between justify-content-sm-center">
+                  <div>{{ row.item[defaultKey2] }}</div>
+                  <b-button
+                    style="margin: 0% 5%"
+                    class="btn btn-xs"
+                    v-if="isSmall"
+                    @click="row.toggleDetails"
+                    ><i class="mdi mdi-plus"> </i
+                    >{{ row.detailsShowing ? "Hide" : "Show" }}
+                  </b-button>
+                </div>
+              </template>
+
+              <b-table
+                id="dataTable"
+                responsive="md"
+                stacked="sm"
+                :striped="isSmall"
+                head-variant="light"
+                fixed="fixed"
+                bordereless
+                hover
+                :items="items2"
+                :fields="copy2"
+                thead-tr-class="text-center"
+                :tbody-tr-class="isSmall ? '' : 'text-center'"
+              >
+                <!-- <template v-slot:[`cell(${defaultKey2})`]="row">
                 <div
                   class="
                     d-flex
@@ -342,32 +353,33 @@
                     >{{ row.detailsShowing ? "Hide" : "Show" }}
                   </b-button>
                 </div>
-              </template>
+              </template> -->
 
-              <template #row-details="row" v-if="isSmall">
-                <b-card class="text-left p-0">
-                  <template
-                    v-for="(field, idx) in fields2.filter(
-                      (f) => f !== defaultKey2 && f !== 'actions'
-                    )"
-                  >
-                    <div :key="idx">
-                      <span class="font-weight-bold">{{ field }} :</span>
-                      {{ row.item[field] }}
-                    </div>
-                  </template>
-                  <template>
-                    <div class="d-flex justify-content-center">
-                      <button class="btn btn-xs btn-success mx-1">
-                        <i class="mdi mdi-plus"></i>
-                      </button>
-                      <button class="btn btn-xs btn-danger">
-                        <i class="mdi mdi-minus"></i>
-                      </button>
-                    </div>
-                  </template>
-                </b-card>
-              </template>
+                <template #row-details="row" v-if="isSmall">
+                  <b-card class="text-left p-0">
+                    <template
+                      v-for="(field, idx) in fields2.filter(
+                        (f) => f !== defaultKey2 && f !== 'actions'
+                      )"
+                    >
+                      <div :key="idx">
+                        <span class="font-weight-bold">{{ field }} :</span>
+                        {{ row.item[field] }}
+                      </div>
+                    </template>
+                    <template>
+                      <div class="d-flex justify-content-center">
+                        <button class="btn btn-xs btn-success mx-1">
+                          <i class="mdi mdi-plus"></i>
+                        </button>
+                        <button class="btn btn-xs btn-danger">
+                          <i class="mdi mdi-minus"></i>
+                        </button>
+                      </div>
+                    </template>
+                  </b-card>
+                </template>
+              </b-table>
 
               <!-- Actions -->
 
@@ -381,13 +393,10 @@
             </b-table>
           </div>
 
-          <div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <b-form-group
               id="fieldset-horizontal"
-              label-cols-sm="auto"
-              label-cols-lg="auto"
-              content-cols-sm
-              content-cols-lg="5"
+              
               label="Select mode of transport:"
               label-for="input-horizontal"
             >
@@ -554,7 +563,7 @@
             </div>
 
             <div class="text-center">
-              <button class="btn btn-primary width-sm my-1 mx-1">Save</button>
+              <button class="btn btn-success width-sm my-1 mx-1">Save</button>
               <button class="btn btn-danger width-sm my-1 mx-1">Cancel</button>
             </div>
           </b-form>
@@ -573,10 +582,45 @@
   border-radius: 0.4rem;
   border: 1px solid rgb(175, 175, 175);
 } */
-td,
-th {
-  padding: 0.7rem;
-  vertical-align: middle;
+.back {
+  width: 13rem;
+}
+.b-table-details td {
+  padding: 0;
+}
+tr {
+  border: none !important;
+}
+td {
+  padding: 0.4rem !important;
+  border: none !important;
+}
+
+@media (max-width: 700px) {
+  .card-box {
+    width: 100%;
+  }
+}
+@media (max-width: 575.98px) {
+  .card-box {
+    width: 100%;
+  }
+  #dataTable td::before {
+    /* width: 30% !important; */
+    text-align: left !important;
+    padding-left: 1.5rem;
+  }
+  div .card-body {
+    margin-bottom: 0px !important;
+  }
+}
+
+.inline {
+  display: inline;
+}
+#searchBar {
+  width: 50%;
+  margin: auto;
 }
 </style>
 
@@ -592,23 +636,26 @@ export default {
       // NEW TABLE 1
       show: false,
       size: window.innerWidth,
-      defaultKey: "tracking_id",
-      fields: ["tracking_id", "product", "category", "quantity", "actions"],
+      defaultKey: "product",
+      fields: ["SrNo", "product", "Deatils", "quantity", "actions"],
       items: [
         {
-          category: "Academics",
+          SrNo: "1",
+          Deatils: "Klic Certificate 2021",
           product: "Certificates",
           tracking_id: "OW214",
           quantity: "100",
         },
         {
-          category: "Academics",
+          SrNo: "2",
+          Deatils: "Klic Certificate 2021",
           product: "Certificates",
           tracking_id: "OW214",
           quantity: "100",
         },
         {
-          category: "Academics",
+          SrNo: "3",
+          Deatils: "Klic Certificate 2021",
           product: "Certificates",
           tracking_id: "OW214",
           quantity: "100",
@@ -617,44 +664,45 @@ export default {
       // TABLE ENDS
 
       // NEW TABLE 2
-          defaultKey2: "code",
+      defaultKey2: "TrackingID",
       fields2: [
-        "srNo",
-        "code",
-        "box",
-        "packets",
-        "loose_items",
-        "center_name",
+        "TrackingID",
+        "UserName",
+        "Quantity",
         "region",
         "select",
       ],
       items2: [
         {
           srNo: "1",
-          code: "PVQ45",
+          TrackingID: "PVQ464655",
+          box: "10",
+
+          Quantity: "100",
+          packets: "13",
+          loose_items: "NO",
+          UserName: "LLC (Pune)",
+          region: "Pune",
+        },
+        {
+          srNo: "1",
+          TrackingID: "PVQ9455",
+          Quantity: "50",
           box: "10",
           packets: "13",
           loose_items: "NO",
-          center_name: "LLC (Nashik)",
+          UserName: "LLC (Nashik)",
           region: "Nashik",
         },
         {
           srNo: "1",
-          code: "PVQ45",
+          TrackingID: "PVQ00555",
           box: "10",
+          Quantity: "230",
           packets: "13",
           loose_items: "NO",
-          center_name: "LLC (Nashik)",
-          region: "Nashik",
-        },
-        {
-          srNo: "1",
-          code: "PVQ45",
-          box: "10",
-          packets: "13",
-          loose_items: "NO",
-          center_name: "LLC (Nashik)",
-          region: "Nashik",
+          UserName: "LLC (Pune)",
+          region: "Pune",
         },
       ],
       searchInput: "",

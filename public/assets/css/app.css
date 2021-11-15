@@ -37,8 +37,8 @@
 } 
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
 }
 
 /* Track */
@@ -3976,12 +3976,18 @@ s
   background-color: #fff;
   padding: 1.5rem;
   color: white !important;
-  box-shadow: 0 0 35px 0 rgb(154 161 171 / 15%) !important;
+  box-shadow: 0 0 35px 0 rgb(154 161 171 / 15%) ;
   /* -webkit-box-shadow: none; */
   margin-bottom: 24px;
   border-radius: 0.5rem;
-  
+  transition: all 0.3s ease;
 }
+
+/* .card-dashboard:hover{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  opacity: 1;
+  transition: all 0.3s ease;
+} */
 
 .card-pricing {
   position: relative;

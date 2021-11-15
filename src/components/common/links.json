@@ -5,12 +5,12 @@
       "icon": "mdi mdi-cart-outline",
       "subLinks": [
         {
-          "name": "Product Category",
-          "path": "/productCategory"
-        },
-        {
           "name": "Product",
           "path": "/addProduct"
+        },
+        {
+          "name": "Product Details",
+          "path": "/productCategory"
         }
       ]
     },
@@ -19,7 +19,7 @@
       "icon": "mdi mdi-package-variant-closed",
       "subLinks": [
         {
-          "name": "Receive Material",
+          "name": "Receive Product",
           "path": "/receive-material"
 
         }
@@ -30,7 +30,7 @@
       "icon": "mdi mdi-truck-delivery-outline",
       "subLinks": [
         {
-          "name": "Shipment Pattern",
+          "name": "Shipment Details",
           "path": "/shipPattern"  
         },
         {

@@ -3,7 +3,7 @@
     <div>
       <div>
         <b-form @submit.prevent="onSubmit">
-          <h3 class="px-1 py-2 font-weight-bold">Shipment Pattern</h3>
+          <h3 class="px-1 py-2 font-weight-bold">Shipment Details</h3>
 
           <div class="card-box">
             <b-form-group
@@ -62,7 +62,7 @@
 
               <div class="mt-2 table-responsive" id="addedMaterial" ref="table">
               <table class="table table-hover table-fixed text-center">
-                <thead class="table-light">
+                <thead class="table-light" style="background-color: #f5f6f9">
                   <tr>
                     <th>Sr No.</th>
                     <th>Product</th>
@@ -81,15 +81,15 @@
                     <td>5000</td>
               
                     <td>
-                      <button class="btn m-1 btn-blue btn-sm width-xs">
+                      <!-- <button class="btn m-1 btn-blue btn-sm width-xs">
                        <i class="mdi mdi-content-save-outline text-white"></i> Save
-                      </button>
+                      </button> -->
                       <button
                         class="btn m-1 waves-effect waves-light btn-sm btn-secondary"
                         @click.prevent="toggleDetails"
                       >
-                       <span v-if="showDetails == false"><i class="mdi mdi-plus-thick text-white"></i></span>
-                       <span v-if="showDetails == true"><i class="mdi mdi-minus-thick text-white"></i></span>
+                       <span v-if="showDetails == false"><i class="mdi mdi-plus-thick text-white"></i> Show</span>
+                       <span v-if="showDetails == true"><i class="mdi mdi-minus-thick text-white"></i> Hide</span>
                       </button>
                     </td>
                   </tr>

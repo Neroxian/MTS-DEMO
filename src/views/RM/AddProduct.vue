@@ -63,7 +63,7 @@
       </b-form>
 
       <div class="card-box">
-        <div class="row">
+        <div class="row mb-2">
           <h4 class="col-6">All Product</h4>
           <div class="col-6 text-right">
             <b-button
@@ -77,7 +77,7 @@
           </div>
         </div>
 
-        <div class="d-flex justify-content-end row mb-3" v-if="!isSmall">
+        <div class="d-flex justify-content-end row mb-2" v-if="!isSmall">
           <div class="col-12 col-md-6 my-1">
             <b-form-select
               v-model="searchBy"
@@ -312,8 +312,8 @@ export default {
       fields: [
         "materialID",
         "name",
-        "details",
-        "category",
+        "Description",
+        // "category",
         "actions"
       ],
       items: [
@@ -321,7 +321,7 @@ export default {
           materialID: "P25M31",
           id: 1,
           name: "Books",
-          details: "Books from XYZ",
+          Description: "Books from XYZ",
           category: "Academic",
           subCategory: "MSCIT",
           price: 100,
@@ -330,7 +330,7 @@ export default {
           materialID: "X25M31",
           id: 2,
           name: "Pens",
-          details: "Pen from ABC",
+          Description: "Pen from ABC",
           category: "Exams",
           subCategory: "ERA",
           price: 500,
@@ -338,7 +338,7 @@ export default {
       ],
       // NEW TABLE ENDS
       name: "",
-      details: "",
+      Description: "",
       manufacturingDate: "",
       expiryDate: "",
       category: "",
@@ -347,7 +347,7 @@ export default {
       // fields: [
       //   { key: "id", label: "Sr no." },
       //   { key: "name", label: "Name" },
-      //   { key: "details", label: "Details" },
+      //   { key: "Description", label: "Description" },
       //   { key: "vendor", label: "Vendor" },
       //   { key: "category", label: "Category" },
       //   { key: "actions", label: "Actions" },
@@ -356,7 +356,7 @@ export default {
       //   {
       //     id: 1,
       //     name: "Books",
-      //     details: "Books from XYZ",
+      //     Description: "Books from XYZ",
       //     manufacturingDate: "2021-08-01",
       //     expiryDate: "2021-10-31",
       //     vendor: "XYZ",
@@ -367,7 +367,7 @@ export default {
       //   {
       //     id: 2,
       //     name: "Pens",
-      //     details: "Pen from ABC",
+      //     Description: "Pen from ABC",
       //     manufacturingDate: "2021-08-01",
       //     expiryDate: "2021-10-31",
       //     vendor: "ABC",
@@ -408,7 +408,7 @@ export default {
       this.materials.push({
         id: Date.now(),
         name: this.name.trim(),
-        details: this.details.trim(),
+        Description: this.Description.trim(),
         manufacturingDate: this.manufacturingDate,
         expiryDate: this.expiryDate,
         vendor: this.vendor,
@@ -427,7 +427,7 @@ export default {
     },
     reset() {
       this.name = "";
-      this.details = "";
+      this.Description = "";
       this.manufacturingDate = "";
       this.expiryDate = "";
       this.category = "";

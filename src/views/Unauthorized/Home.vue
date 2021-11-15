@@ -69,7 +69,7 @@
             <div class="row mt-2 text-center">
               <div class="col-4">
                 <span class="mb-1 badge badge-warning badge-pill setBadge1">20</span>
-                <h5 class="text-dark mt-0">Dispatched</h5>
+                <h5 class="text-dark mt-0"><router-link to="dispatchLLC">Dispatched</router-link></h5>
               </div>
               <div class="col-4">
                 <span class="mb-1 badge badge-primary badge-pill setBadge1">13</span>
@@ -158,7 +158,7 @@
                   "
                 ></i>
               </div>
-              <h4 class="font-20">Books Stocks</h4>
+              <h4 class="font-20">Books Inventory</h4>
               <!-- <p class="text-muted font-14">Dispatched material notification</p> -->
             </div>
 

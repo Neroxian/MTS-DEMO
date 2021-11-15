@@ -268,7 +268,7 @@ export default {
       fields: [
         "srNo",
         "product",
-        "category",
+        "Details",
         "vendor",
         "received_on",
         "quantity",
@@ -277,7 +277,7 @@ export default {
         {
           srNo: 1,
           product: "Books",
-          category: "Academics",
+          Details: "Academics",
           vendor: "Jhon",
           received_on: "25 Oct 2021",
           quantity: 100,
@@ -285,7 +285,7 @@ export default {
         {
           srNo: 3,
           product: "Certificates",
-          category: "Academics",
+          Details: "Academics",
           vendor: "Jhon",
           received_on: "25 Oct 2021",
           quantity: 100,
@@ -296,7 +296,7 @@ export default {
       show: false,
       vendorName: "",
       product: "",
-      category: "",
+      Details: "",
       doReceipt: "",
       quantity: "",
     };
@@ -309,7 +309,7 @@ export default {
       this.addReceiveMaterial({
         vendorName: this.vendorName,
         product: this.product,
-        category: this.category,
+        Details: this.Details,
         subCategory: this.subCategory,
         PoNo: this.PoNo,
         PoDate: this.PoDate,
